@@ -1,10 +1,12 @@
 ---
 title: "trendEcon"
 output:
-  flexdashboard::flex_dashboard
+  flexdashboard::flex_dashboard:
+    theme: spacelab
 ---
 
 ```{r setup, include=FALSE}
+library(flexdashboard)
 library(openxlsx)
 library(tidyverse)
 library(data.table)
@@ -27,14 +29,79 @@ kons_SA_nom_q <- data.table(read.xlsx(file.path("kons_SA_csa_new.xlsx"),
   as.xts()
 
 ```
+Home {.storyboard}
+=====================================
+### Project idea {data-commentary-width=400}
+
+```{r}
+```
+
+*** 
+
+- Consumer confidence is established as a key driver of economic activity.
+
+- Like in other countries, there is an index available for Switzerland.
+
+- However, this is expensive (surveys) and only available quarterly.
+
+- We use Google Trends to provide a complementary tool: Fast, cheap, and agile tracking of consumer confidence.
+
+
+### Project Contribution and Target Groups {data-commentary-width=400}
+
+```{r}
+```
+
+*** 
+
+Our contribution in detail:
+
+- Open-source R code to extract data from Google Trends.
+
+
+- Free and flexible illustration of data.
+
+
+
+Target groups: 
+
+- State Secretariat for Economic Affairs (SECO)
+
+
+- Businesses
+
+### Consumer Confidence - Idea and Definition {data-commentary-width=400}
+
+```{r}
+```
+
+*** 
+
+Generally, consumer confidence is high when the unemployment rate is low and GDP growth is high. Measures of average consumer confidence can be useful indicators of how much consumers are likely to spend.
+
+There is no unified definition of consumer confidence.
+
+Instead, there are various indicators built to measure consumer confidence. Their definitions vary.
+
+
+We have a positive list and a negative list --- what people search for during good and bad times:
+
+Positive items include: 
+
+
+Negative items include: RAV, Rezession, Insolvenz
+
+Existing indicators {.storyboard}
+=====================================
 
 Consumer expenditure
 =====================================
-Column
+Column {data-width=200}
 -------------------------------------
 
-### Chart 1
-
+Column {data-width=800}
+-------------------------------------
+### Consumer expenditure
 ```{r}
 dygraph(kons_SA_nom_q$kons, main = "Consumer expenditure")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -43,14 +110,12 @@ dygraph(kons_SA_nom_q$kons, main = "Consumer expenditure")%>%
   dyRangeSelector()
 ```
 
+
 Consumer expenditure by category
 =====================================
-
 Row
 -------------------------------------
-
 ### Food
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",2], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -60,7 +125,6 @@ dygraph(kons_SA_nom_q["1995/2020",2], group="index")%>%
 ```
 
 ### Clothing
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",3],group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -70,7 +134,6 @@ dygraph(kons_SA_nom_q["1995/2020",3],group="index")%>%
 ```
 
 ### Housing
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",4], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -81,9 +144,7 @@ dygraph(kons_SA_nom_q["1995/2020",4], group="index")%>%
 
 Row
 -------------------------------------
-
 ### Furniture
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",5], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -93,7 +154,6 @@ dygraph(kons_SA_nom_q["1995/2020",5], group="index")%>%
 ```
 
 ### Health
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",6], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -103,7 +163,6 @@ dygraph(kons_SA_nom_q["1995/2020",6], group="index")%>%
 ```
 
 ### Traffic
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",7], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -114,9 +173,7 @@ dygraph(kons_SA_nom_q["1995/2020",7], group="index")%>%
 
 Row
 -------------------------------------
-
 ### Telecom
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",8], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -126,7 +183,6 @@ dygraph(kons_SA_nom_q["1995/2020",8], group="index")%>%
 ```
 
 ### Entertainment
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",9],group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -136,7 +192,6 @@ dygraph(kons_SA_nom_q["1995/2020",9],group="index")%>%
 ```
 
 ### Education
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",10], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -147,9 +202,7 @@ dygraph(kons_SA_nom_q["1995/2020",10], group="index")%>%
 
 Row
 -------------------------------------
-
 ### Hotel
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",11], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
@@ -159,9 +212,7 @@ dygraph(kons_SA_nom_q["1995/2020",11], group="index")%>%
 ```
 
 ### Other
-
 ```{r}
-
 dygraph(kons_SA_nom_q["1995/2020",12], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -170,7 +221,6 @@ dygraph(kons_SA_nom_q["1995/2020",12], group="index")%>%
 ```
 
 ### Pooe
-
 ```{r}
 dygraph(kons_SA_nom_q["1995/2020",13], group="index")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
