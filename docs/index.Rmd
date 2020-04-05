@@ -46,9 +46,9 @@ Project idea {.storyboard}
 
 *** 
 
-![WC Papier](wcp.gif){width=300px} ![Kino](kino.gif){width=300px}
+![WC Papier](wcp.gif){width=400px} ![Kino](kino.gif){width=400px}
 
-![Take away](ta.gif){width=300px}  ![Restaurant](rest.gif){width=300px}
+![Take away](ta.gif){width=400px}  ![Restaurant](rest.gif){width=400px}
 
 
 ### <font size="3.8"><span style="color:#080A47">Project Contribution and Target Groups</span></font>  {data-commentary-width=400}
