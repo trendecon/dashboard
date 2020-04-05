@@ -13,6 +13,10 @@ library(data.table)
 library(zoo)
 library(dygraphs)
 library(xts)
+library(gganimate)
+
+# online tutorial for analyzing google trends in R:
+# https://www.datacareer.ch/blog/analyzing-google-trends-with-r-retrieve-and-plot-with-gtrendsr/
 
 kons_SA_nom_q <- data.table(read.xlsx(file.path("kons_SA_csa_new.xlsx"),
                      sheet = "real_q",
@@ -28,26 +32,26 @@ kons_SA_nom_q <- data.table(read.xlsx(file.path("kons_SA_csa_new.xlsx"),
   select(-date,-year,-q) %>%
   as.xts()
 
-```
-Home {.storyboard}
-=====================================
-### Project idea {data-commentary-width=400}
 
-```{r}
+
+
 ```
+Project idea {.storyboard}
+=====================================
+### <font size="3.8"><span style="color:#080A47">We use Google Trends to provide a complementary tool: Fast, cheap, and agile tracking of consumer confidence</span></font>  {data-commentary-width=1000}
+
+- <font size="6">Consumer confidence is established as a key driver of economic activity.</font>
+- <font size="6">Like in other countries, there is an index available for Switzerland.</font>
+- <font size="6">However, this is expensive (surveys) and only available quarterly.</font>
 
 *** 
 
-- Consumer confidence is established as a key driver of economic activity.
+![WC Papier](wcp.gif){width=300px} ![Kino](kino.gif){width=300px}
 
-- Like in other countries, there is an index available for Switzerland.
-
-- However, this is expensive (surveys) and only available quarterly.
-
-- We use Google Trends to provide a complementary tool: Fast, cheap, and agile tracking of consumer confidence.
+![Take away](ta.gif){width=300px}  ![Restaurant](rest.gif){width=300px}
 
 
-### Project Contribution and Target Groups {data-commentary-width=400}
+### <font size="3.8"><span style="color:#080A47">Project Contribution and Target Groups</span></font>  {data-commentary-width=400}
 
 ```{r}
 ```
@@ -70,7 +74,7 @@ Target groups:
 
 - Businesses
 
-### Consumer Confidence - Idea and Definition {data-commentary-width=400}
+### <font size="3.8"><span style="color:#080A47">Consumer Confidence - Idea and Definition</span></font>  {data-commentary-width=400}
 
 ```{r}
 ```
