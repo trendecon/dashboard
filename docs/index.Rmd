@@ -18,21 +18,21 @@ library(gganimate)
 # online tutorial for analyzing google trends in R:
 # https://www.datacareer.ch/blog/analyzing-google-trends-with-r-retrieve-and-plot-with-gtrendsr/
 
-kons_SA_nom_q <- data.table(read.xlsx(file.path("kons_SA_csa_new.xlsx"),
-                     sheet = "real_q",
-                     startRow = 11))%>%
-  rename(year = V1, q = V2) %>%
-  select(., -starts_with("V")) %>%
-  pivot_longer(c(-year,-q), names_to = "ts") %>%
-  filter(!is.na(value)) %>%
-  pivot_wider(c(year,q), names_from = ts, values_from = value) %>%
-  mutate(date=as.Date(as.yearqtr(paste0(year, sep="-",q)))) %>%
-  data.frame() %>%
-  `row.names<-`(.,.$date) %>%
-  select(-date,-year,-q) %>%
-  as.xts()
+# kons_SA_nom_q <- data.table(read.xlsx(file.path("kons_SA_csa_new.xlsx"),
+#                      sheet = "real_q",
+#                      startRow = 11))%>%
+#   rename(year = V1, q = V2) %>%
+#   select(., -starts_with("V")) %>%
+#   pivot_longer(c(-year,-q), names_to = "ts") %>%
+#   filter(!is.na(value)) %>%
+#   pivot_wider(c(year,q), names_from = ts, values_from = value) %>%
+#   mutate(date=as.Date(as.yearqtr(paste0(year, sep="-",q)))) %>%
+#   data.frame() %>%
+#   `row.names<-`(.,.$date) %>%
+#   select(-date,-year,-q) %>%
+#   as.xts()
 
-
+kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 
 
 ```
@@ -44,7 +44,7 @@ Project idea {.storyboard}
 - <font size="6">Like in other countries, there is an index available for Switzerland.</font>
 - <font size="6">However, this is expensive (surveys) and only available quarterly.</font>
 
-*** 
+***
 
 ![WC Papier](wcp.gif){width=400px} ![Kino](kino.gif){width=400px}
 
@@ -56,7 +56,7 @@ Project idea {.storyboard}
 ```{r}
 ```
 
-*** 
+***
 
 Our contribution in detail:
 
@@ -67,7 +67,7 @@ Our contribution in detail:
 
 
 
-Target groups: 
+Target groups:
 
 - State Secretariat for Economic Affairs (SECO)
 
@@ -79,7 +79,7 @@ Target groups:
 ```{r}
 ```
 
-*** 
+***
 
 Generally, consumer confidence is high when the unemployment rate is low and GDP growth is high. Measures of average consumer confidence can be useful indicators of how much consumers are likely to spend.
 
@@ -90,7 +90,7 @@ Instead, there are various indicators built to measure consumer confidence. Thei
 
 We have a positive list and a negative list --- what people search for during good and bad times:
 
-Positive items include: 
+Positive items include:
 
 
 Negative items include: RAV, Rezession, Insolvenz
@@ -107,128 +107,9 @@ Column {data-width=800}
 -------------------------------------
 ### Consumer expenditure
 ```{r}
-dygraph(kons_SA_nom_q$kons, main = "Consumer expenditure")%>%
+dygraph(kons, main = "Consumer expenditure")%>%
   dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
   dyAxis("x", drawGrid = FALSE)%>%
   dyLegend(show = "follow") %>%
-  dyRangeSelector()
-```
-
-
-Consumer expenditure by category
-=====================================
-Row
--------------------------------------
-### Food
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",2], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Clothing
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",3],group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Housing
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",4], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-Row
--------------------------------------
-### Furniture
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",5], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Health
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",6], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Traffic
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",7], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-Row
--------------------------------------
-### Telecom
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",8], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Entertainment
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",9],group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Education
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",10], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-Row
--------------------------------------
-### Hotel
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",11], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Other
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",12], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
-  dyRangeSelector()
-```
-
-### Pooe
-```{r}
-dygraph(kons_SA_nom_q["1995/2020",13], group="index")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(width = 700)%>%
   dyRangeSelector()
 ```
