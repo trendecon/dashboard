@@ -3,41 +3,134 @@ title: "trendEcon"
 output:
   flexdashboard::flex_dashboard:
     theme: spacelab
+    navbar:
+      - { title: "About", href: "https://example.com/about" }
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
-library(openxlsx)
-library(tidyverse)
-library(data.table)
-library(zoo)
 library(dygraphs)
-library(xts)
-library(gganimate)
-
-# online tutorial for analyzing google trends in R:
-# https://www.datacareer.ch/blog/analyzing-google-trends-with-r-retrieve-and-plot-with-gtrendsr/
-
-# kons_SA_nom_q <- data.table(read.xlsx(file.path("kons_SA_csa_new.xlsx"),
-#                      sheet = "real_q",
-#                      startRow = 11))%>%
-#   rename(year = V1, q = V2) %>%
-#   select(., -starts_with("V")) %>%
-#   pivot_longer(c(-year,-q), names_to = "ts") %>%
-#   filter(!is.na(value)) %>%
-#   pivot_wider(c(year,q), names_from = ts, values_from = value) %>%
-#   mutate(date=as.Date(as.yearqtr(paste0(year, sep="-",q)))) %>%
-#   data.frame() %>%
-#   `row.names<-`(.,.$date) %>%
-#   select(-date,-year,-q) %>%
-#   as.xts()
+library(shiny)
 
 kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
-
-
 ```
-Project idea {.storyboard}
-=====================================
+# Index {data-icon="fa-chart-line" }
+
+<font size="4"><span style="color:#080A47">We use Google Trends to provide a complementary tool: 
+Fast, cheap, and agile tracking of consumer confidence</span></font> 
+
+- <font size="3">Consumer confidence is established as a key driver of economic activity.</font>
+- <font size="3">Like in other countries, there is an index available for Switzerland.</font>
+- <font size="3">However, this is expensive (surveys) and only available quarterly.</font>
+<br><br><br><br>
+
+## Column {.tabset .tabset-fade data-width=600}
+
+### <font size="2"><span style="color:#080A47">Gtrend index</span></font> {data-height=2}
+```{r}
+dygraph(kons)%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyLegend(show = "follow") %>%
+  dyRangeSelector()
+```
+
+### <font size="2"><span style="color:#080A47">Source</span></font>
+
+fuente y explicacion para bajar datos
+
+
+## Column {data-width=250}
+
+<p line-height=8><font size="5.3">Keywords from google</font></p>
+
+### <font size="2"><span style="color:#080A47">keyword1</span></font>
+```{r}
+dygraph(kons,group = "keywords")%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyLegend(show = "follow") %>%
+  dyRangeSelector(height=20)
+```
+
+### <font size="2"><span style="color:#080A47">keyword2</span></font>
+```{r}
+dygraph(kons,group = "keywords")%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyLegend(show = "follow") %>%
+  dyRangeSelector(height=20)
+```
+
+### <font size="2"><span style="color:#080A47">keyword3</span></font>
+```{r}
+dygraph(kons,group = "keywords")%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyLegend(show = "follow") %>%
+  dyRangeSelector(height=20)
+```
+
+## Column {data-width=250}
+
+<br><br>
+
+### <font size="2"><span style="color:#080A47">keyword4</span></font>
+```{r}
+dygraph(kons,group = "keywords")%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyLegend(show = "follow") %>%
+  dyRangeSelector(height=20)
+```
+
+### <font size="2"><span style="color:#080A47">keyword5</span></font>
+```{r}
+dygraph(kons,group = "keywords")%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyLegend(show = "follow") %>%
+  dyRangeSelector(height=20)
+```
+
+### <font size="2"><span style="color:#080A47">keyword6</span></font>
+```{r}
+dygraph(kons,group = "keywords")%>%
+  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyLegend(show = "follow") %>%
+  dyRangeSelector(height=20)
+```
+
+# Data {data-icon="fa-table"}
+
+```{r input}
+
+## Metric 1
+selectInput('metric',
+            'Choose Metric',
+            iris,
+            selected = "default_metric")
+
+## Download Button
+downloadButton('downloadData','Download Result Set')
+
+downloadHandler(filename = function() {
+     paste('resultset-', Sys.Date(), 'iris.csv', sep='')
+   },
+     content = function(file) {
+     write.csv(iris, file, row.names = FALSE)
+   }
+)
+```
+
+
+
+# Methodology {data-icon="fa-file-contract"}
+
+
+# Project idea {.storyboard}
+
 ### <font size="3.8"><span style="color:#080A47">We use Google Trends to provide a complementary tool: Fast, cheap, and agile tracking of consumer confidence</span></font>  {data-commentary-width=1000}
 
 - <font size="6">Consumer confidence is established as a key driver of economic activity.</font>
@@ -98,18 +191,4 @@ Negative items include: RAV, Rezession, Insolvenz
 Existing indicators {.storyboard}
 =====================================
 
-Consumer expenditure
-=====================================
-Column {data-width=200}
--------------------------------------
 
-Column {data-width=800}
--------------------------------------
-### Consumer expenditure
-```{r}
-dygraph(kons, main = "Consumer expenditure")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector()
-```
