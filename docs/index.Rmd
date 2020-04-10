@@ -26,7 +26,7 @@ trendecon_sa <- as.ts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trend
 <br><br><br><br>
 <font size="6"><span style="color:#080A47">TrendEcon: real-time economic indicators based on Google searches</span></font>
 <br><br><br>
-<font size="5"> Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. [More on how to use our indicators.](https://trendecon.github.io/dashboard/#indicators)</font><br><br>
+<font size="4"> Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. [More on how to use our indicators.](https://trendecon.github.io/dashboard/#indicators)</font><br><br>
 
 
 
@@ -82,19 +82,46 @@ dygraph(trendecon_sa,group = "keywords")%>%
 
 
 <!-- INDICATORS PAGE -->
-# <font size="3">Indicators</font> {data-icon="fa-chart-line"}
+# <font size="3">Indicators</font> {data-icon="fa-chart-line" .storyboard }
 
-## Description {data-width=800 .sidebar}
+### <font size="5"> The problem </font>
+
+<font size="4">Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity.</font>
+
+### <font size="4"> Our solution </font> {data-navmenu="Indicators"}
+<font size="4">To provide a set of timely economic indicators, we source Google Trends data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services. 
+
+When people become unemployed, for example, they start searching for local unemployment agencies (called “RAV” in German). When they want to buy clothes, they likely type the name of fashion stores like “H&M”, “Zara”, or “Zalando”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
+
+These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits. </font>
 
 
+### <font size="3"> How accurate are these indicators </font> {data-navmenu="Indicators"}
+
+To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and private consumption components whenever this is useful. Generally, the indicators we constructed broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, in order to provide optimal nowcasts for specific target variables, more research wouldwill be required in the future. However, note that none of our indicators is thought to be an exact replication of any existing time series.
+
+[FIGURES WITH INDICATORS THAT WORK WELL COMPARED TO A TARGET]
+
+
+
+For some indicators, like demand for restaurant consumption, there are no publicly available existing and well-established data series that we can use for comparison. We nNevertheless, a Google search based indicator for restaurant consumption willmay provide insights assuming that searches for restaurants reflect demand for restaurant consumption.htthese indicators maywill provide insights believe that having such an indicator is valuable, For example, as restaurants are hit directly by the government measures against the spread of SARS-CoV-2 Covid19. Assuming that searches for restaurants reflect demand for restaurant consumption, our indicator shows how demand for eating out changes compared to normal times, as restaurants are currently hit harddirectly by the government measures against the spread of SARS-CoV-2.
+
+[FIGURES WITH INDICATORS THAT DO NOT HAVE A TARGET]
+
+
+### <font size="3"> Limitations </font> {data-navmenu="Indicators"}
+
+The relationship between these search-based indicators and economic activity seems apparent. We believe that these indicators will provide useful during the whole economic rollercoaster ride that lies ahead of us, during the current downturn as well as the upswing(s) when things go slowly back to (a new?) normal. Note however, that the relationship between Google searches for specific keywords and real economic activity maymight change over time. First, preferences change over time and thus the popularity of internet platforms and consumption behavior via the internet may change over time. goodsweb-platformplatformsthe world keeps changing and things that were popular at some point are not anymore. Second, this crisis is very different to previous ones as private demand drops largely because of measures to fight Covid19 such as restaurant and cinema shop closures. Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead permanently to a much larger proportion of the population to use the internet for their purchases and have it delivered at home.
 
 <!-- DATA PAGE -->
 # <font size="3">Data</font> {data-icon="fa-table"}
 
-
+```{r}
+trendecon_sa
+```
 
 <!-- METHOD PAGE -->
-# <font size="4">Method</font> {data-icon="fa-file-contract" .storyboard}
+# <font size="3">Method</font> {data-icon="fa-file-contract" .storyboard}
 
 ### <font size="3.8"><span style="color:#080A47">We use Google Trends to provide a complementary tool: Fast, cheap, and agile tracking of consumer confidence</span></font>  {data-commentary-width=1000}
 
@@ -163,4 +190,6 @@ Negative items include: RAV, Rezession, Insolvenz
 
 <!-- Contact PAGE -->
 # <font size="3">Contact</font> {data-icon="fa-at"}
+
+
 
