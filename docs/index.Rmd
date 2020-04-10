@@ -1,33 +1,44 @@
 ---
-title: "trendEcon"
+title: "TrendEcon"
 output:
   flexdashboard::flex_dashboard:
+    orientation: rows
     theme: spacelab
-    navbar:
-      - { title: "About", href: "https://example.com/about" }
+    vertical_layout: fill
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(dygraphs)
 library(shiny)
+library(xts)
 
-kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
+trendecon_sa <- as.ts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv",index.column = 1))
+
+#kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
-# Index {data-icon="fa-chart-line" }
 
-<font size="4"><span style="color:#080A47">We use Google Trends to provide a complementary tool: 
-Fast, cheap, and agile tracking of consumer confidence</span></font> 
+<!-- HOME PAGE -->
 
-## Column {.tabset .tabset-fade data-width=600}
+# <font size="3">Home</font> {data-icon="fa-home"}
 
-### <font size="2"><span style="color:#080A47">Gtrend index</span></font> {data-height=2}
+## Home {data-width=600 .sidebar}
+<br><br><br><br>
+<font size="6"><span style="color:#080A47">TrendEcon: real-time economic indicators based on Google searches</span></font>
+<br><br><br>
+<font size="5"> Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. [More on how to use our indicators.](https://trendecon.github.io/dashboard/#indicators)</font><br><br>
+
+
+
+
+## Row {.tabset .tabset-fade}
+
+### <font size="2"><span style="color:#080A47">Gtrend index</span></font> {data-height=600}
 ```{r}
-dygraph(kons)%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
+dygraph(trendecon_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector()
+  dyRangeSelector(height=20)%>% 
+  dyRoller(rollPeriod = 1)
 ```
 
 ### <font size="2"><span style="color:#080A47">Source</span></font>
@@ -35,72 +46,55 @@ dygraph(kons)%>%
 fuente y explicacion para bajar datos
 
 
-## Column {data-width=250}
 
-<p line-height=8><font size="5.3">Keywords from google</font></p>
+
+## Row {data-height=200}
 
 ### <font size="2"><span style="color:#080A47">keyword1</span></font>
 ```{r}
-dygraph(kons,group = "keywords")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector(height=20)
+dygraph(trendecon_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)
 ```
 
 ### <font size="2"><span style="color:#080A47">keyword2</span></font>
 ```{r}
-dygraph(kons,group = "keywords")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector(height=20)
+dygraph(trendecon_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)
 ```
 
-### <font size="2"><span style="color:#080A47">keyword3</span></font>
-```{r}
-dygraph(kons,group = "keywords")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector(height=20)
-```
 
-## Column {data-width=250}
 
-<br><br>
+
+## Row {data-height=200}
 
 ### <font size="2"><span style="color:#080A47">keyword4</span></font>
 ```{r}
-dygraph(kons,group = "keywords")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector(height=20)
+dygraph(trendecon_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)
 ```
 
 ### <font size="2"><span style="color:#080A47">keyword5</span></font>
 ```{r}
-dygraph(kons,group = "keywords")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector(height=20)
+dygraph(trendecon_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)
 ```
 
-### <font size="2"><span style="color:#080A47">keyword6</span></font>
-```{r}
-dygraph(kons,group = "keywords")%>%
-  dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dyLegend(show = "follow") %>%
-  dyRangeSelector(height=20)
-```
-
-# Data {data-icon="fa-table"}
 
 
-# Methodology {data-icon="fa-file-contract" .storyboard}
+<!-- INDICATORS PAGE -->
+# <font size="3">Indicators</font> {data-icon="fa-chart-line"}
+
+## Description {data-width=800 .sidebar}
+
+
+
+<!-- DATA PAGE -->
+# <font size="3">Data</font> {data-icon="fa-table"}
+
+
+
+<!-- METHOD PAGE -->
+# <font size="4">Method</font> {data-icon="fa-file-contract" .storyboard}
 
 ### <font size="3.8"><span style="color:#080A47">We use Google Trends to provide a complementary tool: Fast, cheap, and agile tracking of consumer confidence</span></font>  {data-commentary-width=1000}
 
@@ -159,7 +153,14 @@ Positive items include:
 
 Negative items include: RAV, Rezession, Insolvenz
 
-Existing indicators {.storyboard}
-=====================================
 
+
+<!-- ABOUT PAGE -->
+# <font size="3">About</font> {data-icon="fa-info-circle"}
+
+
+
+
+<!-- Contact PAGE -->
+# <font size="3">Contact</font> {data-icon="fa-at"}
 
