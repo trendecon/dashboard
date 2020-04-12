@@ -53,7 +53,7 @@ Under the extraordinary circumstances caused by the Covid19 pandemic, the econom
 
 ## Column {.tabset .tabset-fade}
 
-### <font size="2"><span style="color:#080A47">Gtrend index</span></font> {data-height=600}
+### <font size="2"><span style="color:#080A47">Gtrend index</span></font> {data-width=400}
 ```{r}
 dygraph(trendecon_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -70,7 +70,7 @@ Click here to get the source of the data.
 
 
 
-## Column {data-height=200}
+## Column {data-width=300}
 
 ### <font size="2"><span style="color:#080A47">Clothing</span></font>
 ```{r}
@@ -92,7 +92,7 @@ dygraph(mobility_sa,group = "keywords")%>%
                   height=10)
 ```
 
-## Column {data-height=200}
+## Column {data-width=300}
 
 ### <font size="2"><span style="color:#080A47">Luxury</span></font>
 ```{r}
