@@ -21,6 +21,7 @@ mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trend
 #kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
 
+
 <!-- HOME PAGE -->
 
 # <font size="3">Home</font> {data-icon="fa-home"}
@@ -81,40 +82,218 @@ dygraph(mobility_sa,group = "keywords")%>%
 
 
 <!-- INDICATORS PAGE -->
-# <font size="3">Indicators</font> {data-icon="fa-chart-line" .storyboard }
+# <font size="3">Indicators</font> {data-icon="fa-chart-line" }
 
-### <font size="5"> <p align="justify"> The problem </p></font>
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
 
-<font size="4">Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity.</font>
-
-### <font size="4"> <p align="justify"> Our solution  </p></font> {data-navmenu="Indicators"}
-
-
-<font size="4">To provide a set of timely economic indicators, we source Google Trends data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services. 
-
-When people become unemployed, for example, they start searching for local unemployment agencies (called “RAV” in German). When they want to buy clothes, they likely type the name of fashion stores like “H&M”, “Zara”, or “Zalando”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
-
-These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits. </font>
+</p>
+</span>
+</font>
 
 
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
 
-
-### <font size="3"> How accurate are these indicators </font> {data-navmenu="Indicators"}
-
-To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and private consumption components whenever this is useful. Generally, the indicators we constructed broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, in order to provide optimal nowcasts for specific target variables, more research wouldwill be required in the future. However, note that none of our indicators is thought to be an exact replication of any existing time series.
-
-[FIGURES WITH INDICATORS THAT WORK WELL COMPARED TO A TARGET]
+</p>
+</font>
 
 
 
-For some indicators, like demand for restaurant consumption, there are no publicly available existing and well-established data series that we can use for comparison. We nNevertheless, a Google search based indicator for restaurant consumption willmay provide insights assuming that searches for restaurants reflect demand for restaurant consumption.htthese indicators maywill provide insights believe that having such an indicator is valuable, For example, as restaurants are hit directly by the government measures against the spread of SARS-CoV-2 Covid19. Assuming that searches for restaurants reflect demand for restaurant consumption, our indicator shows how demand for eating out changes compared to normal times, as restaurants are currently hit harddirectly by the government measures against the spread of SARS-CoV-2.
 
-[FIGURES WITH INDICATORS THAT DO NOT HAVE A TARGET]
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
+The problem: we lack timely economic data
+</p>
+</span>
 
 
-### <font size="3"> Limitations </font> {data-navmenu="Indicators"}
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity. Economists have come up with different innovative ways to monitor the economy based on daily data, e.g. using daily [electricity consumption](https://www.nytimes.com/interactive/2020/04/08/upshot/electricity-usage-predict-coronavirus-recession.html).
+</p>
+</font>
 
-The relationship between these search-based indicators and economic activity seems apparent. We believe that these indicators will provide useful during the whole economic rollercoaster ride that lies ahead of us, during the current downturn as well as the upswing(s) when things go slowly back to (a new?) normal. Note however, that the relationship between Google searches for specific keywords and real economic activity maymight change over time. First, preferences change over time and thus the popularity of internet platforms and consumption behavior via the internet may change over time. goodsweb-platformplatformsthe world keeps changing and things that were popular at some point are not anymore. Second, this crisis is very different to previous ones as private demand drops largely because of measures to fight Covid19 such as restaurant and cinema shop closures. Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead permanently to a much larger proportion of the population to use the internet for their purchases and have it delivered at home.
+
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
+Our solution: indicators based on Google Trends
+</p>
+</span>
+</font>
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+To provide a set of timely economic indicators, we source [Google Trends](https://trends.google.de/trends/?geo=DE) data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services. 
+</p>
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+When people become unemployed, for example, they start searching for local unemployment agencies (called “RAV” in German). When people want to buy clothes, they likely type the name of fashion stores like “H&M”, “Zara”, or “Zalando”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
+</p>
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits. 
+</p>
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+Our indicators focus on private consumption because i) of its overall importance for economic growth: private consumption makes up over [60% of Swiss GDP](https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/wohlfahrtsmessung/wohlfahrt/wohnsituation/konsum-sparen.html); ii) in this crisis, private consumption is hit hardest: due to closures of restaurants, stores, cinemas etc. private consumption is severely limited. This situation is very different to a financial crisis like the one that occurred in 2008/2009.
+</p>
+</font>
+
+
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
+How accurate are these indicators?
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and private consumption components whenever this is useful. Generally, the indicators we constructed broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, note that our indicators are not an attempt of replicating or replacing any existing time series.
+</p>
+</font>
+
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
+Limitations
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+The relationship between these search-based indicators and economic activity seems apparent. We believe that these indicators will provide useful during the whole economic roller-coaster ride that lies ahead of us, during the current downturn as well as the upswing(s) when things go slowly back to (a new?) normal. Note however, that the relationship between Google searches for specific keywords and real economic activity may change over time. First, the popularity of specific internet platforms and online stores can change, and that case Google searches and consumption behavior can change too. Second, this crisis is very different to previous ones as private demand drops largely because of mandated closures of restaurants, cinemas and stores to fight the spread of Covid19. Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead permanently to a much larger proportion of the population to use the internet for grocery shopping. While there are currently two major supermarkets offering online shopping, people might start to search more and more for other shops offering this service.
+</p>
+</font>
+
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
+FAQ's
+</p>
+</span>
+</font>
+
+<font size="4.5">
+<span style="color:#080A47">
+<p style="margin-left:8em;margin-right:8em" align="left">
+Why are these indicators different than just using Google Trends?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+On [Google Trends](https://trends.google.de/trends/?geo=DE), you will find series based on a random sample of Google searches. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We downloaded the data many times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is normal that searches for gardening increase in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See **_Methods_** for further details. XXX LINK TO METHODS
+</p>
+</font>
+
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p style="margin-left:8em;margin-right:8em" align="left">
+Why did you use exactly these few keywords? 
+</p>
+</span>
+</font>
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
+</p>
+</font>
+
+<font size="4.5">
+<span style="color:#080A47">
+<p style="margin-left:8em;margin-right:8em" align="left">
+Why did you use exactly these few keywords? 
+</p>
+</span>
+</font>
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p style="margin-left:8em;margin-right:8em" align="left">
+Why do you use only German keywords? 
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+For 63% of the population in Switzerland German is their main language. Search trends on Google are likely to be representative for the whole economy. Indeed, this is what we find if we compare our indicators to the existing target indicators like consumer sentiment. Due to Google's privacy restrictions, searches in French and Italian within Switzerland are more often to be censored than German ones. If keywords are censored, Google replaces observations with a zero and we cannot use the keyword. This is another reason why we opt for using names of stores or brands: these do not change depending on the language of the user.
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p style="margin-left:8em;margin-right:8em" align="left">
+How reliable are these indicators?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+We put a lot of effort into constructing daily, seasonally adjusted indicators that correlate with existing economic indicators. They can be used to say something about the evolution of demand for certain consumption categories. However, they remain indicators. We do not measure true economic activity as in number of t-shirts sold on a specific day or money spent on gardening equipment. Also note that this is an experiment in real time. If the correlation between search behavior and consumer demand changes, our indicators may improve or get worse in terms of tracking consumer demand. 
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p style="margin-left:8em;margin-right:8em" align="left">
+What do these indicators not tell us?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+XXX THIS CAN BE ANSWERED BEST ONCE WE HAVE THE SCALE / INTERPRETATION OF THE INDICATORS AND KNOW WHICH INDICATORS WE SHOW. THEN IT CAN BE EXPLAINED WITH AN EXAMPLE
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p style="margin-left:8em;margin-right:8em" align="left">
+How can I work with the data?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+XXX DESCRIBE HOW THE DATA CAN BE DOWNLOADED? ANNOUNCE THAT CODE WILL BE AVAILABLE ON GITHUB?
+</p>
+</font>
+
+
 
 <!-- DATA PAGE -->
 # <font size="3">Data</font> {data-icon="fa-table"}
