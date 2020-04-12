@@ -11,12 +11,20 @@ library(flexdashboard)
 library(dygraphs)
 library(shiny)
 library(xts)
+library(DT)
 
 trendecon_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv",index.column = 1))
 
+trendecon_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv", col.names = c("Date", "Index")))
+
+
 clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
 
+clothing_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv", col.names = c("Date", "Index")))
+
 mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv",index.column = 1))
+
+mobility_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv", col.names = c("Date", "Index")))
 
 #kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
@@ -298,8 +306,23 @@ XXX DESCRIBE HOW THE DATA CAN BE DOWNLOADED? ANNOUNCE THAT CODE WILL BE AVAILABL
 <!-- DATA PAGE -->
 # <font size="3">Data</font> {data-icon="fa-table"}
 
+##Column {.tabset}
+### <font size="4"><span style="color:#080A47">GTrenEcon Index</span></font>
+
 ```{r}
-trendecon_sa
+datatable(trendecon_sa_df, filter ='top')
+```
+
+### <font size="4"><span style="color:#080A47">Clothing Index</span></font>
+
+```{r}
+datatable(clothing_sa_df, filter ='top')
+```
+
+### <font size="4"><span style="color:#080A47">Mobility Index</span></font>
+
+```{r}
+datatable(mobility_sa_df, filter ='top')
 ```
 
 <!-- METHOD PAGE -->
