@@ -2,7 +2,6 @@
 title: "TrendEcon"
 output:
   flexdashboard::flex_dashboard:
-    orientation: rows
     theme: spacelab
     vertical_layout: fill
 ---
@@ -13,7 +12,11 @@ library(dygraphs)
 library(shiny)
 library(xts)
 
-trendecon_sa <- as.ts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv",index.column = 1))
+trendecon_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv",index.column = 1))
+
+clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
+
+mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv",index.column = 1))
 
 #kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
@@ -22,78 +25,78 @@ trendecon_sa <- as.ts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trend
 
 # <font size="3">Home</font> {data-icon="fa-home"}
 
-## Home {data-width=600 .sidebar}
-<br><br><br><br>
-<font size="6"><span style="color:#080A47">TrendEcon: real-time economic indicators based on Google searches</span></font>
-<br><br><br>
-<font size="4"> Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. [More on how to use our indicators.](https://trendecon.github.io/dashboard/#indicators)</font><br><br>
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
+TrendEcon: real-time economic indicators based on Google searches
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p style="margin-left:5em;margin-right:5em" align="justify">
+Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. [More on how to use our indicators.](https://trendecon.github.io/dashboard/#indicators)
+</p>
+</font>
 
-
-
-
-## Row {.tabset .tabset-fade}
+## Column {.tabset .tabset-fade}
 
 ### <font size="2"><span style="color:#080A47">Gtrend index</span></font> {data-height=600}
 ```{r}
 dygraph(trendecon_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
-  dyRangeSelector(height=20)%>% 
-  dyRoller(rollPeriod = 1)
+  dySeries("V1", label = "Index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=20)
 ```
+
 
 ### <font size="2"><span style="color:#080A47">Source</span></font>
 
-fuente y explicacion para bajar datos
+Click here to get the source of the data.
 
 
 
+## Column {data-height=400}
 
-## Row {data-height=200}
-
-### <font size="2"><span style="color:#080A47">keyword1</span></font>
+### <font size="2"><span style="color:#080A47">Clothing</span></font>
 ```{r}
-dygraph(trendecon_sa,group = "keywords")%>%
-  dyAxis("x", drawGrid = FALSE)
+dygraph(clothing_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "Clothing index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=10)
 ```
 
-### <font size="2"><span style="color:#080A47">keyword2</span></font>
+### <font size="2"><span style="color:#080A47">Mobility</span></font>
 ```{r}
-dygraph(trendecon_sa,group = "keywords")%>%
-  dyAxis("x", drawGrid = FALSE)
+dygraph(mobility_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "Mobility index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=10)
 ```
-
-
-
-
-## Row {data-height=200}
-
-### <font size="2"><span style="color:#080A47">keyword4</span></font>
-```{r}
-dygraph(trendecon_sa,group = "keywords")%>%
-  dyAxis("x", drawGrid = FALSE)
-```
-
-### <font size="2"><span style="color:#080A47">keyword5</span></font>
-```{r}
-dygraph(trendecon_sa,group = "keywords")%>%
-  dyAxis("x", drawGrid = FALSE)
-```
-
 
 
 <!-- INDICATORS PAGE -->
 # <font size="3">Indicators</font> {data-icon="fa-chart-line" .storyboard }
 
-### <font size="5"> The problem </font>
+### <font size="5"> <p align="justify"> The problem </p></font>
 
 <font size="4">Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity.</font>
 
-### <font size="4"> Our solution </font> {data-navmenu="Indicators"}
+### <font size="4"> <p align="justify"> Our solution  </p></font> {data-navmenu="Indicators"}
+
+
 <font size="4">To provide a set of timely economic indicators, we source Google Trends data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services. 
 
 When people become unemployed, for example, they start searching for local unemployment agencies (called “RAV” in German). When they want to buy clothes, they likely type the name of fashion stores like “H&M”, “Zara”, or “Zalando”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
 
 These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits. </font>
+
+
 
 
 ### <font size="3"> How accurate are these indicators </font> {data-navmenu="Indicators"}
@@ -187,6 +190,19 @@ Negative items include: RAV, Rezession, Insolvenz
 
 
 
+<font size="4">
+<p style="margin-left:5em;margin-right:5em;">
+To provide a set of timely economic indicators, we source Google Trends data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services.
+</p>
+
+<p style="margin-left:5em;margin-right:5em;">
+When people become unemployed, for example, they start searching for local unemployment agencies (called “RAV” in German). When they want to buy clothes, they likely type the name of fashion stores like “H&M”, “Zara”, or “Zalando”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
+</p>
+
+<p style="margin-left:5em;margin-right:5em;">
+These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits.
+</p>
+</font>
 
 <!-- Contact PAGE -->
 # <font size="3">Contact</font> {data-icon="fa-at"}
