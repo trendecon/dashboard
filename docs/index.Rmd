@@ -26,6 +26,10 @@ mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trend
 
 mobility_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv", col.names = c("Date", "Index")))
 
+luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
+
+luxury_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv", col.names = c("Date", "Index")))
+
 #kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
 
@@ -66,7 +70,7 @@ Click here to get the source of the data.
 
 
 
-## Column {data-height=400}
+## Column {data-height=200}
 
 ### <font size="2"><span style="color:#080A47">Clothing</span></font>
 ```{r}
@@ -88,6 +92,22 @@ dygraph(mobility_sa,group = "keywords")%>%
                   height=10)
 ```
 
+## Column {data-height=200}
+
+### <font size="2"><span style="color:#080A47">Luxury</span></font>
+```{r}
+dygraph(luxury_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "Clothing index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=10)
+```
+
+### <font size="2"><span style="color:#080A47">Social Consumption</span></font>
+```{r}
+
+```
 
 <!-- INDICATORS PAGE -->
 # <font size="3">Indicators</font> {data-icon="fa-chart-line" }
@@ -326,83 +346,48 @@ datatable(mobility_sa_df, filter ='top')
 ```
 
 <!-- METHOD PAGE -->
-# <font size="3">Method</font> {data-icon="fa-file-contract" .storyboard}
-
-### <font size="3.8"><span style="color:#080A47">We use Google Trends to provide a complementary tool: Fast, cheap, and agile tracking of consumer confidence</span></font>  {data-commentary-width=1000}
-
-- <font size="6">Consumer confidence is established as a key driver of economic activity.</font>
-- <font size="6">Like in other countries, there is an index available for Switzerland.</font>
-- <font size="6">However, this is expensive (surveys) and only available quarterly.</font>
-
-***
-
-![WC Papier](wcp.gif){width=400px} ![Kino](kino.gif){width=400px}
-
-![Take away](ta.gif){width=400px}  ![Restaurant](rest.gif){width=400px}
-
-
-### <font size="3.8"><span style="color:#080A47">Project Contribution and Target Groups</span></font>  {data-commentary-width=400}
-
-```{r}
-```
-
-***
-
-Our contribution in detail:
-
-- Open-source R code to extract data from Google Trends.
-
-
-- Free and flexible illustration of data.
-
-
-
-Target groups:
-
-- State Secretariat for Economic Affairs (SECO)
-
-
-- Businesses
-
-### <font size="3.8"><span style="color:#080A47">Consumer Confidence - Idea and Definition</span></font>  {data-commentary-width=400}
-
-```{r}
-```
-
-***
-
-Generally, consumer confidence is high when the unemployment rate is low and GDP growth is high. Measures of average consumer confidence can be useful indicators of how much consumers are likely to spend.
-
-There is no unified definition of consumer confidence.
-
-Instead, there are various indicators built to measure consumer confidence. Their definitions vary.
-
-
-We have a positive list and a negative list --- what people search for during good and bad times:
-
-Positive items include:
-
-
-Negative items include: RAV, Rezession, Insolvenz
 
 
 
 <!-- ABOUT PAGE -->
 # <font size="3">About</font> {data-icon="fa-info-circle"}
 
-
-
-<font size="4">
-<p style="margin-left:5em;margin-right:5em;">
-To provide a set of timely economic indicators, we source Google Trends data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services.
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+- This project was born at the end of March 2020 as economists were in dire need to obtain timely data to estimate the impact of the Covid-19 pandemic on the Swiss economy.
 </p>
-
-<p style="margin-left:5em;margin-right:5em;">
-When people become unemployed, for example, they start searching for local unemployment agencies (called “RAV” in German). When they want to buy clothes, they likely type the name of fashion stores like “H&M”, “Zara”, or “Zalando”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+- It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon #VersusVirus. 
 </p>
+</font>
+<font size="4.5"> 
+<p style="margin-left:8em;margin-right:8em" align="justify">
+- We will continue to work on this project along the way and possibly add further indicators.
+</p>
+</font>
 
-<p style="margin-left:5em;margin-right:5em;">
-These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits.
+
+<font size="6">
+<span style="color:#080A47">
+<p style="margin-left:5em;margin-right:5em" align="center">
+Contributors
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p style="margin-left:5em;margin-right:5em" align="justify">
+- Angelica Becerra (Statistician and Programmer, ETH KOF)
+- Vera Z. Eichenauer (Economist, ETH KOF)  
+- Ronald Indergand (Head of Short Term Economic Analyses, SECO)
+- Stefan Legge (Economist, University of St.Gallen)
+- Isabel Martinez (Economist, ETH KOF, formerly SGB) www.isabelzmartinez.com
+- Nina Mühlebach (Economist, ETH KOF)
+- Furkan Oguz (Economist, ETH KOF)
+- Christoph Sax (Economist, Programmer and Founder, cynkra)
+- Kristina Schuepbach (Economist, SGB and University of Bern)
+- Severin Thöni (Programmer, ETH KOF)
 </p>
 </font>
 
