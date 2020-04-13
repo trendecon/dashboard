@@ -1,9 +1,10 @@
 ---
-title: "TrendEcon"
+title: "trendEcon"
 output:
   flexdashboard::flex_dashboard:
-    theme: spacelab
-    vertical_layout: fill
+    theme: journal
+    vertical_layout: scroll
+    orientation: rows
 ---
 
 ```{r setup, include=FALSE}
@@ -11,28 +12,27 @@ library(flexdashboard)
 library(dygraphs)
 library(shiny)
 library(xts)
-library(DT)
+library(tsbox)
+library(dplyr)
+
 
 trendecon_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv",index.column = 1))
 
-trendecon_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv", col.names = c("Date", "Index")))
-
-
 clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
-
-clothing_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv", col.names = c("Date", "Index")))
 
 mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv",index.column = 1))
 
-mobility_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv", col.names = c("Date", "Index")))
-
 luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
 
-luxury_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv", col.names = c("Date", "Index")))
 
 #kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
 
+<style>
+body {
+  padding: 100px 150px 0px 150px;
+}
+</style>
 
 <!-- HOME PAGE -->
 
@@ -40,20 +40,41 @@ luxury_sa_df <- data.frame(read.csv("https://raw.githubusercontent.com/trendecon
 
 <font size="6">
 <span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
-TrendEcon: real-time economic indicators based on Google searches
+<p align="center">
+trendEcon
 </p>
 </span>
 </font>
+
+<font size="5">
+<span style="color:#080A47">
+<p align="center">
+How does the Swiss economy develop during the Covid19 pandemic?
+</p>
+</span>
+</font>
+
+<font size="5">
+<span style="color:#080A47">
+<p align="center">
+Daily economic indicators based on Google searches in Switzerland
+</p>
+</span>
+</font>
+
+
+
+
 <font size="4.5"> 
-<p style="margin-left:5em;margin-right:5em" align="justify">
+<p align="justify">
 Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. [More on how to use our indicators.](https://trendecon.github.io/dashboard/#indicators)
 </p>
 </font>
 
-## Column {.tabset .tabset-fade}
+## Row {.tabset .tabset-fade}
 
-### <font size="2"><span style="color:#080A47">Gtrend index</span></font> {data-width=400}
+### <font size="2"><span style="color:#080A47">Perceived economic situation</span></font> {}
+
 ```{r}
 dygraph(trendecon_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -63,14 +84,11 @@ dygraph(trendecon_sa,group = "keywords")%>%
                   height=20)
 ```
 
-
-### <font size="2"><span style="color:#080A47">Source</span></font>
-
-Click here to get the source of the data.
+## Row {.tabset .tabset-fade data-height=50}
+<font size="2">You can select...</font>
 
 
-
-## Column {data-width=300}
+## Row {.tabset .tabset-fade}
 
 ### <font size="2"><span style="color:#080A47">Clothing</span></font>
 ```{r}
@@ -82,6 +100,9 @@ dygraph(clothing_sa,group = "keywords")%>%
                   height=10)
 ```
 
+
+## Row {.tabset .tabset-fade}
+
 ### <font size="2"><span style="color:#080A47">Mobility</span></font>
 ```{r}
 dygraph(mobility_sa,group = "keywords")%>%
@@ -92,7 +113,7 @@ dygraph(mobility_sa,group = "keywords")%>%
                   height=10)
 ```
 
-## Column {data-width=300}
+## Row {.tabset .tabset-fade}
 
 ### <font size="2"><span style="color:#080A47">Luxury</span></font>
 ```{r}
@@ -104,35 +125,19 @@ dygraph(luxury_sa,group = "keywords")%>%
                   height=10)
 ```
 
+## Row {.tabset .tabset-fade}
+
 ### <font size="2"><span style="color:#080A47">Social Consumption</span></font>
 ```{r}
 
 ```
 
-<!-- INDICATORS PAGE -->
-# <font size="3">Indicators</font> {data-icon="fa-chart-line" }
+<!-- Background PAGE -->
+# <font size="3">Background</font> {data-icon="fa-info-circle"}
 
 <font size="6">
 <span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
-
-</p>
-</span>
-</font>
-
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-
-</p>
-</font>
-
-
-
-
-<font size="6">
-<span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
+<p align="center">
 The problem: we lack timely economic data
 </p>
 </span>
@@ -142,7 +147,7 @@ The problem: we lack timely economic data
 </span>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
+<p align="justify">
 Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity. Economists have come up with different innovative ways to monitor the economy based on daily data, e.g. using daily [electricity consumption](https://www.nytimes.com/interactive/2020/04/08/upshot/electricity-usage-predict-coronavirus-recession.html).
 </p>
 </font>
@@ -150,220 +155,190 @@ Official economic statistics are usually released with a considerable lag. For e
 
 <font size="6">
 <span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
+<p align="center">
 Our solution: indicators based on Google Trends
 </p>
 </span>
 </font>
 
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-To provide a set of timely economic indicators, we source [Google Trends](https://trends.google.de/trends/?geo=DE) data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services. 
+<p align="justify">
+To provide a set of timely economic indicators, we source [Google Trends](https://trends.google.de/trends/?geo=DE) data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services.
 </p>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-When people become unemployed, for example, they start searching for local unemployment agencies (called “RAV” in German). When people want to buy clothes, they likely type the name of fashion stores like “H&M”, “Zara”, or “Zalando”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
+<p align="justify">
+When people become unemployed or fear they might loose their job, for example, they start searching for words like "unemployed". When people want to buy clothes, they likely type the name of fashion stores like “H&M” or “Zara”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
 </p>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits. 
+<p align="justify">
+These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid-19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits. 
 </p>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-Our indicators focus on private consumption because i) of its overall importance for economic growth: private consumption makes up over [60% of Swiss GDP](https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/wohlfahrtsmessung/wohlfahrt/wohnsituation/konsum-sparen.html); ii) in this crisis, private consumption is hit hardest: due to closures of restaurants, stores, cinemas etc. private consumption is severely limited. This situation is very different to a financial crisis like the one that occurred in 2008/2009.
+<p align="justify">
+Our main indicator on the perceived economic situation captures macroeconomic fluctuations. The other indicators focus on private consumption because i) of its overall importance for economic growth: private consumption makes up over [60% of Swiss GDP](https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/wohlfahrtsmessung/wohlfahrt/wohnsituation/konsum-sparen.html); ii) in this crisis, private consumption is hit hardest: due to closures of restaurants, stores, cinemas etc. private consumption is severely limited. This situation is very different to a financial crisis like the one that occurred in 2008/2009 and hit the supply side of the economy.
 </p>
 </font>
 
 
 <font size="6">
 <span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
+<p align="center">
 How accurate are these indicators?
 </p>
 </span>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and private consumption components whenever this is useful. Generally, the indicators we constructed broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, note that our indicators are not an attempt of replicating or replacing any existing time series.
+<p align="justify">
+To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and private consumption components whenever they provide a meaningful comparison. Generally, the indicators we constructed broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, note that our indicators are not an attempt of replicating or replacing any existing time series.
 </p>
 </font>
 
+<font size="4.5"> 
+<p align="justify">
+The figure below shows how our main indicator on the perceived economic situation compares to quarterly GDP growth and the [consumer confidence index](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/Konsumentenstimmung.html). For comparison, we have aggregated our indicator to quarters. In this figure, th end point of our indicator is therefore based only on observations from January to March 2020, the first quarter of the year. This explains why the drop looks less dramatic than when looking at daily data.
+</p>
+</font>
+
+
+## Row {.tabset .tabset-fade}
+
+### <font size="2"><span style="color:#080A47">Perceived economic situation</span></font> {}
+
+```{r}
+target <-
+  dataseries::ds("ch_seco_gdp.sa.real.gdp", "xts") %>%
+  ts_tbl() %>%
+  ts_pc() %>%
+  ts_span(2007)
+
+target2 <-
+  dataseries::ds("ch_seco_css.i63_index", "xts") %>%
+  ts_tbl() %>%
+  # ts_pc() %>%
+  ts_span(2007)
+target2$value <- target2$value/10 # rescale consumer sentiment
+
+target3 <-
+  dataseries::ds("ch_seco_css.i12_econ_exp", "xts") %>%
+  ts_tbl() %>%
+  # ts_pc() %>%
+  ts_span(2007)
+target3$value <- target3$value/100 # rescale consumer sentiment
+
+load(file="D:/kof/hackat/viz/dashboard/dashboard/docs/data.RData")
+#data <- read_keyword("trendecon", "sa") %>%
+#  ts_frequency("quarter")
+
+ts_dygraphs(ts_c(
+  `Perceived Economic Situation` = data,
+  `GDP growth` = target
+  ,  `Consumer Sentiment` = target2
+))
+
+```
+
+## Row {.tabset .tabset-fade data-height=50}
 <font size="6">
 <span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
+<p align="center">
 Limitations
 </p>
 </span>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
+<p align="justify">
 The relationship between these search-based indicators and economic activity seems apparent. We believe that these indicators will provide useful during the whole economic roller-coaster ride that lies ahead of us, during the current downturn as well as the upswing(s) when things go slowly back to (a new?) normal. Note however, that the relationship between Google searches for specific keywords and real economic activity may change over time. First, the popularity of specific internet platforms and online stores can change, and that case Google searches and consumption behavior can change too. Second, this crisis is very different to previous ones as private demand drops largely because of mandated closures of restaurants, cinemas and stores to fight the spread of Covid19. Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead permanently to a much larger proportion of the population to use the internet for grocery shopping. While there are currently two major supermarkets offering online shopping, people might start to search more and more for other shops offering this service.
 </p>
 </font>
 
-<font size="6">
-<span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
-FAQ's
-</p>
-</span>
-</font>
-
-<font size="4.5">
-<span style="color:#080A47">
-<p style="margin-left:8em;margin-right:8em" align="left">
-Why are these indicators different than just using Google Trends?
-</p>
-</span>
-</font>
-
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-On [Google Trends](https://trends.google.de/trends/?geo=DE), you will find series based on a random sample of Google searches. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We downloaded the data many times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is normal that searches for gardening increase in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See **_Methods_** for further details. XXX LINK TO METHODS
-</p>
-</font>
 
 
 
-<font size="4.5">
-<span style="color:#080A47">
-<p style="margin-left:8em;margin-right:8em" align="left">
-Why did you use exactly these few keywords? 
-</p>
-</span>
-</font>
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
-</p>
-</font>
-
-<font size="4.5">
-<span style="color:#080A47">
-<p style="margin-left:8em;margin-right:8em" align="left">
-Why did you use exactly these few keywords? 
-</p>
-</span>
-</font>
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
-</p>
-</font>
-
-
-<font size="4.5">
-<span style="color:#080A47">
-<p style="margin-left:8em;margin-right:8em" align="left">
-Why do you use only German keywords? 
-</p>
-</span>
-</font>
-
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-For 63% of the population in Switzerland German is their main language. Search trends on Google are likely to be representative for the whole economy. Indeed, this is what we find if we compare our indicators to the existing target indicators like consumer sentiment. Due to Google's privacy restrictions, searches in French and Italian within Switzerland are more often to be censored than German ones. If keywords are censored, Google replaces observations with a zero and we cannot use the keyword. This is another reason why we opt for using names of stores or brands: these do not change depending on the language of the user.
-</p>
-</font>
-
-
-<font size="4.5">
-<span style="color:#080A47">
-<p style="margin-left:8em;margin-right:8em" align="left">
-How reliable are these indicators?
-</p>
-</span>
-</font>
-
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-We put a lot of effort into constructing daily, seasonally adjusted indicators that correlate with existing economic indicators. They can be used to say something about the evolution of demand for certain consumption categories. However, they remain indicators. We do not measure true economic activity as in number of t-shirts sold on a specific day or money spent on gardening equipment. Also note that this is an experiment in real time. If the correlation between search behavior and consumer demand changes, our indicators may improve or get worse in terms of tracking consumer demand. 
-</p>
-</font>
-
-
-<font size="4.5">
-<span style="color:#080A47">
-<p style="margin-left:8em;margin-right:8em" align="left">
-What do these indicators not tell us?
-</p>
-</span>
-</font>
-
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-XXX THIS CAN BE ANSWERED BEST ONCE WE HAVE THE SCALE / INTERPRETATION OF THE INDICATORS AND KNOW WHICH INDICATORS WE SHOW. THEN IT CAN BE EXPLAINED WITH AN EXAMPLE
-</p>
-</font>
-
-
-<font size="4.5">
-<span style="color:#080A47">
-<p style="margin-left:8em;margin-right:8em" align="left">
-How can I work with the data?
-</p>
-</span>
-</font>
-
-
-<font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
-XXX DESCRIBE HOW THE DATA CAN BE DOWNLOADED? ANNOUNCE THAT CODE WILL BE AVAILABLE ON GITHUB?
-</p>
-</font>
-
-
-
-<!-- DATA PAGE -->
-# <font size="3">Data</font> {data-icon="fa-table"}
-
-##Column {.tabset}
-### <font size="4"><span style="color:#080A47">GTrenEcon Index</span></font>
-
-```{r}
-datatable(trendecon_sa_df, filter ='top')
-```
-
-### <font size="4"><span style="color:#080A47">Clothing Index</span></font>
-
-```{r}
-datatable(clothing_sa_df, filter ='top')
-```
-
-### <font size="4"><span style="color:#080A47">Mobility Index</span></font>
-
-```{r}
-datatable(mobility_sa_df, filter ='top')
-```
 
 <!-- METHOD PAGE -->
+
+# <font size="3">Method</font> {data-icon="fa-file-contract"}
+
+##Row
+
+### Sampling issues in a small market
+
+If you query Google Trends for a search term, e.g., `Rezession`, the result is based on a subsample of all search [results](
+https://trends.google.com/trends/explore?date=today%201-m&geo=CH&q=Rezession).
+For a small country like Switzerland, these results may differ quite dramatically from sample to sample.
+
+In order to alleviate the problem, we draw many samples for each series. We force Google to re-sample by choosing a different time window.
+
+Literature: https://support.google.com/trends/answer/4365533?hl=en
+
+Also, see `doc/Resarch Papers.Rmd`
+
+##Row
+
+### Creating long daily series
+
+Google search results are available on a daily, weekly or monthly frequency. As with individual samples, querying Google at a different frequency will lead to substantially different results.
+
+Our goal is to produce long daily time series, ideally from 2006.
+This is mostly because we want to use the financial crisis of 2008 and 2009 as a benchmark. However, Google does not provide daily or weekly data for such a long time period. We circumvent the problem by applying a moving window of daily and weekly queries over the whole time period.
+
+Since the daily, weekly and monthly series are still very different, we want ot combine them into a single daily series.
+
+Our next steps are based on the following assumptions:
+
+- Monthly data catches the long term trend in search activity in the most accurate way.
+- Weekly data is best to analyze the searches over the medium term, i.e., over a few months.
+- Daily data is best to analyze short term behavior over a few days and weeks.
+
+With this in mind, we apply the following methodology. In a first step, we "bend" the daily series to the weekly values, by applying a variant of the Chow-Lin method (see, e.g., Literature below). This preserves the movement of the daily series and ensures that weekly averages are identical to the original weekly series.
+
+In a second step, we bend the adjusted weekly series from the first step to the monthly values, using the same method again. This produces a series that maintains most of the movement of the daily and the weekly series, but hast the same monthly averages as the monthly series. This series are used for further processing.
+
+
+Literature: https://journal.r-project.org/archive/2013/RJ-2013-028/index.html
+
+##Row
+
+### Seasonal adjustment
+
+Daily series have multiple seasonalities. There is weekly seasonality: Search activities for business related activities may lower during the weekend. There is monthly seasonality: If salaries are paid by the end of the month, some kind of shopping may be more likely to occur afterwards. And there is yearly seasonality: Flip flop is an unpopular search term in Winter, while Christmas rarely looked up in Summer.
+Finally, there are irregular holidays that occur at a different time of the year, such as Easter.
+
+We use the Prophet procedure for estimating an additive model where non-linear
+trends are fit with yearly and weekly seasonality and the holiday effects. The
+procedure is fully automated and easy to use, but has a few drawbacks. It does
+not model monthly seasonality and all the seasonal effects are assumed to be constant over time.
+
+
+Literature: https://peerj.com/preprints/3190/
+
+##Row
+
+### Aggregation of indicators
+
+As a final step, we use principal component analysis (PCA) to extract the common signal from a group of seasonally adjusted, daily time series. The idea of PCA is to identify or several principal components that summarize most of the variance in the data. We then use the first principal component as our index. We manually check the factor loadings and scores and adjust the variable selection if needed.
+
 
 
 
 <!-- ABOUT PAGE -->
-# <font size="3">About</font> {data-icon="fa-info-circle"}
+# <font size="3">Team</font> {data-icon="fa-users"}
 
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
+<p align="justify">
 - This project was born at the end of March 2020 as economists were in dire need to obtain timely data to estimate the impact of the Covid-19 pandemic on the Swiss economy.
 </p>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
+<p align="justify">
 - It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon #VersusVirus. 
 </p>
 </font>
 <font size="4.5"> 
-<p style="margin-left:8em;margin-right:8em" align="justify">
+<p align="justify">
 - We will continue to work on this project along the way and possibly add further indicators.
 </p>
 </font>
@@ -371,7 +346,7 @@ datatable(mobility_sa_df, filter ='top')
 
 <font size="6">
 <span style="color:#080A47">
-<p style="margin-left:5em;margin-right:5em" align="center">
+<p align="center">
 Contributors
 </p>
 </span>
@@ -391,8 +366,130 @@ Contributors
 </p>
 </font>
 
+<!-- Background PAGE -->
+# <font size="3">FAQ's</font> {data-icon="fa-info-circle"}
+
+<font size="6">
+<span style="color:#080A47">
+<p align="center">
+FAQ's
+</p>
+</span>
+</font>
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+Why are these indicators different than just using Google Trends?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p align="justify">
+On [Google Trends](https://trends.google.de/trends/?geo=DE), you will find series based on a random sample of Google searches. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We downloaded the data many times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is normal that searches for gardening increase in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See **_Methods_** for further details. XXX LINK TO METHODS
+</p>
+</font>
+
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+Why did you use exactly these few keywords? 
+</p>
+</span>
+</font>
+
+<font size="4.5"> 
+<p align="justify">
+We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
+</p>
+</font>
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+Why did you use exactly these few keywords? 
+</p>
+</span>
+</font>
+
+<font size="4.5"> 
+<p align="justify">
+We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+Why do you use only German keywords? 
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p align="justify">
+For 63% of the population in Switzerland German is their main language. Search trends on Google are likely to be representative for the whole economy. Indeed, this is what we find if we compare our indicators to the existing target indicators like consumer sentiment. Due to Google's privacy restrictions, searches in French and Italian within Switzerland are more often to be censored than German ones. If keywords are censored, Google replaces observations with a zero and we cannot use the keyword. This is another reason why we opt for using names of stores or brands: these do not change depending on the language of the user.
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+How reliable are these indicators?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p align="justify">
+We put a lot of effort into constructing daily, seasonally adjusted indicators that correlate with existing economic indicators. They can be used to say something about the evolution of demand for certain consumption categories. However, they remain indicators. We do not measure true economic activity as in number of t-shirts sold on a specific day or money spent on gardening equipment. Also note that this is an experiment in real time. If the correlation between search behavior and consumer demand changes, our indicators may improve or get worse in terms of tracking consumer demand. 
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+What do these indicators not tell us?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p align="justify">
+XXX THIS CAN BE ANSWERED BEST ONCE WE HAVE THE SCALE / INTERPRETATION OF THE INDICATORS AND KNOW WHICH INDICATORS WE SHOW. THEN IT CAN BE EXPLAINED WITH AN EXAMPLE
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+How can I work with the data?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p align="justify">
+XXX DESCRIBE HOW THE DATA CAN BE DOWNLOADED? ANNOUNCE THAT CODE WILL BE AVAILABLE ON GITHUB?
+</p>
+</font>
+
+
+
 <!-- Contact PAGE -->
 # <font size="3">Contact</font> {data-icon="fa-at"}
 
-
+trendecon@gmail.com
 
