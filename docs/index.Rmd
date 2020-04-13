@@ -75,7 +75,7 @@ As a solution, we provide a set of economic indicators for Switzerland based on 
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Perceived economic situation (daily)</span></font> {}
+### <font size="4"><span style="color:#080A47">Perceived Economic Situation (daily)</span></font> {}
 
 ```{r}
 
@@ -371,18 +371,14 @@ The category *Clothing and Shoes* includes clothing and shoe stores as well as a
 The problem: we lack timely economic data
 </p>
 </span>
-
-
 </p>
 </span>
 </font>
 <font size="4.5"> 
 <p align="justify">
-Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity. Economists have come up with different innovative ways to monitor the economy based on daily data, e.g. using daily [electricity consumption](https://www.nytimes.com/interactive/2020/04/08/upshot/electricity-usage-predict-coronavirus-recession.html).
+Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of up to several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity. Economists have come up with different innovative ways to monitor the economy based on daily data, e.g. using daily [electricity consumption](https://www.nytimes.com/interactive/2020/04/08/upshot/electricity-usage-predict-coronavirus-recession.html).
 </p>
 </font>
-
-
 <font size="6">
 <span style="color:#080A47">
 <p align="center">
@@ -390,29 +386,26 @@ Our solution: indicators based on Google Trends
 </p>
 </span>
 </font>
-
 <font size="4.5"> 
 <p align="justify">
-To provide a set of timely economic indicators, we source [Google Trends](https://trends.google.de/trends/?geo=DE) data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services.
+To provide a set of timely economic indicators, we source [Google Trends](https://trends.google.de/trends/?geo=CH) data. These indicators are available on a daily basis. The idea is that people’s searches on Google tell a lot about their perception of the state of the economy and demand for certain products and services.
 </p>
 </font>
 <font size="4.5"> 
 <p align="justify">
-When people become unemployed or fear they might loose their job, for example, they start searching for words like "unemployed". When people want to buy clothes, they likely type the name of fashion stores like “H&M” or “Zara”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
+When people become unemployed or fear they might lose their job, for example, they start searching for words like "unemployed". When people want to buy clothes, they likely type the name of fashion stores like “H&M” or “Zara”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
 </p>
 </font>
 <font size="4.5"> 
 <p align="justify">
-These indicators provide insights about the abrupt economic changes we are currently experiencing and will likely be among the first to capture changes once measures to fight the spread of Covid-19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits. 
+These indicators provide insights about the abrupt economic changes we are currently experiencing. They will likely be among the first to capture changes in consumption once measures to fight the spread of Covid-19 are lifted step by step. They will thus help to monitor the recovery and possibly indicate lasting changes in consumption habits.
 </p>
 </font>
 <font size="4.5"> 
 <p align="justify">
-Our main indicator on the perceived economic situation captures macroeconomic fluctuations. The other indicators focus on private consumption because i) of its overall importance for economic growth: private consumption makes up over [60% of Swiss GDP](https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/wohlfahrtsmessung/wohlfahrt/wohnsituation/konsum-sparen.html); ii) in this crisis, private consumption is hit hardest: due to closures of restaurants, stores, cinemas etc. private consumption is severely limited. This situation is very different to a financial crisis like the one that occurred in 2008/2009 and hit the supply side of the economy.
+Our main indicator on the *Perceived Economic Situation* captures macroeconomic fluctuations. The other indicators focus on private consumption because i) of its overall importance for economic growth: private consumption makes up over [60% of Swiss GDP](https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/wohlfahrtsmessung/wohlfahrt/wohnsituation/konsum-sparen.html); ii) in this crisis, private consumption is hit hardest: due to closures of restaurants, stores, cinemas etc. private consumption is severely limited. This situation is very different to a financial crisis like the one that occurred in 2008/2009 and mainly hit the supply side of the Swiss economy.
 </p>
 </font>
-
-
 <font size="6">
 <span style="color:#080A47">
 <p align="center">
@@ -422,20 +415,15 @@ How accurate are these indicators?
 </font>
 <font size="4.5"> 
 <p align="justify">
-To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and private consumption components whenever they provide a meaningful comparison. Generally, the indicators we constructed broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, note that our indicators are not an attempt of replicating or replacing any existing time series.
+To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and components of private consumption expenditure whenever they provide a meaningful comparison. Our indicators broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, note that our indicators do not attempt to replicate or replace any existing time series.
 </p>
 </font>
-
 <font size="4.5"> 
 <p align="justify">
-The figure below shows how our main indicator on the perceived economic situation compares to quarterly GDP growth and the [consumer confidence index](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/Konsumentenstimmung.html). For comparison, we have aggregated our indicator to quarters. In this figure, th end point of our indicator is therefore based only on observations from January to March 2020, the first quarter of the year. This explains why the drop looks less dramatic than when looking at daily data.
+The figure below shows how our main indicator on the perceived economic situation compares to quarterly GDP growth in Switzerland and the [consumer confidence index](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/Konsumentenstimmung.html). For comparison, we have aggregated our indicator to quarters. In this figure, the last observation of our indicators is based on Google searches from January to March 2020, the first quarter of the year. This explains why the drop looks less dramatic than when looking at daily data.
 </p>
 </font>
 
-
-## Row {.tabset .tabset-fade}
-
-### <font size="2"><span style="color:#080A47">Perceived economic situation</span></font> {}
 
 ```{r}
 target <-
@@ -455,17 +443,57 @@ target3 <-
   # ts_pc() %>%
   ts_span(2007)
 target3$value <- target3$value/100 # rescale consumer sentiment
-load(file="D:/kof/hackat/viz/dashboard/dashboard/docs/data.RData")
-#data <- read_keyword("trendecon", "sa") %>%
-#  ts_frequency("quarter")
+
+data <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_all.csv") %>% 
+  filter(id=="seas_adj") %>% 
+  select(time,value) %>%
+  ts_frequency("quarter")
+
 ts_dygraphs(ts_c(
   `Perceived Economic Situation` = data,
-  `GDP growth` = target
-  ,  `Consumer Sentiment` = target2
-))
+  `GDP growth` = target,  
+  `Consumer Sentiment` = target2
+))%>%
+  dySeries("Perceived Economic Situation", strokeWidth=3) %>%
+  dySeries("GDP growth", strokePattern = "dashed") %>%
+  dySeries("Consumer Sentiment", strokePattern = "dotted")
 ```
 
-## Row {.tabset .tabset-fade data-height=50}
+## Row {.tabset .tabset-fade data-height=100}
+
+<font size="4.5"> 
+<p align="justify">
+For some indicators, such as *Cultural Events* -- which includes demand for restaurants, cinemas, concerts etc. -- or *Gardening and Home Improvement* (aka do-it-yourself articles), there is no preexisting, well-established indicator to compare our search-based indicators with. Nevertheless these indicators appear meaningful, as we are observing substantial changes in searches for these goods and services compared to normal times. These indicators will therefore provide valuable information on whether the economy is going back to normal as lock-down measures are lifted. In the beginning, some people, especially people in risk groups, may still be be reluctant to go, for example, to restaurants or stroll around shopping malls because they are afraid of contracting the virus.
+</p>
+</font>
+
+
+```{r echo = FALSE}
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv") %>%
+  ts_span(2019)
+
+# %>%
+#   ts_frequency("quarter")
+
+ts_dygraphs(ts_c(
+  `Social Consumption` = data
+))
+
+```
+
+```{r echo = FALSE}
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv") %>%
+  ts_span(2019)
+
+# %>%
+#   ts_frequency("quarter")
+
+ts_dygraphs(ts_c(
+  `Gardening` = data
+))
+
+```
+
 <font size="6">
 <span style="color:#080A47">
 <p align="center">
@@ -473,92 +501,52 @@ Limitations
 </p>
 </span>
 </font>
+
 <font size="4.5"> 
 <p align="justify">
-The relationship between these search-based indicators and economic activity seems apparent. We believe that these indicators will provide useful during the whole economic roller-coaster ride that lies ahead of us, during the current downturn as well as the upswing(s) when things go slowly back to (a new?) normal. Note however, that the relationship between Google searches for specific keywords and real economic activity may change over time. First, the popularity of specific internet platforms and online stores can change, and that case Google searches and consumption behavior can change too. Second, this crisis is very different to previous ones as private demand drops largely because of mandated closures of restaurants, cinemas and stores to fight the spread of Covid19. Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead permanently to a much larger proportion of the population to use the internet for grocery shopping. While there are currently two major supermarkets offering online shopping, people might start to search more and more for other shops offering this service.
+The relationship between these search-based indicators and economic activity seems apparent. We believe that these indicators will provide useful during the whole economic roller-coaster ride that lies ahead of us, during the current downturn as well as the upswing(s) when things go slowly back to (a new?) normal.
 </p>
 </font>
 
 
 
+<font size="4.5"> 
+<p align="justify">
+Note however, that the relationship between Google searches for specific keywords and real economic activity may change over time. First, the popularity of specific internet platforms and online stores can change, and in that case Google searches as well as actual consumption behavior will change too.
+</p>
+</font>
 
+<font size="4.5"> 
+<p align="justify">
+Second, this crisis is very different to previous ones as private demand drops largely because of mandated closures of restaurants, cinemas and stores to fight the spread of Covid-19. 
+</p>
+</font>
+
+<font size="4.5"> 
+<p align="justify">
+Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead to a permanent increase of the proportion of the population doing grocery shopping online. While there are currently two major supermarkets offering online shopping, people might start to search more and more for other shops offering this service.
+</p>
+</font>
+<br><br>
 
 <!-- METHOD PAGE -->
 
 # <font size="3">Method</font> {data-icon="fa-file-contract"}
 
-<font size="6.5">
+<font size="6">
 <span style="color:#080A47">
 <p align="center">
-Method
+The problem: we lack timely economic data
+</p>
+</span>
 </p>
 </span>
 </font>
-
-##Row
-
-### <font size="5.5"><span style="color:#080A47">Sampling issues in a small market</span></font>
-
-<font size="4.5">If you query Google Trends for a search term, e.g., `Rezession`, the result is based on a subsample of all search [results](
-https://trends.google.com/trends/explore?date=today%201-m&geo=CH&q=Rezession).
-For a small country like Switzerland, these results may differ quite dramatically from sample to sample.
-
-In order to alleviate the problem, we draw many samples for each series. We force Google to re-sample by choosing a different time window.
-
-Literature: https://support.google.com/trends/answer/4365533?hl=en
-
-Also, see `doc/Resarch Papers.Rmd`
+<font size="4.5"> 
+<p align="justify">
+Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of up to several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity. Economists have come up with different innovative ways to monitor the economy based on daily data, e.g. using daily [electricity consumption](https://www.nytimes.com/interactive/2020/04/08/upshot/electricity-usage-predict-coronavirus-recession.html).
+</p>
 </font>
-
-##Row
-
-### <font size="5.5"><span style="color:#080A47">Creating long daily series</span></font>
-
-<font size="4.5">Google search results are available on a daily, weekly or monthly frequency. As with individual samples, querying Google at a different frequency will lead to substantially different results.
-
-Our goal is to produce long daily time series, ideally from 2006.
-This is mostly because we want to use the financial crisis of 2008 and 2009 as a benchmark. However, Google does not provide daily or weekly data for such a long time period. We circumvent the problem by applying a moving window of daily and weekly queries over the whole time period.
-
-Since the daily, weekly and monthly series are still very different, we want ot combine them into a single daily series.
-
-Our next steps are based on the following assumptions:
-
-- Monthly data catches the long term trend in search activity in the most accurate way.
-- Weekly data is best to analyze the searches over the medium term, i.e., over a few months.
-- Daily data is best to analyze short term behavior over a few days and weeks.
-
-With this in mind, we apply the following methodology. In a first step, we "bend" the daily series to the weekly values, by applying a variant of the Chow-Lin method (see, e.g., Literature below). This preserves the movement of the daily series and ensures that weekly averages are identical to the original weekly series.
-
-In a second step, we bend the adjusted weekly series from the first step to the monthly values, using the same method again. This produces a series that maintains most of the movement of the daily and the weekly series, but hast the same monthly averages as the monthly series. This series are used for further processing.
-
-Literature: https://journal.r-project.org/archive/2013/RJ-2013-028/index.html
-</font>
-
-##Row
-
-### <font size="5.5"><span style="color:#080A47">Seasonal adjustment</span></font>
-
-<font size="4.5">
-Daily series have multiple seasonalities. There is weekly seasonality: Search activities for business related activities may lower during the weekend. There is monthly seasonality: If salaries are paid by the end of the month, some kind of shopping may be more likely to occur afterwards. And there is yearly seasonality: Flip flop is an unpopular search term in Winter, while Christmas rarely looked up in Summer.
-Finally, there are irregular holidays that occur at a different time of the year, such as Easter.
-
-We use the Prophet procedure for estimating an additive model where non-linear
-trends are fit with yearly and weekly seasonality and the holiday effects. The
-procedure is fully automated and easy to use, but has a few drawbacks. It does
-not model monthly seasonality and all the seasonal effects are assumed to be constant over time.
-
-Literature: https://peerj.com/preprints/3190/
-</font>
-
-##Row
-
-### <font size="5.5"><span style="color:#080A47">Aggregation of indicators</span></font>
-
-<font size="4.5">
-As a final step, we use principal component analysis (PCA) to extract the common signal from a group of seasonally adjusted, daily time series. The idea of PCA is to identify or several principal components that summarize most of the variance in the data. We then use the first principal component as our index. We manually check the factor loadings and scores and adjust the variable selection if needed.
-</font>
-
-##Row
 
 <br><br>
 
