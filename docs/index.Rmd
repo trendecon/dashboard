@@ -5,6 +5,7 @@ output:
     theme: journal
     vertical_layout: scroll
     orientation: rows
+    css: "css_style_trendecon.css"
 ---
 
 ```{r setup, include=FALSE}
@@ -30,9 +31,21 @@ luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendec
 
 <style>
 body {
-  padding: 100px 150px 0px 150px;
+  padding: 100px 250px 100px 250px;
+}
+@media (max-width: 800px) {
+    .container {
+      padding:0;
+      margin:0;
+    }
+
+    body {
+      padding: 100px 30px 30px 30px;
+    }
 }
 </style>
+
+
 
 <!-- HOME PAGE -->
 
@@ -262,11 +275,19 @@ The relationship between these search-based indicators and economic activity see
 
 # <font size="3">Method</font> {data-icon="fa-file-contract"}
 
+<font size="6.5">
+<span style="color:#080A47">
+<p align="center">
+Method
+</p>
+</span>
+</font>
+
 ##Row
 
-### Sampling issues in a small market
+### <font size="5.5"><span style="color:#080A47">Sampling issues in a small market</span></font>
 
-If you query Google Trends for a search term, e.g., `Rezession`, the result is based on a subsample of all search [results](
+<font size="4.5">If you query Google Trends for a search term, e.g., `Rezession`, the result is based on a subsample of all search [results](
 https://trends.google.com/trends/explore?date=today%201-m&geo=CH&q=Rezession).
 For a small country like Switzerland, these results may differ quite dramatically from sample to sample.
 
@@ -275,12 +296,13 @@ In order to alleviate the problem, we draw many samples for each series. We forc
 Literature: https://support.google.com/trends/answer/4365533?hl=en
 
 Also, see `doc/Resarch Papers.Rmd`
+</font>
 
 ##Row
 
-### Creating long daily series
+### <font size="5.5"><span style="color:#080A47">Creating long daily series</span></font>
 
-Google search results are available on a daily, weekly or monthly frequency. As with individual samples, querying Google at a different frequency will lead to substantially different results.
+<font size="4.5">Google search results are available on a daily, weekly or monthly frequency. As with individual samples, querying Google at a different frequency will lead to substantially different results.
 
 Our goal is to produce long daily time series, ideally from 2006.
 This is mostly because we want to use the financial crisis of 2008 and 2009 as a benchmark. However, Google does not provide daily or weekly data for such a long time period. We circumvent the problem by applying a moving window of daily and weekly queries over the whole time period.
@@ -297,13 +319,14 @@ With this in mind, we apply the following methodology. In a first step, we "bend
 
 In a second step, we bend the adjusted weekly series from the first step to the monthly values, using the same method again. This produces a series that maintains most of the movement of the daily and the weekly series, but hast the same monthly averages as the monthly series. This series are used for further processing.
 
-
 Literature: https://journal.r-project.org/archive/2013/RJ-2013-028/index.html
+</font>
 
 ##Row
 
-### Seasonal adjustment
+### <font size="5.5"><span style="color:#080A47">Seasonal adjustment</span></font>
 
+<font size="4.5">
 Daily series have multiple seasonalities. There is weekly seasonality: Search activities for business related activities may lower during the weekend. There is monthly seasonality: If salaries are paid by the end of the month, some kind of shopping may be more likely to occur afterwards. And there is yearly seasonality: Flip flop is an unpopular search term in Winter, while Christmas rarely looked up in Summer.
 Finally, there are irregular holidays that occur at a different time of the year, such as Easter.
 
@@ -312,16 +335,20 @@ trends are fit with yearly and weekly seasonality and the holiday effects. The
 procedure is fully automated and easy to use, but has a few drawbacks. It does
 not model monthly seasonality and all the seasonal effects are assumed to be constant over time.
 
-
 Literature: https://peerj.com/preprints/3190/
+</font>
 
 ##Row
 
-### Aggregation of indicators
+### <font size="5.5"><span style="color:#080A47">Aggregation of indicators</span></font>
 
+<font size="4.5">
 As a final step, we use principal component analysis (PCA) to extract the common signal from a group of seasonally adjusted, daily time series. The idea of PCA is to identify or several principal components that summarize most of the variance in the data. We then use the first principal component as our index. We manually check the factor loadings and scores and adjust the variable selection if needed.
+</font>
 
+##Row
 
+<br><br>
 
 
 <!-- ABOUT PAGE -->
