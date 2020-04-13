@@ -2,9 +2,12 @@
 title: "trendEcon"
 output:
   flexdashboard::flex_dashboard:
-    theme: cerulean
+    theme: journal
     vertical_layout: scroll
     orientation: rows
+    social: menu
+    navbar:
+      - { icon: "fa-github", title: "Data", href: "https://github.com/trendecon/data", align: right}
 ---
 
 ```{r setup, include=FALSE}
@@ -102,17 +105,15 @@ ts_dygraphs(ts_c(
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-keyword1, Keyword2
+- Wirtschaftskrise
+- Kurzarbeit
+- arbeitslos
+- Insolvenz
 </p>
 </font>
 <font size="3.5"> 
 [Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_all.csv)
 </font>
-
-
-## Row {.tabset .tabset-fade data-height=50}
-<font size="2">You can select...</font>
-
 
 ## Row {.tabset .tabset-fade}
 
@@ -133,7 +134,14 @@ dygraph(clothing_sa)%>%
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-keyword1, Keyword2
+- Mango
+- Zara
+- H&M
+- PKZ
+- Blue Tomato
+- Dosenbach
+- Schuhe kaufen
+- Ochsner Schuhe
 </p>
 </font>
 <font size="3.5"> 
@@ -159,7 +167,10 @@ dygraph(mobility_sa)%>%
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-keyword1, Keyword2
+- Fahrplan
+- taxi
+- sixt
+- google maps
 </p>
 </font>
 <font size="3.5"> 
@@ -185,7 +196,13 @@ dygraph(luxury_sa)%>%
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-keyword1, Keyword2
+- christ
+- bucherer
+- uhren
+- uhr
+- swarovski
+- rhomberg
+- juwelier"
 </p>
 </font>
 <font size="3.5"> 
@@ -211,7 +228,13 @@ dygraph(social_sa)%>%
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-keyword1, Keyword2
+- Kino
+- Theater
+- Cinema
+- ticketcorner
+- starticket
+- oper
+- konzert
 </p>
 </font>
 <font size="3.5"> 
@@ -237,7 +260,9 @@ dygraph(travel_sa)%>%
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-keyword1, Keyword2
+- städtetrip
+- flug buchen
+- günstige flüge
 </p>
 </font>
 <font size="3.5"> 
@@ -263,7 +288,13 @@ dygraph(garden_sa)%>%
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-keyword1, Keyword2
+- Heim+Hobby
+- Bau+Hobby
+- Do it Migros
+- Jumbo
+- Landi
+- Gartencenter
+- Bauhaus
 </p>
 </font>
 <font size="3.5"> 
@@ -477,7 +508,7 @@ As a final step, we use principal component analysis (PCA) to extract the common
 
 
 <!-- ABOUT PAGE -->
-# <font size="3">Team</font> {data-icon="fa-users"}
+# <font size="3">About this project</font> {data-icon="fa-users"}
 
 <font size="6">
 <span style="color:#080A47">
@@ -489,17 +520,17 @@ How we start
 
 <font size="4.5"> 
 <p align="justify">
-- This project was born at the end of March 2020 as economists were in dire need to obtain timely data to estimate the impact of the Covid-19 pandemic on the Swiss economy.
+This project was born at the end of March 2020 as economists were in dire need to obtain timely data to estimate the impact of the Covid-19 pandemic on the Swiss economy.
 </p>
 </font>
 <font size="4.5"> 
 <p align="justify">
-- It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon #VersusVirus. 
+It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon [#VersusVirus](https://www.versusvirus.ch/). 
 </p>
 </font>
 <font size="4.5"> 
 <p align="justify">
-- We will continue to work on this project along the way and possibly add further indicators.
+We will continue to work on this project along the way and possibly add further indicators.
 </p>
 </font>
 
@@ -514,10 +545,10 @@ Contributors
 <font size="4.5"> 
 <p style="margin-left:5em;margin-right:5em" align="justify">
 - Angelica Becerra (Statistician and Programmer, ETH KOF)
-- Vera Z. Eichenauer (Economist, ETH KOF)  
+- [Vera Z. Eichenauer](https://sites.google.com/view/vera-eichenauer/home) (Economist, ETH KOF)  
 - Ronald Indergand (Head of Short Term Economic Analyses, SECO)
 - Stefan Legge (Economist, University of St.Gallen)
-- Isabel Martinez (Economist, ETH KOF, formerly SGB) www.isabelzmartinez.com
+- [Isabel Martinez](www.isabelzmartinez.com) (Economist, ETH KOF, formerly SGB)
 - Nina Mühlebach (Economist, ETH KOF)
 - Furkan Oguz (Economist, ETH KOF)
 - Christoph Sax (Economist, Programmer and Founder, cynkra)
@@ -527,7 +558,7 @@ Contributors
 </font>
 
 <!-- Background PAGE -->
-# <font size="3">FAQ's</font> {data-icon="fa-info-circle"}
+# <font size="3">FAQ's</font> {data-icon="fa-question"}
 
 <font size="6">
 <span style="color:#080A47">
