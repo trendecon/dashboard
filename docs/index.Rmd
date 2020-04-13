@@ -2,7 +2,7 @@
 title: "trendEcon"
 output:
   flexdashboard::flex_dashboard:
-    theme: journal
+    theme: united
     vertical_layout: scroll
     orientation: rows
     social: menu
@@ -55,20 +55,27 @@ trendEcon
 <font size="5">
 <span style="color:#080A47">
 <p align="center">
-How does the Swiss economy develop during the Covid19 pandemic?
+This website provides daily economic indicators based on Google searches in Switzerland.
 </p>
 </span>
 </font>
 
+
 <font size="4.5"> 
 <p align="justify">
-This page provides daily economic indicators based on Google searches in Switzerland. Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. More on [how to use our indicators.](#background)
+How does the Swiss economy develop on a daily basis? Under the extraordinary circumstances caused by the Covid-19 pandemic, the economy is changing faster than usual but standard economic indicators cannot capture this. Indicators such as consumer sentiment index, GDP, or private consumption become available with a lag of up to several months.
+</p>
+</font>
+
+<font size="4.5"> 
+<p align="justify">
+As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. These indicators are updated daily and provide policymakers and business leaders with timely information about the Swiss economy. Here you find more information on [how to use our indicators.](#background) and you can download the [data](https://github.com/trendecon/data).
 </p>
 </font>
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Perceived economic situation</span></font> {}
+### <font size="4"><span style="color:#080A47">Perceived economic situation (daily)</span></font> {}
 
 ```{r}
 
@@ -86,7 +93,7 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
 ```
 
 
-### <font size="4"><span style="color:#080A47">Monthly</span></font> {}
+### <font size="4"><span style="color:#080A47">| Monthly |</span></font> {}
 
 ```{r}
 load(file="D:/kof/hackat/viz/dashboard/dashboard/docs/data_monthly.RData")
@@ -100,7 +107,7 @@ ts_dygraphs(ts_c(
 ```
 
 
-### <font size="4"><span style="color:#080A47">Information</span></font> {}
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -129,7 +136,7 @@ dygraph(clothing_sa)%>%
                   height=10)
 ```
 
-### <font size="4"><span style="color:#080A47">Information</span></font> {}
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -162,7 +169,7 @@ dygraph(mobility_sa)%>%
                   height=10)
 ```
 
-### <font size="4"><span style="color:#080A47">Information</span></font> {}
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -179,7 +186,7 @@ dygraph(mobility_sa)%>%
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Luxury</span></font> {}
+### <font size="4"><span style="color:#080A47">Watches and Jewellery</span></font> {}
 ```{r}
 luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
 
@@ -191,7 +198,14 @@ dygraph(luxury_sa)%>%
                   height=10)
 ```
 
-### <font size="4"><span style="color:#080A47">Information</span></font> {}
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
+
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The category *Watches and Jewellery* includes stores and brands selling luxurious watches and jewellery goods and related, more general search terms for luxury consumer goods.
+</p>
+</font>
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -202,7 +216,7 @@ dygraph(luxury_sa)%>%
 - uhr
 - swarovski
 - rhomberg
-- juwelier"
+- juwelier
 </p>
 </font>
 <font size="3.5"> 
@@ -223,7 +237,7 @@ dygraph(social_sa)%>%
                   height=10)
 ```
 
-### <font size="4"><span style="color:#080A47">Information</span></font> {}
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -255,7 +269,7 @@ dygraph(travel_sa)%>%
                   height=10)
 ```
 
-### <font size="4"><span style="color:#080A47">Information</span></font> {}
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -271,7 +285,7 @@ dygraph(travel_sa)%>%
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Garden</span></font> {}
+### <font size="4"><span style="color:#080A47">Gardening and do it yourself</span></font> {}
 ```{r}
 garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv",index.column = 1))
 
@@ -283,7 +297,7 @@ dygraph(garden_sa)%>%
                   height=10)
 ```
 
-### <font size="4"><span style="color:#080A47">Information</span></font> {}
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -382,31 +396,26 @@ target <-
   ts_tbl() %>%
   ts_pc() %>%
   ts_span(2007)
-
 target2 <-
   dataseries::ds("ch_seco_css.i63_index", "xts") %>%
   ts_tbl() %>%
   # ts_pc() %>%
   ts_span(2007)
 target2$value <- target2$value/10 # rescale consumer sentiment
-
 target3 <-
   dataseries::ds("ch_seco_css.i12_econ_exp", "xts") %>%
   ts_tbl() %>%
   # ts_pc() %>%
   ts_span(2007)
 target3$value <- target3$value/100 # rescale consumer sentiment
-
 load(file="D:/kof/hackat/viz/dashboard/dashboard/docs/data.RData")
 #data <- read_keyword("trendecon", "sa") %>%
 #  ts_frequency("quarter")
-
 ts_dygraphs(ts_c(
   `Perceived Economic Situation` = data,
   `GDP growth` = target
   ,  `Consumer Sentiment` = target2
 ))
-
 ```
 
 ## Row {.tabset .tabset-fade data-height=50}
@@ -683,4 +692,3 @@ XXX DESCRIBE HOW THE DATA CAN BE DOWNLOADED? ANNOUNCE THAT CODE WILL BE AVAILABL
 # <font size="3">Contact</font> {data-icon="fa-at"}
 
 trendecon@gmail.com
-
