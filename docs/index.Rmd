@@ -2,10 +2,9 @@
 title: "trendEcon"
 output:
   flexdashboard::flex_dashboard:
-    theme: journal
+    theme: cerulean
     vertical_layout: scroll
     orientation: rows
-    css: "css_style_trendecon.css"
 ---
 
 ```{r setup, include=FALSE}
@@ -15,16 +14,7 @@ library(shiny)
 library(xts)
 library(tsbox)
 library(dplyr)
-
-
-trendecon_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv",index.column = 1))
-
-clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
-
-mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv",index.column = 1))
-
-luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
-
+library(readr)
 
 #kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
@@ -51,7 +41,7 @@ body {
 
 # <font size="3">Home</font> {data-icon="fa-home"}
 
-<font size="6">
+<font size="7">
 <span style="color:#080A47">
 <p align="center">
 trendEcon
@@ -67,35 +57,58 @@ How does the Swiss economy develop during the Covid19 pandemic?
 </span>
 </font>
 
-<font size="5">
-<span style="color:#080A47">
-<p align="center">
-Daily economic indicators based on Google searches in Switzerland
-</p>
-</span>
-</font>
-
-
-
-
 <font size="4.5"> 
 <p align="justify">
-Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. [More on how to use our indicators.](https://trendecon.github.io/dashboard/#indicators)
+This page provides daily economic indicators based on Google searches in Switzerland. Under the extraordinary circumstances caused by the Covid19 pandemic, the economy is moving too fast for the usual indicators we use to monitor economic activity. As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. While standard economic indicators such as the consumer sentiment index, GDP, or private consumption are available with a lag of 3 months or more, we update our Google search based indicators daily. More on [how to use our indicators.](#background)
 </p>
 </font>
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="2"><span style="color:#080A47">Perceived economic situation</span></font> {}
+### <font size="4"><span style="color:#080A47">Perceived economic situation</span></font> {}
 
 ```{r}
-dygraph(trendecon_sa,group = "keywords")%>%
+
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_all.csv") %>% 
+  filter(id=="seas_adj") %>% 
+  select(time,value) %>% 
+  timetk::tk_xts(date_col = time)
+
+dygraph(trendecon_all_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
-  dySeries("V1", label = "Index") %>%
+  dySeries("value", label = "Index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
                   height=20)
 ```
+
+
+### <font size="4"><span style="color:#080A47">Monthly</span></font> {}
+
+```{r}
+load(file="D:/kof/hackat/viz/dashboard/dashboard/docs/data_monthly.RData")
+#data <- read_keyword("trendecon", "sa") %>%
+#  ts_frequency("quarter")
+
+ts_dygraphs(ts_c(
+  `Perceived Economic Situation` = data_monthly
+)) %>%
+  dyRangeSelector()
+```
+
+
+### <font size="4"><span style="color:#080A47">Information</span></font> {}
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+keyword1, Keyword2
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_all.csv)
+</font>
+
 
 ## Row {.tabset .tabset-fade data-height=50}
 <font size="2">You can select...</font>
@@ -103,47 +116,134 @@ dygraph(trendecon_sa,group = "keywords")%>%
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="2"><span style="color:#080A47">Clothing</span></font>
+### <font size="4"><span style="color:#080A47">Clothing</span></font> {}
 ```{r}
-dygraph(clothing_sa,group = "keywords")%>%
+clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
+
+dygraph(clothing_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
-  dySeries("V1", label = "Clothing index") %>%
+  dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
                   height=10)
 ```
 
+### <font size="4"><span style="color:#080A47">Information</span></font> {}
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+keyword1, Keyword2
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv)
+</font>
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="2"><span style="color:#080A47">Mobility</span></font>
+### <font size="4"><span style="color:#080A47">Mobility</span></font> {}
 ```{r}
-dygraph(mobility_sa,group = "keywords")%>%
+mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv",index.column = 1))
+
+dygraph(mobility_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
-  dySeries("V1", label = "Mobility index") %>%
+  dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
                   height=10)
 ```
 
+### <font size="4"><span style="color:#080A47">Information</span></font> {}
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+keyword1, Keyword2
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv)
+</font>
+
 ## Row {.tabset .tabset-fade}
 
-### <font size="2"><span style="color:#080A47">Luxury</span></font>
+### <font size="4"><span style="color:#080A47">Luxury</span></font> {}
 ```{r}
-dygraph(luxury_sa,group = "keywords")%>%
+luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
+
+dygraph(luxury_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
-  dySeries("V1", label = "Clothing index") %>%
+  dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
                   height=10)
 ```
 
+### <font size="4"><span style="color:#080A47">Information</span></font> {}
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+keyword1, Keyword2
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv)
+</font>
+
 ## Row {.tabset .tabset-fade}
 
-### <font size="2"><span style="color:#080A47">Social Consumption</span></font>
+### <font size="4"><span style="color:#080A47">Social</span></font> {}
 ```{r}
+social_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv",index.column = 1))
 
+dygraph(social_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=10)
 ```
+
+### <font size="4"><span style="color:#080A47">Information</span></font> {}
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+keyword1, Keyword2
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv)
+</font>
+
+## Row {.tabset .tabset-fade}
+
+### <font size="4"><span style="color:#080A47">Travel</span></font> {}
+```{r}
+travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
+
+dygraph(travel_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=10)
+```
+
+### <font size="4"><span style="color:#080A47">Information</span></font> {}
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+keyword1, Keyword2
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv)
+</font>
+
 
 <!-- Background PAGE -->
 # <font size="3">Background</font> {data-icon="fa-info-circle"}
