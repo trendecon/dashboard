@@ -69,7 +69,7 @@ How does the Swiss economy develop on a daily basis? Under the extraordinary cir
 
 <font size="4.5"> 
 <p align="justify">
-As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. These indicators are updated daily and provide policymakers and business leaders with timely information about the Swiss economy. Here you find more information on [how to use our indicators.](#background) and you can download the [data](https://github.com/trendecon/data).
+As a solution, we provide a set of economic indicators for Switzerland based on Google search trends. These indicators are updated daily and provide policymakers and business leaders with timely information about the Swiss economy. Here you find more information on [how to use our indicators](#background) and you can download the [data](https://github.com/trendecon/data).
 </p>
 </font>
 
@@ -93,7 +93,7 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
 ```
 
 
-### <font size="4"><span style="color:#080A47">| Monthly |</span></font> {}
+### <font size="4"><span style="color:#080A47"> Monthly </span></font> {}
 
 ```{r}
 load(file="D:/kof/hackat/viz/dashboard/dashboard/docs/data_monthly.RData")
@@ -393,7 +393,7 @@ To provide a set of timely economic indicators, we source [Google Trends](https:
 </font>
 <font size="4.5"> 
 <p align="justify">
-When people become unemployed or fear they might lose their job, for example, they start searching for words like "unemployed". When people want to buy clothes, they likely type the name of fashion stores like “H&M” or “Zara”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
+When people become unemployed or fear they might lose their job, for example, they start searching for words like "arbeitslos" (unemployed). When people want to buy clothes, they likely type the name of fashion stores like “H&M” or “Zara”. Changes in these searches will then tell us something about unemployment or the demand for clothing.
 </p>
 </font>
 <font size="4.5"> 
@@ -598,8 +598,7 @@ Sampling issues in a small market
 
 <font size="4.5"> 
 <p align="justify">
-If you query Google Trends for a search term, e.g., *insolvenz*, the result is based on a subsample of all search [results](
-https://trends.google.com/trends/explore?date=today%201-m&geo=CH&q=insolvenz).
+If you query Google Trends for a search term, e.g., *insolvenz*, the result is based on a subsample of all search [results](https://trends.google.com/trends/explore?date=today%201-m&geo=CH&q=insolvenz).
 </p>
 </font>
 <font size="4.5"> 
@@ -663,7 +662,7 @@ In a second step, we bend the adjusted weekly series from the first step to the 
 </font>
 <font size="4.5"> 
 <p align="justify">
-[Literature] (https://journal.r-project.org/archive/2013/RJ-2013-028/index.html)
+[Literature](https://journal.r-project.org/archive/2013/RJ-2013-028/index.html)
 </p>
 </font>
 
@@ -682,9 +681,13 @@ Seasonal adjustment
 <font size="4.5"> 
 <p align="justify">
 Daily series have multiple seasonalities:
+
 - There is *weekly seasonality*: Search activities for business related activities may lower during the weekend. 
+
 - There is *monthly seasonality*: If salaries are paid by the end of the month, some kind of shopping may be more likely to occur afterwards. 
+
 - There is *yearly seasonality*: Flip flop is an unpopular search term in Winter, while Christmas is rarely looked up in Summer.
+
 - Finally, there are irregular holidays that occur at a different dates each year, such as Easter.
 </p>
 </font>
@@ -736,7 +739,7 @@ In a final step, we use principal component analysis (PCA) to extract the common
 <font size="6">
 <span style="color:#080A47">
 <p align="center">
-How we start
+About this project
 </p>
 </span>
 </font>
@@ -748,7 +751,7 @@ This project was born at the end of March 2020 as economists were in dire need t
 </font>
 <font size="4.5"> 
 <p align="justify">
- It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon [#VersusVirus](https://www.versusvirus.ch/).
+It started as a collaboration between economists working at the data consulting company [cynkra](https://www.cynkra.com/#), [KOF Swiss Economic Institute](https://kof.ethz.ch/en/), the economic forecast division of the State Secretariat for Economic Affairs ([SECO](https://www.seco.admin.ch/seco/en/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/konjunkturprognosen.html)), the Swiss Federation of Trade Unions ([SGB](https://www.sgb.ch/aktuell)) and the [University of St. Gallen](https://siaw.unisg.ch/).
 </p>
 </font>
 <font size="4.5"> 
@@ -807,12 +810,12 @@ trendecon@gmail.com
 ```
 
 <!-- Background PAGE -->
-# <font size="3">FAQ's</font> {data-icon="fa-question"}
+# <font size="3">FAQ</font> {data-icon="fa-question"}
 
 <font size="6">
 <span style="color:#080A47">
 <p align="center">
-FAQ's
+FAQ
 </p>
 </span>
 </font>
@@ -828,7 +831,7 @@ Why are these indicators different than just using Google Trends?
 
 <font size="4.5"> 
 <p align="justify">
-On [Google Trends](https://trends.google.de/trends/?geo=CH), you will find series based on a random sample of Google searches conducted in Switzerland. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We usually downloaded the data 12 times or more times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is not surprising that searches for gardening are higher in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See [Methods](#methods) for further details. 
+On [Google Trends](https://trends.google.de/trends/?geo=CH), you will find series based on a random sample of Google searches conducted in Switzerland. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We usually downloaded the data 12 times or more times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is not surprising that searches for gardening are higher in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See [Methods](#method) for further details. 
 </p>
 </font>
 
