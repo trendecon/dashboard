@@ -569,7 +569,7 @@ This project was born at the end of March 2020 as economists were in dire need t
 </font>
 <font size="4.5"> 
 <p align="justify">
-It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon [#VersusVirus](https://www.versusvirus.ch/). 
+It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), [cynkra](https://www.cynkra.com), a data consultancy company, and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon [#VersusVirus](https://www.versusvirus.ch/).
 </p>
 </font>
 <font size="4.5"> 
@@ -595,7 +595,7 @@ Contributors
 - [Isabel Martinez](www.isabelzmartinez.com) (Economist, ETH KOF, formerly SGB)
 - Nina Mühlebach (Economist, ETH KOF)
 - Furkan Oguz (Economist, ETH KOF)
-- Christoph Sax (Economist, Programmer and Founder, cynkra)
+- [Christoph Sax](https://www.cynkra.com/about.html) (Economist and data scientist, cynkra)
 - Kristina Schuepbach (Economist, SGB and University of Bern)
 - Severin Thöni (Programmer, ETH KOF)
 </p>
