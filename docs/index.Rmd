@@ -420,7 +420,7 @@ To ensure that our combinations of keywords lead to meaningful results, we compa
 </font>
 <font size="4.5"> 
 <p align="justify">
-The figure below shows how our main indicator on the perceived economic situation compares to quarterly GDP growth in Switzerland and the [consumer confidence index](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/Konsumentenstimmung.html). For comparison, we have aggregated our indicator to quarters. In this figure, the last observation of our indicators is based on Google searches from January to March 2020, the first quarter of the year. This explains why the drop looks less dramatic than when looking at daily data.
+The figure below shows how our main indicator on the perceived economic situation compares to [quarterly GDP](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/bip-quartalsschaetzungen-/daten.html) growth in Switzerland and the [consumer confidence index](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/Konsumentenstimmung.html). For comparison, we have aggregated our indicator to quarters. In this figure, the last observation of our indicators is based on Google searches from January to March 2020, the first quarter of the year. This explains why the drop looks less dramatic than when looking at daily data.
 </p>
 </font>
 
@@ -776,8 +776,8 @@ Contributors
 - [Angelica Becerra](https://www.linkedin.com/in/angelicambg/) (Statistician and Programmer, ETH KOF)
 - [Vera Z. Eichenauer](https://sites.google.com/view/vera-eichenauer/home) (Economist, ETH KOF)  
 - Ronald Indergand (Head of Short Term Economic Analyses, SECO)
-- [Stefan Legge](https://www.stefanlegge.com) (Economist, University of St.Gallen)
-- [Isabel Martinez](https://www.isabelzmartinez.com) (Economist, ETH KOF, formerly SGB)
+- [Stefan Legge](https://sites.google.com/view/stefanlegge) (Economist, University of St.Gallen)
+- [Isabel Martinez](https://sites.google.com/view/isabelzmartinez/home) (Economist, ETH KOF, formerly SGB)
 - Nina Mühlebach (Economist, ETH KOF)
 - Furkan Oguz (Economist, ETH KOF)
 - [Christoph Sax](https://www.cynkra.com/about.html) (Economist and data scientist, cynkra)
