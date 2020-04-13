@@ -477,7 +477,8 @@ data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/
 
 ts_dygraphs(ts_c(
   `Social Consumption` = data
-))
+)) %>% 
+  dySeries("value", label = "Cultural Events")
 
 ```
 
@@ -490,7 +491,8 @@ data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/
 
 ts_dygraphs(ts_c(
   `Gardening` = data
-))
+))%>% 
+  dySeries("value", label = "Gardening and Home Improvement")
 
 ```
 
@@ -746,7 +748,7 @@ This project was born at the end of March 2020 as economists were in dire need t
 </font>
 <font size="4.5"> 
 <p align="justify">
-It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), [cynkra](https://www.cynkra.com), a data consultancy company, and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon [#VersusVirus](https://www.versusvirus.ch/).
+ It started as a collaboration between economists working at the State Secretary of Economics (SECO), the Swiss Federation of Trade Unions (SGB), and KOF Economic Institute at ETH Zürich. Large parts of the work were done during our free time and during the Hackathon [#VersusVirus](https://www.versusvirus.ch/).
 </p>
 </font>
 <font size="4.5"> 
@@ -765,10 +767,10 @@ Contributors
 </font>
 <font size="4.5"> 
 <p style="margin-left:5em;margin-right:5em" align="justify">
-- Angelica Becerra (Statistician and Programmer, ETH KOF)
+- [Angelica Becerra](https://www.linkedin.com/in/angelicambg/) (Statistician and Programmer, ETH KOF)
 - [Vera Z. Eichenauer](https://sites.google.com/view/vera-eichenauer/home) (Economist, ETH KOF)  
 - Ronald Indergand (Head of Short Term Economic Analyses, SECO)
-- Stefan Legge (Economist, University of St.Gallen)
+- [Stefan Legge](www.stefanlegge.com) (Economist, University of St.Gallen)
 - [Isabel Martinez](www.isabelzmartinez.com) (Economist, ETH KOF, formerly SGB)
 - Nina Mühlebach (Economist, ETH KOF)
 - Furkan Oguz (Economist, ETH KOF)
@@ -777,6 +779,32 @@ Contributors
 - Severin Thöni (Programmer, ETH KOF)
 </p>
 </font>
+
+<font size="6">
+<span style="color:#080A47">
+<p align="center">
+Contact
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p style="margin-left:5em;margin-right:5em" align="center">
+trendecon@gmail.com
+</p>
+</font>
+
+
+## Row {.tabset .tabset-fade data-height=100}
+
+```{r echo = FALSE}
+
+
+```
+
+```{r echo = FALSE}
+
+
+```
 
 <!-- Background PAGE -->
 # <font size="3">FAQ's</font> {data-icon="fa-question"}
@@ -800,7 +828,7 @@ Why are these indicators different than just using Google Trends?
 
 <font size="4.5"> 
 <p align="justify">
-On [Google Trends](https://trends.google.de/trends/?geo=DE), you will find series based on a random sample of Google searches. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We downloaded the data many times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is normal that searches for gardening increase in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See **_Methods_** for further details. XXX LINK TO METHODS
+On [Google Trends](https://trends.google.de/trends/?geo=CH), you will find series based on a random sample of Google searches conducted in Switzerland. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We usually downloaded the data 12 times or more times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is not surprising that searches for gardening are higher in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See [Methods](#methods) for further details. 
 </p>
 </font>
 
@@ -816,23 +844,20 @@ Why did you use exactly these few keywords?
 
 <font size="4.5"> 
 <p align="justify">
-We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
+We carefully selected keywords based on expected consumer search behavior. For each indicator, we list the keywords next to the figure in the mini-tab *Info*. 
 </p>
 </font>
-
-<font size="4.5">
-<span style="color:#080A47">
-<p align="left">
-Why did you use exactly these few keywords? 
-</p>
-</span>
-</font>
-
 <font size="4.5"> 
 <p align="justify">
-We carefully selected keywords based on assumptions on consumer behavior. We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods. You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, Google does not return search trends based on too few searches. Some keywords are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity. 
+We try to stick to those keywords that are most likely to reflect the intention to consume certain types of goods and services rather than just having an interest in learning more about them. 
 </p>
 </font>
+<font size="4.5"> 
+<p align="justify">
+You'll probably still find that not every keyword that one might think of went into our indicator. This is due to the following reasons: First, to ensure privacy, [Google Trends](https://trends.google.de/trends/?geo=CH) does not return search trends based on a small number of searches. Some keywords of interest are therefore censored and return a lot of zeros. Second, other keywords do not show any significant changes over time that coincide with economic activity or changes in demand. These keywords contain no relevant information to go into our indicators. Finally, more is not always better. We use those keywords that correlate strongest with real economic activity.
+</p>
+</font>
+
 
 
 <font size="4.5">
@@ -846,7 +871,7 @@ Why do you use only German keywords?
 
 <font size="4.5"> 
 <p align="justify">
-For 63% of the population in Switzerland German is their main language. Search trends on Google are likely to be representative for the whole economy. Indeed, this is what we find if we compare our indicators to the existing target indicators like consumer sentiment. Due to Google's privacy restrictions, searches in French and Italian within Switzerland are more often to be censored than German ones. If keywords are censored, Google replaces observations with a zero and we cannot use the keyword. This is another reason why we opt for using names of stores or brands: these do not change depending on the language of the user.
+German is the main language of 63% of the population in Switzerland. Search trends on Google are likely to be representative for the whole economy. Indeed, this is what we find if we compare our indicators to the existing target indicators like consumer sentiment. Due to Google's privacy restrictions, searches in French and Italian within Switzerland are more often censored than German ones. If keywords are censored, Google replaces observations with a zero and we cannot use the keyword. This is another reason why we opt for using names of stores or brands: these do not depend on the language preferred by the Google user.
 </p>
 </font>
 
@@ -862,7 +887,28 @@ How reliable are these indicators?
 
 <font size="4.5"> 
 <p align="justify">
-We put a lot of effort into constructing daily, seasonally adjusted indicators that correlate with existing economic indicators. They can be used to say something about the evolution of demand for certain consumption categories. However, they remain indicators. We do not measure true economic activity as in number of t-shirts sold on a specific day or money spent on gardening equipment. Also note that this is an experiment in real time. If the correlation between search behavior and consumer demand changes, our indicators may improve or get worse in terms of tracking consumer demand. 
+We put a lot of effort into constructing daily, seasonally adjusted indicators that correlate with existing economic indicators. They can be used to say something about the evolution of demand for certain consumption categories. However, they remain indicators. We do not measure true economic activity as in number of T-shirts sold on a specific day or money spent on gardening equipment. Also note that this is an experiment in real time. If the correlation between search behavior and consumer demand changes, our indicators may become better or get worse in tracking consumer demand.
+</p>
+</font>
+
+
+<font size="4.5">
+<span style="color:#080A47">
+<p align="left">
+What do these indicators tell us?
+</p>
+</span>
+</font>
+
+
+<font size="4.5"> 
+<p align="justify">
+The indicators are based on search volumes for chosen keywords. However, the number of searches is unknown, as Google does not share this information to protect users' privacy. Depending on the indicator, you can interpret the indicators as *relative changes over time* in interest, concerns, or demand for certain topics, goods, or services. We list the keywords that went into the indicator to facilitate interpretation in the mini-tab *Info* next to the figure representing each indicator.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+The more technical and quantitative interpretation is as follows: all series are normalized such that the long-term equals zero and the standard deviation is one. E.g., an index value of 2 means that search volume for this item is two standard deviations above the average. 
 </p>
 </font>
 
@@ -878,9 +924,10 @@ What do these indicators not tell us?
 
 <font size="4.5"> 
 <p align="justify">
-XXX THIS CAN BE ANSWERED BEST ONCE WE HAVE THE SCALE / INTERPRETATION OF THE INDICATORS AND KNOW WHICH INDICATORS WE SHOW. THEN IT CAN BE EXPLAINED WITH AN EXAMPLE
+The indicators cannot quantify changes in GDP or total consumer demand. Given how the indicators are constructed, it is also impossible to infer growth rates. Google does not share the total number of searches to protect users' privacy makes it impossible to say something about absolute changes in search volumes.
 </p>
 </font>
+
 
 
 <font size="4.5">
@@ -894,13 +941,20 @@ How can I work with the data?
 
 <font size="4.5"> 
 <p align="justify">
-XXX DESCRIBE HOW THE DATA CAN BE DOWNLOADED? ANNOUNCE THAT CODE WILL BE AVAILABLE ON GITHUB?
+The data can be accessed [here](https://github.com/trendecon/data). Our indicator data is public and freely available under license Attribution-NonCommercial-ShareAlike 3.0 Unported [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/).
+This means that you can remix, adapt, and build upon this work non-commercially, as long as you credit us and license your new creations under the identical terms. [Source](https://creativecommons.org/licenses/)
 </p>
 </font>
 
 
+## Row {.tabset .tabset-fade data-height=100}
 
-<!-- Contact PAGE -->
-# <font size="3">Contact</font> {data-icon="fa-at"}
+```{r echo = FALSE}
 
-trendecon@gmail.com
+
+```
+
+```{r echo = FALSE}
+
+
+```
