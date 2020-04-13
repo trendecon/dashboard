@@ -109,13 +109,20 @@ ts_dygraphs(ts_c(
 
 ### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The indicator for *Perceived Economic Situation* includes search terms that reflect people’s worries about the economy. For instance, people then google “economic crisis” (Wirtschaftskrise).
+</p>
+</font>
+
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-- Wirtschaftskrise
-- Kurzarbeit
+- wirtschaftskrise
+- kurzarbeit
 - arbeitslos
-- Insolvenz
+- insolvenz
 </p>
 </font>
 <font size="3.5"> 
@@ -124,7 +131,7 @@ ts_dygraphs(ts_c(
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Clothing</span></font> {}
+### <font size="4"><span style="color:#080A47">Clothing and Shoes</span></font> {}
 ```{r}
 clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
 
@@ -138,17 +145,24 @@ dygraph(clothing_sa)%>%
 
 ### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The category *Clothing and Shoes* includes clothing and shoe stores as well as a general search terms related to buying clothes and shoes. We found that people directly google for the brands they like. Note: the searchword “zalando” was not included because Zalando was not available in Switzerland before 2011.
+</p>
+</font>
+
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-- Mango
-- Zara
+- mango
+- zara
 - H&M
 - PKZ
-- Blue Tomato
-- Dosenbach
-- Schuhe kaufen
-- Ochsner Schuhe
+- blue tomato
+- dosenbach
+- schuhe kaufen
+- ochsner schuhe
 </p>
 </font>
 <font size="3.5"> 
@@ -170,6 +184,13 @@ dygraph(mobility_sa)%>%
 ```
 
 ### <font size="4"><span style="color:#080A47">Info</span></font> {}
+
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The category *Mobility* includes search terms related to ground transportation: For instance, checking the railway schedule or calling a taxi.
+</p>
+</font>
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -225,7 +246,7 @@ The category *Watches and Jewellery* includes stores and brands selling luxuriou
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Social</span></font> {}
+### <font size="4"><span style="color:#080A47">Cultural Events</span></font> {}
 ```{r}
 social_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv",index.column = 1))
 
@@ -239,12 +260,19 @@ dygraph(social_sa)%>%
 
 ### <font size="4"><span style="color:#080A47">Info</span></font> {}
 
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The category *Cultural Events* includes search terms related to concerts, theatres, cinema and ticket providers for such events. 
+</p>
+</font>
+
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-- Kino
-- Theater
-- Cinema
+- kino
+- theater
+- cinema
 - ticketcorner
 - starticket
 - oper
@@ -257,7 +285,7 @@ dygraph(social_sa)%>%
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Travel</span></font> {}
+### <font size="4"><span style="color:#080A47">Travel Abroad</span></font> {}
 ```{r}
 travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
 
@@ -270,6 +298,13 @@ dygraph(travel_sa)%>%
 ```
 
 ### <font size="4"><span style="color:#080A47">Info</span></font> {}
+
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The category *Travel Abroad* includes search terms used to book flights and holidays. 
+</p>
+</font>
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
@@ -285,7 +320,7 @@ dygraph(travel_sa)%>%
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Gardening and do it yourself</span></font> {}
+### <font size="4"><span style="color:#080A47">Gardening and Home Improvement</span></font> {}
 ```{r}
 garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv",index.column = 1))
 
@@ -298,6 +333,14 @@ dygraph(garden_sa)%>%
 ```
 
 ### <font size="4"><span style="color:#080A47">Info</span></font> {}
+
+
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The category *Gardening and Home Improvement* includes stores selling materials for home improvement such as building materials, garden accessories and electrical supplies.
+</p>
+</font>
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
