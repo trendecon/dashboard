@@ -527,16 +527,14 @@ Second, this crisis is very different to previous ones as private demand drops l
 Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead to a permanent increase of the proportion of the population doing grocery shopping online. While there are currently two major supermarkets offering online shopping, people might start to search more and more for other shops offering this service.
 </p>
 </font>
-<br><br>
 
 <!-- METHOD PAGE -->
-
 # <font size="3">Method</font> {data-icon="fa-file-contract"}
 
 <font size="6">
 <span style="color:#080A47">
 <p align="center">
-The problem: we lack timely economic data
+Related research
 </p>
 </span>
 </p>
@@ -544,11 +542,190 @@ The problem: we lack timely economic data
 </font>
 <font size="4.5"> 
 <p align="justify">
-Official economic statistics are usually released with a considerable lag. For example, the consumer sentiment index, GDP, or private consumption data become available with a lag of up to several months. The pace at which economic conditions are currently changing, however, requires more timely economic indicators in order to monitor and forecast economic activity. Economists have come up with different innovative ways to monitor the economy based on daily data, e.g. using daily [electricity consumption](https://www.nytimes.com/interactive/2020/04/08/upshot/electricity-usage-predict-coronavirus-recession.html).
+Other researchers have explored using Google Trends for economic forecasts. [Ferrara & Simoni (2019)](https://drive.google.com/file/d/1KVcsn5aFCogqFiP4uormtg1GEnT7A4W9/view) argue that Google data bring useful information for GDP nowcasting for the four first weeks of the quarter when macroeconomic information is lacking. [Joni Heikkinen (2019)](https://jyx.jyu.fi/bitstream/handle/123456789/66363/URN%3ANBN%3Afi%3Ajyu-201911144867.pdf?sequence=1) applies the idea of nowcasting economic growth using Google Trends data to Germany and Finland. [Narita and Yin (2018)](https://ideas.repec.org/p/imf/imfwpa/18-286.html) have done so for low-income developing countries and Castelnuovo and Tran (2017) for the United States and Australia. 
 </p>
 </font>
 
-<br><br>
+<font size="4.5"> 
+<p align="justify">
+Specifically for consumption, [Woo and Owen (2019)](https://onlinelibrary.wiley.com/doi/full/10.1002/for.2559) document that Google Trends-augmented models provide additional information about consumption over and above survey-based consumer sentiment indicators.
+</p>
+</font>
+
+<font size="4.5"> 
+<p align="justify">
+Regarding key words that reflect economic sentiments and uncertainty, we build upon prior work by [Baker, Bloom, and Davis (2016)](https://academic.oup.com/qje/article/131/4/1593/2468873).
+</p>
+</font>
+
+<font size="6">
+<span style="color:#080A47">
+<p align="center">
+Related indicators
+</p>
+</span>
+</p>
+</span>
+</font>
+
+<font size="4.5"> 
+<p align="justify">
+Since 1972, SECO conducts the [Consumer Sentiment](https://www.seco.admin.ch/seco/en/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/Konsumentenstimmung.html) survey on a quarterly basis (in January, April, July and October). Its aim is to compile data from around 1'000 households on subjective assessments and expectations with respect to the general state of the economy, the consumers' financial situation, the development of prices, job security and so forth. Similar indicators on consumer confidence based on surveys include the [OECD's Consumer Confidence Index](https://data.oecd.org/leadind/consumer-confidence-index-cci.htm), the [University of Michigan's Consumer Sentiment Index](https://data.sca.isr.umich.edu/), the [Economic Policy Uncertainty Index](http://www.policyuncertainty.com/), or [CNN's Fear and Greed Index](https://money.cnn.com/data/fear-and-greed/).
+</p>
+</font>
+
+<font size="6">
+<span style="color:#080A47">
+<p align="center">
+Method
+</p>
+</span>
+</p>
+</span>
+</font>
+
+<font size="5">
+<span style="color:#080A47">
+<p align="left">
+Sampling issues in a small market
+</p>
+</span>
+</p>
+</span>
+</font>
+
+<font size="4.5"> 
+<p align="justify">
+If you query Google Trends for a search term, e.g., *insolvenz*, the result is based on a subsample of all search [results](
+https://trends.google.com/trends/explore?date=today%201-m&geo=CH&q=insolvenz).
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+For a small country like Switzerland, these results may differ quite dramatically from sample to sample.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+In order to alleviate the problem, we usually draw 12  or more samples for each series (keyword and frequency). We force Google to re-sample by choosing a different time window.
+</p>
+</font>
+
+
+<font size="5">
+<span style="color:#080A47">
+<p align="left">
+Creating long daily series
+</p>
+</span>
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p align="justify">
+Google search results are available on a daily, weekly or monthly frequency. As with individual samples, querying Google at a different frequency will lead to substantially different results.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+Our goal is to produce long daily time series, ideally from 2006.
+This is mostly because we want to use the financial crisis of 2008 and 2009 as a benchmark for the Covid-19 crisis. However, Google does not provide daily or weekly data for such a long time period. We circumvent the problem by applying a moving window of daily and weekly queries over the whole time period.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+Since the daily, weekly and monthly series are still very different, we want to combine them into a single daily series.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+Our next steps are based on the following assumptions:
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+- Monthly data catches the long term trend in search activity in the most accurate way.
+- Weekly data is best to analyze the searches over the medium term, i.e., over a few months.
+- Daily data is best to analyze short term behavior over a few days and weeks.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+With this in mind, we apply the following methodology. In a first step, we "bend" the daily series to the weekly values, by applying a variant of the [Chow-Lin (1971)](https://doi.org/10.2307/1928739) method. This preserves the movement of the daily series and ensures that weekly averages are identical to the original weekly series.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+In a second step, we bend the adjusted weekly series from the first step to the monthly values, using the same method again. This produces a series that maintains most of the movement of the daily and the weekly series, but has the same monthly averages as the monthly series. This series are used for further processing described in the subsequent sections.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+[Literature] (https://journal.r-project.org/archive/2013/RJ-2013-028/index.html)
+</p>
+</font>
+
+
+
+
+<font size="5">
+<span style="color:#080A47">
+<p align="left">
+Seasonal adjustment
+</p>
+</span>
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p align="justify">
+Daily series have multiple seasonalities:
+- There is *weekly seasonality*: Search activities for business related activities may lower during the weekend. 
+- There is *monthly seasonality*: If salaries are paid by the end of the month, some kind of shopping may be more likely to occur afterwards. 
+- There is *yearly seasonality*: Flip flop is an unpopular search term in Winter, while Christmas is rarely looked up in Summer.
+- Finally, there are irregular holidays that occur at a different dates each year, such as Easter.
+</p>
+</font>
+<font size="4.5"> 
+<p align="justify">
+We use the [Prophet procedure](https://peerj.com/preprints/3190/) for estimating an additive model where non-linear
+trends are fit with yearly and weekly seasonality and the holiday ?effects. The
+procedure is fully automated and easy to use, but has a few drawbacks. It does
+not model monthly seasonality and all the seasonal effects are assumed to be constant over time.
+</p>
+</font>
+
+
+
+
+
+<font size="5">
+<span style="color:#080A47">
+<p align="left">
+Aggregation of indicators
+</p>
+</span>
+</p>
+</span>
+</font>
+<font size="4.5"> 
+<p align="justify">
+In a final step, we use principal component analysis (PCA) to extract the common signal from a group of seasonally adjusted, daily time series. The idea of PCA is to identify several principal components that summarize most of the variance in the data. We then use the first principal component as our index. We manually checked the factor loadings and scores and adjusted the variable selection if needed.
+</p>
+</font>
+
+
+## Row {.tabset .tabset-fade data-height=100}
+
+```{r echo = FALSE}
+
+
+```
+
+```{r echo = FALSE}
+
+
+```
 
 
 <!-- ABOUT PAGE -->
