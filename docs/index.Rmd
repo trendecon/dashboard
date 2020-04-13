@@ -496,6 +496,7 @@ ts_dygraphs(ts_c(
 
 ```
 
+<br>
 <font size="6">
 <span style="color:#080A47">
 <p align="center">
@@ -646,7 +647,9 @@ Our next steps are based on the following assumptions:
 <font size="4.5"> 
 <p align="justify">
 - Monthly data catches the long term trend in search activity in the most accurate way.
+
 - Weekly data is best to analyze the searches over the medium term, i.e., over a few months.
+
 - Daily data is best to analyze short term behavior over a few days and weeks.
 </p>
 </font>
@@ -682,19 +685,19 @@ Seasonal adjustment
 <p align="justify">
 Daily series have multiple seasonalities:
 
-- There is *weekly seasonality*: Search activities for business related activities may lower during the weekend. 
+- There is *weekly seasonality* : Search activities for business related activities may lower during the weekend. 
 
-- There is *monthly seasonality*: If salaries are paid by the end of the month, some kind of shopping may be more likely to occur afterwards. 
+- There is *monthly seasonality* : If salaries are paid by the end of the month, some kind of shopping may be more likely to occur afterwards. 
 
-- There is *yearly seasonality*: Flip flop is an unpopular search term in Winter, while Christmas is rarely looked up in Summer.
+- There is *yearly seasonality* : Flip flop is an unpopular search term in Winter, while Christmas is rarely looked up in Summer.
 
-- Finally, there are irregular holidays that occur at a different dates each year, such as Easter.
+- Finally, there are *irregular holidays* that occur at a different dates each year, such as Easter.
 </p>
 </font>
 <font size="4.5"> 
 <p align="justify">
 We use the [Prophet procedure](https://peerj.com/preprints/3190/) for estimating an additive model where non-linear
-trends are fit with yearly and weekly seasonality and the holiday ?effects. The
+trends are fit with yearly and weekly seasonality and the holiday effects. The
 procedure is fully automated and easy to use, but has a few drawbacks. It does
 not model monthly seasonality and all the seasonal effects are assumed to be constant over time.
 </p>
@@ -773,8 +776,8 @@ Contributors
 - [Angelica Becerra](https://www.linkedin.com/in/angelicambg/) (Statistician and Programmer, ETH KOF)
 - [Vera Z. Eichenauer](https://sites.google.com/view/vera-eichenauer/home) (Economist, ETH KOF)  
 - Ronald Indergand (Head of Short Term Economic Analyses, SECO)
-- [Stefan Legge](www.stefanlegge.com) (Economist, University of St.Gallen)
-- [Isabel Martinez](www.isabelzmartinez.com) (Economist, ETH KOF, formerly SGB)
+- [Stefan Legge](https://www.stefanlegge.com) (Economist, University of St.Gallen)
+- [Isabel Martinez](https://www.isabelzmartinez.com) (Economist, ETH KOF, formerly SGB)
 - Nina Mühlebach (Economist, ETH KOF)
 - Furkan Oguz (Economist, ETH KOF)
 - [Christoph Sax](https://www.cynkra.com/about.html) (Economist and data scientist, cynkra)
@@ -823,7 +826,7 @@ FAQ
 <font size="4.5">
 <span style="color:#080A47">
 <p align="left">
-Why are these indicators different than just using Google Trends?
+<u>Why are these indicators different than just using Google Trends?</u>
 </p>
 </span>
 </font>
@@ -831,7 +834,7 @@ Why are these indicators different than just using Google Trends?
 
 <font size="4.5"> 
 <p align="justify">
-On [Google Trends](https://trends.google.de/trends/?geo=CH), you will find series based on a random sample of Google searches conducted in Switzerland. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We usually downloaded the data 12 times or more times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is not surprising that searches for gardening are higher in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See [Methods](#method) for further details. 
+On [Google Trends](https://trends.google.de/trends/?geo=CH), you will find series based on a random sample of Google searches conducted in Switzerland. Depending on the time frame you choose, Google returns daily, weekly, or monthly data. We usually downloaded the data 12 times or more times to construct long-run data with a daily frequency. We further adjust the data for seasonal patterns in searches. It is not surprising that searches for gardening are higher in spring. To make meaningful comparisons over time, these seasonal patterns are removed. Finally, our indicators are not based on one single keyword but several keywords are aggregated into one indicator. See [Method](https://www.trendecon.org/#method) for further details. 
 </p>
 </font>
 
@@ -840,7 +843,7 @@ On [Google Trends](https://trends.google.de/trends/?geo=CH), you will find serie
 <font size="4.5">
 <span style="color:#080A47">
 <p align="left">
-Why did you use exactly these few keywords? 
+<u>Why did you use exactly these few keywords?</u> 
 </p>
 </span>
 </font>
@@ -866,7 +869,7 @@ You'll probably still find that not every keyword that one might think of went i
 <font size="4.5">
 <span style="color:#080A47">
 <p align="left">
-Why do you use only German keywords? 
+<u>Why do you use only German keywords?</u>
 </p>
 </span>
 </font>
@@ -882,7 +885,7 @@ German is the main language of 63% of the population in Switzerland. Search tren
 <font size="4.5">
 <span style="color:#080A47">
 <p align="left">
-How reliable are these indicators?
+<u>How reliable are these indicators?</u>
 </p>
 </span>
 </font>
@@ -898,7 +901,7 @@ We put a lot of effort into constructing daily, seasonally adjusted indicators t
 <font size="4.5">
 <span style="color:#080A47">
 <p align="left">
-What do these indicators tell us?
+<u>What do these indicators tell us?</u>
 </p>
 </span>
 </font>
@@ -919,7 +922,7 @@ The more technical and quantitative interpretation is as follows: all series are
 <font size="4.5">
 <span style="color:#080A47">
 <p align="left">
-What do these indicators not tell us?
+<u>What do these indicators not tell us?</u>
 </p>
 </span>
 </font>
@@ -936,7 +939,7 @@ The indicators cannot quantify changes in GDP or total consumer demand. Given ho
 <font size="4.5">
 <span style="color:#080A47">
 <p align="left">
-How can I work with the data?
+<u>How can I work with the data?</u>
 </p>
 </span>
 </font>
