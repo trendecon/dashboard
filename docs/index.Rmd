@@ -131,11 +131,11 @@ The indicator for *Perceived Economic Situation* includes search terms that refl
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Clothing and Shoes</span></font> {}
+### <font size="4"><span style="color:#080A47">Watches and Jewellery</span></font> {}
 ```{r}
-clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
+luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
 
-dygraph(clothing_sa)%>%
+dygraph(luxury_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
@@ -148,25 +148,24 @@ dygraph(clothing_sa)%>%
 <font size="4"><span style="color:#080A47">Description</span></font>
 <font size="3.5"> 
 <p align="justify">
-The category *Clothing and Shoes* includes clothing and shoe stores as well as a general search terms related to buying clothes and shoes. We found that people directly google for the brands they like. Note: the searchword “zalando” was not included because Zalando was not available in Switzerland before 2011.
+The category *Watches and Jewellery* includes stores and brands selling luxurious watches and jewellery goods and related, more general search terms for luxury consumer goods.
 </p>
 </font>
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-- mango
-- zara
-- H&M
-- PKZ
-- blue tomato
-- dosenbach
-- schuhe kaufen
-- ochsner schuhe
+- christ
+- bucherer
+- uhren
+- uhr
+- swarovski
+- rhomberg
+- juwelier
 </p>
 </font>
 <font size="3.5"> 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv)
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv)
 </font>
 
 ## Row {.tabset .tabset-fade}
@@ -207,11 +206,11 @@ The category *Mobility* includes search terms related to ground transportation: 
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Watches and Jewellery</span></font> {}
+### <font size="4"><span style="color:#080A47">Travel Abroad</span></font> {}
 ```{r}
-luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
+travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
 
-dygraph(luxury_sa)%>%
+dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
@@ -224,25 +223,22 @@ dygraph(luxury_sa)%>%
 <font size="4"><span style="color:#080A47">Description</span></font>
 <font size="3.5"> 
 <p align="justify">
-The category *Watches and Jewellery* includes stores and brands selling luxurious watches and jewellery goods and related, more general search terms for luxury consumer goods.
+The category *Travel Abroad* includes search terms used to book flights and holidays. 
 </p>
 </font>
 
 <font size="4"><span style="color:#080A47">Keywords</span></font>
 <font size="3.5"> 
 <p align="justify">
-- christ
-- bucherer
-- uhren
-- uhr
-- swarovski
-- rhomberg
-- juwelier
+- städtetrip
+- flug buchen
+- günstige flüge
 </p>
 </font>
 <font size="3.5"> 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv)
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv)
 </font>
+
 
 ## Row {.tabset .tabset-fade}
 
@@ -283,40 +279,6 @@ The category *Cultural Events* includes search terms related to concerts, theatr
 [Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv)
 </font>
 
-## Row {.tabset .tabset-fade}
-
-### <font size="4"><span style="color:#080A47">Travel Abroad</span></font> {}
-```{r}
-travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
-
-dygraph(travel_sa)%>%
-  dyAxis("x", drawGrid = FALSE)%>%
-  dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
-                  height=10)
-```
-
-### <font size="4"><span style="color:#080A47">Info</span></font> {}
-
-<font size="4"><span style="color:#080A47">Description</span></font>
-<font size="3.5"> 
-<p align="justify">
-The category *Travel Abroad* includes search terms used to book flights and holidays. 
-</p>
-</font>
-
-<font size="4"><span style="color:#080A47">Keywords</span></font>
-<font size="3.5"> 
-<p align="justify">
-- städtetrip
-- flug buchen
-- günstige flüge
-</p>
-</font>
-<font size="3.5"> 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv)
-</font>
 
 ## Row {.tabset .tabset-fade}
 
@@ -357,6 +319,48 @@ The category *Gardening and Home Improvement* includes stores selling materials 
 <font size="3.5"> 
 [Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv)
 </font>
+
+## Row {.tabset .tabset-fade}
+
+### <font size="4"><span style="color:#080A47">Clothing and Shoes</span></font> {}
+```{r}
+clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
+
+dygraph(clothing_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=10)
+```
+
+### <font size="4"><span style="color:#080A47">Info</span></font> {}
+
+<font size="4"><span style="color:#080A47">Description</span></font>
+<font size="3.5"> 
+<p align="justify">
+The category *Clothing and Shoes* includes clothing and shoe stores as well as a general search terms related to buying clothes and shoes. We found that people directly google for the brands they like. Note: the searchword “zalando” was not included because Zalando was not available in Switzerland before 2011.
+</p>
+</font>
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+- mango
+- zara
+- H&M
+- PKZ
+- blue tomato
+- dosenbach
+- schuhe kaufen
+- ochsner schuhe
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv)
+</font>
+
+
 
 <!-- Background PAGE -->
 # <font size="3">Background</font> {data-icon="fa-info-circle"}
