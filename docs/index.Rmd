@@ -96,9 +96,9 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
 ### <font size="4"><span style="color:#080A47"> Monthly </span></font> {}
 
 ```{r}
-load(file="D:/kof/hackat/viz/dashboard/dashboard/docs/data_monthly.RData")
-#data <- read_keyword("trendecon", "sa") %>%
-#  ts_frequency("quarter")
+
+data_monthly <- trendecon_all_sa %>%
+  ts_frequency("month")
 
 ts_dygraphs(ts_c(
   `Perceived Economic Situation` = data_monthly
