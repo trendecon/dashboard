@@ -244,6 +244,31 @@ keyword1, Keyword2
 [Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv)
 </font>
 
+## Row {.tabset .tabset-fade}
+
+### <font size="4"><span style="color:#080A47">Garden</span></font> {}
+```{r}
+garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv",index.column = 1))
+
+dygraph(garden_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+                  height=10)
+```
+
+### <font size="4"><span style="color:#080A47">Information</span></font> {}
+
+<font size="4"><span style="color:#080A47">Keywords</span></font>
+<font size="3.5"> 
+<p align="justify">
+keyword1, Keyword2
+</p>
+</font>
+<font size="3.5"> 
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv)
+</font>
 
 <!-- Background PAGE -->
 # <font size="3">Background</font> {data-icon="fa-info-circle"}
@@ -453,6 +478,14 @@ As a final step, we use principal component analysis (PCA) to extract the common
 
 <!-- ABOUT PAGE -->
 # <font size="3">Team</font> {data-icon="fa-users"}
+
+<font size="6">
+<span style="color:#080A47">
+<p align="center">
+How we start
+</p>
+</span>
+</font>
 
 <font size="4.5"> 
 <p align="justify">
