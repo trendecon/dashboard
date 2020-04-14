@@ -737,7 +737,7 @@ Access our data</u>
 <font size="4.5">
 <p align="justify">
 The data can be accessed [here](https://github.com/trendecon/data){target="_blank"}. Our indicator data is public and freely available under license Attribution-NonCommercial-ShareAlike 3.0 Unported [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/){target="_blank"}.
-This means that you can remix, adapt, and build upon this work non-commercially, as long as you credit us and license your new creations under the identical terms. [Source](https://creativecommons.org/licenses/){target="_blank"}
+This means that you can remix, adapt, and build upon this work non-commercially, as long as you credit us and license your new creations under the identical terms.
 </p>
 </font>
 
@@ -969,7 +969,7 @@ The indicators cannot quantify changes in GDP or total consumer demand. Given ho
 <font size="4.5">
 <p align="justify">
 The data can be accessed [here](https://github.com/trendecon/data){target="_blank"}. Our indicator data is public and freely available under license Attribution-NonCommercial-ShareAlike 3.0 Unported [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/){target="_blank"}.
-This means that you can remix, adapt, and build upon this work non-commercially, as long as you credit us and license your new creations under the identical terms. [Source](https://creativecommons.org/licenses/){target="_blank"}
+This means that you can remix, adapt, and build upon this work non-commercially, as long as you credit us and license your new creations under the identical terms.
 </p>
 </font>
 
