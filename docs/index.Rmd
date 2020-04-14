@@ -18,8 +18,6 @@ library(xts)
 library(tsbox)
 library(dplyr)
 library(readr)
-
-#kons <- dataseries::ds("ch_seco_gdp.sa.real.han", "xts")
 ```
 
 <style>
@@ -38,9 +36,9 @@ body {
 }
 </style>
 
-
-
-<!-- HOME PAGE -->
+<!----------------------------------------------------------------------->
+<!---------------------------------------------------------- HOME PAGE -->
+<!----------------------------------------------------------------------->
 
 # <font size="3">Home</font> {data-icon="fa-home"}
 
@@ -362,7 +360,9 @@ The category *Clothing and Shoes* includes clothing and shoe stores as well as a
 
 
 
-<!-- Background PAGE -->
+<!----------------------------------------------------------------------->
+<!---------------------------------------------------- BACKGROUND PAGE -->
+<!----------------------------------------------------------------------->
 # <font size="3">Background</font> {data-icon="fa-info-circle"}
 
 <font size="6">
@@ -530,8 +530,11 @@ Second, this crisis is very different to previous ones as private demand drops l
 Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead to a permanent increase of the proportion of the population doing grocery shopping online. While there are currently two major supermarkets offering online shopping, people might start to search more and more for other shops offering this service.
 </p>
 </font>
+<br><br><br><br>
 
-<!-- METHOD PAGE -->
+<!----------------------------------------------------------------------->
+<!-------------------------------------------------------- METHOD PAGE -->
+<!----------------------------------------------------------------------->
 # <font size="3">Method</font> {data-icon="fa-file-contract"}
 
 <font size="6">
@@ -735,8 +738,9 @@ In a final step, we use principal component analysis (PCA) to extract the common
 
 ```
 
-
-<!-- ABOUT PAGE -->
+<!----------------------------------------------------------------------->
+<!--------------------------------------------------------- ABOUT PAGE -->
+<!----------------------------------------------------------------------->
 # <font size="3">About this project</font> {data-icon="fa-users"}
 
 <font size="6">
@@ -811,8 +815,9 @@ trendecon@gmail.com
 
 
 ```
-
-<!-- Background PAGE -->
+<!----------------------------------------------------------------------->
+<!----------------------------------------------------------- FAQ PAGE -->
+<!----------------------------------------------------------------------->
 # <font size="3">FAQ</font> {data-icon="fa-question"}
 
 <font size="6">
