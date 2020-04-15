@@ -2,6 +2,7 @@
 title: "trendEcon"
 output:
   flexdashboard::flex_dashboard:
+    css: docs.css
     theme: united
     vertical_layout: scroll
     orientation: rows
@@ -22,21 +23,6 @@ library(readr)
 today <- as.character(Sys.Date())
 ```
 
-<style>
-body {
-  padding: 100px 250px 100px 250px;
-}
-@media (max-width: 800px) {
-    .container {
-      padding:0;
-      margin:0;
-    }
-
-    body {
-      padding: 100px 30px 30px 30px;
-    }
-}
-</style>
 
 <!----------------------------------------------------------------------->
 <!---------------------------------------------------------- HOME PAGE -->
@@ -75,7 +61,8 @@ As a solution, we provide a set of economic indicators for Switzerland based on 
 
 ## Row {.tabset .tabset-fade}
 
-### <font size="4"><span style="color:#080A47">Perceived Economic Situation (daily)</span></font> {}
+
+### Perceived Economic Situation (daily)
 
 ```{r}
 
@@ -93,7 +80,7 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
 ```
 
 
-### <font size="4"><span style="color:#080A47"> Monthly </span></font> {}
+### Monthly
 
 ```{r}
 
@@ -107,7 +94,7 @@ ts_dygraphs(ts_c(
 ```
 
 
-### <font size="4"><span style="color:#080A47">Info</span></font> {}
+### Info
 
 <font size="4"><span style="color:#080A47">Description</span></font>
 <font size="3.5">
@@ -408,13 +395,10 @@ These indicators provide insights about the abrupt economic changes we are curre
 Our main indicator on the *Perceived Economic Situation* captures macroeconomic fluctuations. The other indicators focus on private consumption because i) of its overall importance for economic growth: private consumption makes up over [60% of Swiss GDP](https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/wohlfahrtsmessung/wohlfahrt/wohnsituation/konsum-sparen.html){target="_blank"}; ii) in this crisis, private consumption is hit hardest: due to closures of restaurants, stores, cinemas etc. private consumption is severely limited. This situation is very different to a financial crisis like the one that occurred in 2008/2009 and mainly hit the supply side of the Swiss economy.
 </p>
 </font>
-<font size="6">
-<span style="color:#080A47">
-<p align="center">
-How accurate are these indicators?
-</p>
-</span>
-</font>
+
+
+#### How accurate are these indicators?
+
 <font size="4.5">
 <p align="justify">
 To ensure that our combinations of keywords lead to meaningful results, we compare our indicators to existing measures, namely the consumer sentiment index, GDP, and components of private consumption expenditure whenever they provide a meaningful comparison. Our indicators broadly coincide with existing economic time series over the past 13 years, including the recession in 2009. However, note that our indicators do not attempt to replicate or replace any existing time series.
