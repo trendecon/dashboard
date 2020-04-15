@@ -18,6 +18,8 @@ library(xts)
 library(tsbox)
 library(dplyr)
 library(readr)
+
+today <- as.character(Sys.Date())
 ```
 
 <style>
@@ -86,7 +88,7 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("value", label = "Index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+  dyRangeSelector(dateWindow = c("2020-01-01", today),
                   height=20)
 ```
 
@@ -137,7 +139,7 @@ dygraph(luxury_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+  dyRangeSelector(dateWindow = c("2020-01-01", today),
                   height=10)
 ```
 
@@ -176,7 +178,7 @@ dygraph(mobility_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+  dyRangeSelector(dateWindow = c("2020-01-01", today),
                   height=10)
 ```
 
@@ -212,7 +214,7 @@ dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+  dyRangeSelector(dateWindow = c("2020-01-01", today),
                   height=10)
 ```
 
@@ -248,7 +250,7 @@ dygraph(social_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+  dyRangeSelector(dateWindow = c("2020-01-01", today),
                   height=10)
 ```
 
@@ -288,7 +290,7 @@ dygraph(garden_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+  dyRangeSelector(dateWindow = c("2020-01-01", today),
                   height=10)
 ```
 
@@ -328,7 +330,7 @@ dygraph(clothing_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", "2020-04-08"),
+  dyRangeSelector(dateWindow = c("2020-01-01", today),
                   height=10)
 ```
 
