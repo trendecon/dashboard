@@ -1,0 +1,63 @@
+body {
+  padding: 100px 250px 100px 250px;
+}
+@media (max-width: 800px) {
+    .container {
+      padding:0;
+      margin:0;
+    }
+
+    body {
+      padding: 100px 30px 30px 30px;
+    }
+}
+
+
+/* tab titles */
+.nav-tabs-custom > .nav-tabs > li > a {
+  font-size: 13pt !important;
+  color: #080A47 !important;
+}
+
+/* main text header (start at h4*/
+h3 {
+  font-size: 32pt;
+  color: #080A47;
+  text-align: center;
+  text-shadow: 1px 1px 2px pink;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 24pt;
+  color: #080A47;
+  text-align: center;
+}
+
+h5 {
+  font-size: 18pt;
+  color: #080A47;
+  text-align: left;
+}
+
+h6 {
+  font-size: 13pt;
+  color: #080A47;
+  text-align: justify;
+  text-decoration:underline;
+}
+
+ul {
+  text-align: justify;
+  font-size: 13pt;
+}
+/* main text*/
+
+/* With this, don't have to wrap each paragraph into html. Adding it will change
+some of your formatting that is based on font size */
+
+p {
+  text-align: justify;
+  font-size: 13pt;
+}
+
