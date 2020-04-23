@@ -52,8 +52,7 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("value", label = "Index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", today),
-                  height=20)
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
 ### Monthly
@@ -94,8 +93,7 @@ dygraph(luxury_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", today),
-                  height=10)
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
 ### Info
@@ -127,8 +125,7 @@ dygraph(mobility_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", today),
-                  height=10)
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
 ### Info
@@ -156,8 +153,7 @@ dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", today),
-                  height=10)
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
 ### Info
@@ -185,8 +181,7 @@ dygraph(social_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", today),
-                  height=10)
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
 ### Info
@@ -218,8 +213,7 @@ dygraph(garden_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", today),
-                  height=10)
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
 ### Info
@@ -299,6 +293,9 @@ To ensure that our combinations of keywords lead to meaningful results, we compa
 
 The figure below shows how our main indicator on the perceived economic situation compares to [quarterly GDP](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/bip-quartalsschaetzungen-/daten.html){target="_blank"} growth in Switzerland and the [consumer confidence index](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/Konsumentenstimmung.html){target="_blank"}. For comparison, we have aggregated our indicator to quarters. In this figure, the last observation of our indicators is based on Google searches from January to March 2020, the first quarter of the year. This explains why the drop looks less dramatic than when looking at daily data.
 
+## Row
+
+### {}
 ```{r}
 target <-
   dataseries::ds("ch_seco_gdp.sa.real.gdp", "xts") %>%
@@ -327,16 +324,24 @@ ts_dygraphs(ts_c(
   `Perceived Economic Situation` = data,
   `GDP growth` = target,
   `Consumer Sentiment` = target2
-))%>%
+)) %>%
   dySeries("Perceived Economic Situation", strokeWidth=3) %>%
   dySeries("GDP growth", strokePattern = "dashed") %>%
-  dySeries("Consumer Sentiment", strokePattern = "dotted")
+  dySeries("Consumer Sentiment", strokePattern = "dotted") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyRangeSelector()
+
 ```
 
-## Row {.tabset .tabset-fade data-height=100}
+## Row 
+
+### {style="border: 0px; background: none"}
 
 For some indicators, such as *Cultural Events* -- which includes demand for restaurants, cinemas, concerts etc. -- or *Gardening and Home Improvement* (aka do-it-yourself articles), there is no preexisting, well-established indicator to compare our search-based indicators with. Nevertheless these indicators appear meaningful, as we are observing substantial changes in searches for these goods and services compared to normal times. These indicators will therefore provide valuable information on whether the economy is going back to normal as lock-down measures are lifted. In the beginning, some people, especially people in risk groups, may still be be reluctant to go, for example, to restaurants or stroll around shopping malls because they are afraid of contracting the virus.
 
+## Row
+
+### Cultural Events
 ```{r echo = FALSE}
 data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv") %>%
   ts_span(2019)
@@ -347,10 +352,15 @@ data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/
 ts_dygraphs(ts_c(
   `Social Consumption` = data
 )) %>%
-  dySeries("value", label = "Cultural Events")
+  dySeries("value", label = "Cultural Events") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyRangeSelector()
 
 ```
 
+## Row
+
+### Gardening and Home Improvement
 ```{r echo = FALSE}
 data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv") %>%
   ts_span(2019)
@@ -361,11 +371,15 @@ data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/
 ts_dygraphs(ts_c(
   `Gardening` = data
 ))%>%
-  dySeries("value", label = "Gardening and Home Improvement")
+  dySeries("value", label = "Gardening and Home Improvement") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyRangeSelector()
 
 ```
 
 <br>
+
+## Row {.tabset .tabset-fade}
 
 #### **Limitations**
 
@@ -383,6 +397,8 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 <!-------------------------------------------------------- METHOD PAGE -->
 <!----------------------------------------------------------------------->
 # <font size="3">Method</font> {data-icon="fa-file-contract"}
+
+### {style="border: 0px; background: none"}
 
 #### **Related research**
 
@@ -455,22 +471,12 @@ In a final step, we use principal component analysis (PCA) to extract the common
 The data can be accessed [here](https://github.com/trendecon/data){target="_blank"}. Our indicator data is public and freely available under license Attribution 4.0 International [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/){target="_blank"}.
 This means that you can remix, adapt, and build upon this work non-commercially, as long as you credit us and license your new creations under the identical terms.
 
-## Row {.tabset .tabset-fade data-height=100}
-
-```{r echo = FALSE}
-
-
-```
-
-```{r echo = FALSE}
-
-
-```
-
 <!----------------------------------------------------------------------->
 <!--------------------------------------------------------- ABOUT PAGE -->
 <!----------------------------------------------------------------------->
 # <font size="3">About this project</font> {data-icon="fa-users"}
+
+### {style="border: 0px; background: none"}
 
 #### **About this project**
 
@@ -497,17 +503,6 @@ We will continue to work on this project along the way and possibly add further 
 
 #### trendecon@gmail.com
 
-## Row {.tabset .tabset-fade data-height=100}
-
-```{r echo = FALSE}
-
-
-```
-
-```{r echo = FALSE}
-
-
-```
 <!----------------------------------------------------------------------->
 <!----------------------------------------------------------- FAQ PAGE -->
 <!----------------------------------------------------------------------->
