@@ -245,8 +245,7 @@ dygraph(clothing_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyRangeSelector(dateWindow = c("2020-01-01", today),
-                  height=10)
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
 ### Info
