@@ -6,7 +6,7 @@ output:
     theme: united
     vertical_layout: scroll
     orientation: rows
-    social: menu
+    social: ["menu"]
     navbar:
       - { icon: "fa-github", title: "Data", href: "https://github.com/trendecon/data", align: right}
 ---
