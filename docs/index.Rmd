@@ -12,9 +12,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-library(flexdashboard)
 library(dygraphs)
-library(shiny)
 library(xts)
 library(tsbox)
 library(dplyr)
