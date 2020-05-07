@@ -265,6 +265,35 @@ The category *Clothing and Shoes* includes clothing and shoe stores as well as a
 
 [Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv){target="_blank"}
 
+## Row {.tabset .tabset-fade}
+
+### Food Delivery
+
+```{r}
+fd_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/fooddelivery_sa.csv",index.column = 1))
+
+dygraph(fd_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Info
+
+###### Description
+
+The category *Food Delivery* includes search terms related to take away and pizza.
+
+###### Keywords
+
+- take away
+- takeaway
+- pizza bestellen
+- dieci pizza
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/fooddelivery_sa.csv){target="_blank"}
+
 <!----------------------------------------------------------------------->
 <!---------------------------------------------------- BACKGROUND PAGE -->
 <!----------------------------------------------------------------------->
