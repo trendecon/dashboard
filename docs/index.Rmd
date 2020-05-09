@@ -283,7 +283,7 @@ dygraph(fd_sa)%>%
 
 ###### Description
 
-The category *Food Delivery* includes search terms related to take away and pizza.
+The category *Food Delivery* includes search terms related to take away and ordering pizza.
 
 ###### Keywords
 
