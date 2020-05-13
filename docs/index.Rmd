@@ -9,6 +9,8 @@ output:
     social: ["menu"]
     navbar:
       - { icon: "fa-github", title: "Data", href: "https://github.com/trendecon/data", align: right}
+    includes:
+       in_header: v_Script.html
 ---
 
 ```{r setup, include=FALSE}
