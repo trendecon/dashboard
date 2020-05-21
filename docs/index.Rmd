@@ -361,7 +361,7 @@ ts_dygraphs(ts_c(
 
 ```
 
-## Row 
+## Row
 
 ### {style="border: 0px; background: none"}
 
@@ -526,6 +526,7 @@ We will continue to work on this project along the way and possibly add further 
 * [Christoph Sax](https://www.cynkra.com/about.html){target="_blank"} (Economist and data scientist, cynkra)
 * Kristina Schuepbach (Economist, SGB and University of Bern)
 * Severin Thöni (Programmer, ETH KOF)
+* [Uwe Thümmel](http://uwethuemmel.com){target="_blank"} (Economist, University of Zurich)
 
 #### **Contact**
 
