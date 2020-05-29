@@ -9,6 +9,7 @@ output:
     social: ["menu"]
     navbar:
       - { icon: "fa-github", title: "Data", href: "https://github.com/trendecon/data", align: right}
+      - {title: "R package", href: "https://trendecon.github.io/trendecon/", align: right}
     includes:
        in_header: v_Script.html
 ---
@@ -516,7 +517,7 @@ We will continue to work on this project along the way and possibly add further 
 
 #### **Contributors**
 
-* [Angelica Becerra](https://www.linkedin.com/in/angelicambg/){target="_blank"} (Statistician and Programmer, ETH KOF)
+* [Angelica Becerra](https://www.linkedin.com/in/angelicambg/){target="_blank"} (Statistician and data scientist, ETH KOF)
 * [Vera Z. Eichenauer](https://sites.google.com/view/vera-eichenauer/home){target="_blank"} (Economist, ETH KOF)
 * Ronald Indergand (Head of Short Term Economic Analyses, SECO)
 * [Stefan Legge](https://sites.google.com/view/stefanlegge){target="_blank"} (Economist, University of St.Gallen)
