@@ -3,7 +3,8 @@ get_stage("install") %>%
   add_step(step_install_cran("timetk")) %>%
   add_step(step_install_cran("flexdashboard")) %>%
   add_step(step_install_cran("dygraphs")) %>%
-  add_step(step_install_cran("tsbox"))
+  add_step(step_install_cran("tsbox")) %>%
+  add_step(step_install_cran("timetk"))
 
 get_stage("before_deploy") %>%
   add_step(step_setup_ssh()) %>%
