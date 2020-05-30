@@ -1,8 +1,6 @@
 ## tic GitHub Actions template: linux-deploy
 ## revision date: 2020-05-30
 on:
-  push:
-  pull_request:
   # for now, CRON jobs only run on the default branch of the repo (i.e. usually on master)
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -11,7 +9,8 @@ on:
 name: tic
 
 jobs:
-  R-CMD-check:
+  all:
+    if: "! contains(toJSON(github.event.commits.*.message), '[ci skip]')"
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
