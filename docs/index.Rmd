@@ -441,9 +441,11 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 # <font size="3">Deutsch</font> {data-navmenu="Blog"}
 
-## Sidebar {.sidebar}
+## Navigation {.sidebar}
 
-- [English](#english)
+- [Background](#background)
+
+- [Method](#method)
 
 ## article_1_de
 
@@ -616,9 +618,11 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 # <font size="3">English</font> {data-navmenu="Blog"}
 
-## Sidebar {.sidebar}
+## Navigation {.sidebar}
 
-- [Deutsch](#deutsch)
+- [Background](#background)
+
+- [Method](#method)
 
 ## article_1_en
 
