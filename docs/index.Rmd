@@ -44,10 +44,9 @@ As a solution, we provide a set of economic indicators for Switzerland based on 
 
 ```{r}
 
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_all.csv") %>%
-  filter(id=="seas_adj") %>%
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
   select(time,value) %>%
-  timetk::tk_xts(date_col = time)
+  ts_xts()
 
 dygraph(trendecon_all_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -82,7 +81,7 @@ The indicator for *Perceived Economic Situation* includes search terms that refl
 - arbeitslos
 - insolvenz
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_all.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
@@ -344,8 +343,7 @@ target3 <-
   ts_span(2007)
 target3$value <- target3$value/100 # rescale consumer sentiment
 
-data <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_all.csv") %>%
-  filter(id=="seas_adj") %>%
+data <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_frequency("quarter")
 
