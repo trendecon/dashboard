@@ -20,8 +20,23 @@ library(xts)
 library(tsbox)
 library(dplyr)
 library(readr)
+library(htmlwidgets)
 
 today <- as.character(Sys.Date())
+
+#Functions to compare years with dygraph
+#the axis label is passed as a date, this function outputs only the month of the date
+getMonth <- 'function(d){
+               var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+               return monthNames[d.getMonth()];
+               }'
+
+#the x values are passed as milliseconds, turn them into a date and extract month and day
+getMonthDay <- 'function(d) {
+                var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                date = new Date(d);
+                return monthNames[date.getMonth()] + " " +date.getDate(); }'
+
 ```
 
 <!----------------------------------------------------------------------->
@@ -419,6 +434,355 @@ Second, this crisis is very different to previous ones as private demand drops l
 Third, the crisis itself might lead to permanent changes in search behavior. For example, containment measures may lead to a permanent increase of the proportion of the population doing grocery shopping online. While there are currently two major supermarkets offering online shopping, people might start to search more and more for other shops offering this service.
 
 <br><br><br><br>
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------------------BLOG PAGE DEUTSCH-->
+<!----------------------------------------------------------------------->
+
+# <font size="3">Deutsch</font> {data-navmenu="Blog"}
+
+## Sidebar {.sidebar}
+
+- [English](#english)
+
+## article_1_de
+
+### {style="border: 0px; background: none"}
+
+#### **Wie geht es der Schweizer Wirtschaft heute?**
+
+##### trendEcon bietet neue Erkenntnisse
+
+25. Mai 2020
+
+Die erste Jahreshälfte 2020 darf schon jetzt als historisch betrachtet werden. Selten zuvor sind Volkswirtschaften in derart kurzer Zeit so sehr eingebrochen wie jetzt. Infolge von COVID-19 und den diesbezüglichen staatlichen Massnahmen steigen praktisch überall die Arbeitslosenzahlen rapide an. Die wirtschaftliche Leistung gemessen am Bruttoinlandsprodukt (BIP) fällt stärker als wir es seit Jahrzehnten gesehen haben. Nach wie vor herrscht jedoch grosse Unsicherheit darüber, wie dramatisch der wirtschaftliche Einbruch wird und wie rasch sich Volkswirtschaften von der Krise erholen werden.
+
+In der Schweiz ist ein Rückgang des BIP um rund sechs Prozent zu erwarten [(Seco, April 2020)](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/konjunkturprognosen.html){target="_blank"}. Allerdings trifft dies nicht alle Sektoren der Wirtschaft gleichmässig. Restaurants oder auch der Flughafen Zürich sind ungleich härter betroffen als beispielsweise Supermärkte oder die Pharmabranche. Während die Extrema recht offensichtlich sind, bleiben jedoch viele Fragen offen. 
+
+Wie schnell steigt beispielsweise die Nachfrage nach langlebigen Konsumgütern wieder? In Rezessionen sparen Konsumentinnen und Konsumenten insbesondere bei Kleidung, Möbeln oder Autos. Ausgaben in diesen Bereichen lassen sich leichter aufschieben, weshalb diese Branchen sehr pro-zyklisch sind: In der Rezession leiden sie besonders – und mit ihnen die Werbebranche und in nächster Instanz Zeitungen, welche weniger Werbeanzeigen verkaufen. Somit ist die Nachfrage nach Kleidung oder Autos über Zweit- und Drittrundeneffekte auch für viele andere Industrien wichtig.
+
+Sowohl für die Politik als auch für Unternehmen stellt die hohe Unsicherheit ein Problem da. Wie viel staatliche Unterstützung braucht es und wo ist sie am nötigsten? Ab wann können sich Firmen wieder auf steigende Nachfrage und damit Umsätze einstellen?
+
+Daten können uns helfen, solche Fragen besser zu beantworten. Allerdings müssen diese vielfach erst aufbereitet und graphisch veranschaulicht werden. Die von uns neu geschaffene Plattform [trendEcon.org](#home) setzt sich genau dies zum Ziel. Jeden Tag suchen Schweizerinnen und Schweizer auf Google nach unzähligen Begriffen. Via [Google Trends](https://trends.google.de/trends/?geo=CH){target="_blank"} lässt sich für jeden einsehen, welche Begriffe derzeit sehr häufig gesucht werden. Illustrativ ist ein Blick auf die Begriffe «WC Papier» sowie «Rezession»:
+
+## Row
+
+### {}
+```{r}
+wc_papier_ts <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/wc_papier.csv",index.column = 1))
+
+rezession_ts <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/rezession.csv",index.column = 1))
+
+ts_dygraphs(ts_c(
+  `WC Papier` = wc_papier_ts,
+  `Rezession` = rezession_ts
+)) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("WC Papier", strokePattern = "dashed") %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Es zeigt sich hier anschaulich, wie ab der zweiten Märzwoche die Suchanfragen nach «Rezession» stiegen und viele Menschen Mitte März aufgrund einer kurzfristigen Knappheit an WC-Papier danach im Internet gesucht haben. Die Sorge um das WC-Papier ist rasch verflogen, aber das Thema Rezession ist nach wie vor sehr präsent, wenn auch auf einem tieferen Niveau.
+
+Diese Beispiele verdeutlichen auch einige Probleme: Welche Suchbegriffe sind relevant und auf welche Weise können mehrere Begriffe kombiniert verwendet werden? Wie lassen sich die Daten sauber vergleichbar darstellen: was ist der sinnvolle Vergleichsmassstab?Diese Aspekte versuchen wir mit **trendEcon** zu adressieren, indem wir aus einer Vielzahl an möglichen Suchbegriffen die geeignetsten auswählen und die Daten ab Januar 2006 aufbereiten. Die Datenaufbereitung beinhaltet unter anderem eine saisonale Bereinigung ebenso wie die Berücksichtigung von Feiertagen.
+
+Im Ergebnis zeigt **trendEcon** derzeit neben einem Krisenindex auch für mehrere Branchen die zeitliche Entwicklung auf. Unser Hauptindikator «Perceived Economic Situation» basiert auf den Google Suchanfragen in der Schweiz nach den Stichworten «Wirtschaftskrise», «Kurzarbeit», «arbeitslos» und «Insolvenz». Die darauf basierenden Daten liefern ein Bild davon ab, wie sehr sich die Menschen in der Schweiz um die wirtschaftliche Entwicklung sorgen. Je häufiger nach den vier Begriffen gesucht wird, desto schlechter die Einschätzung der aktuellen Situation. Graphisch zeigt sich deutlich der Einbruch ab Ende Februar und der Tiefpunkt kurz nach den Beschlüssen des Bundesrats vom 16. März 2020:
+
+
+## Row {.tabset .tabset-fade}
+
+### Perceived Economic Situation (daily)
+
+```{r}
+
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+dygraph(trendecon_all_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("value", label = "Index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Monthly
+
+```{r}
+
+data_monthly <- trendecon_all_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Perceived Economic Situation` = data_monthly
+)) %>%
+  dyRangeSelector()
+```
+
+### Info
+
+###### Description
+
+The indicator for *Perceived Economic Situation* includes search terms that reflect people’s worries about the economy. For instance, people then google “economic crisis” (Wirtschaftskrise).
+
+###### Keywords
+
+- wirtschaftskrise
+- kurzarbeit
+- arbeitslos
+- insolvenz
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv){target="_blank"}
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Auffällig ist zudem, dass sich die Stimmung bereits wieder deutlich aufgehellt hat – wobei der Indikator nach wie vor unter dem langfristigen Niveau ist. Als sehr geeigneter Vergleich kann man die Daten aus dem Jahr 2019 heranziehen und erkennt, wie markant der Unterschied ist:
+
+## Row
+
+### {}
+```{r}
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+PEI_2019 <- ts_data.frame(trendecon_all_sa["2019/2019-05-25"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+PEI_2020 <- ts_data.frame(trendecon_all_sa["2020/2020-05-25"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2019` = PEI_2019,
+  `2020` = PEI_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = "Perceived Economic Situation")
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Neben der gesamtwirtschaftlichen Betrachtung bietet **trendEcon** auch eine Reihe von sektorspezifischen Indikatoren an. Dabei zeigt sich – als Bestätigung für die Qualität der Daten – der starke und anhaltende Einbruch der Reisebranche. Suchanfragen nach «Städtetrip», «Flug buchen» oder «günstige Flüge» sind nach wie vor viel geringer als zu Vor-Corona Zeiten:
+
+## Row {.tabset .tabset-fade}
+
+### Travel Abroad
+```{r}
+travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
+
+dygraph(travel_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Info
+
+###### Description
+
+The category *Travel Abroad* includes search terms used to book flights and holidays.
+
+###### Keywords
+
+- städtetrip
+- flug buchen
+- günstige flüge
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv){target="_blank"}
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Einen ähnlichen und anhalten Einbruch sehen wir bei kulturellen Veranstaltungen. Im Gegensatz dazu ist die Nachfrage nach Essenslieferungen oder auch Baumärkten auf einem (positiven) Rekordstand.
+
+Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesaktuelle Informationen zum Zustand der schweizerischen Wirtschaft bietet. Wir werden in den kommenden Wochen weitere Suchbegriffe und (Sub-) Indikatoren hinzufügen, um das Angebot an Informationen stetig zu vergrössern. Ausserdem testen wir laufend die Nützlichkeit unserer Daten für die Prognose von volkswirtschaftlich relevanten Grössen. Sämtliche Daten sind frei zum [Download](https://github.com/trendecon/data/tree/master/daily) verfügbar und der Code wird bald auf GitHub veröffentlicht.
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------------------BLOG PAGE ENGLISH-->
+<!----------------------------------------------------------------------->
+
+
+# <font size="3">English</font> {data-navmenu="Blog"}
+
+## Sidebar {.sidebar}
+
+- [Deutsch](#deutsch)
+
+## article_1_en
+
+### {style="border: 0px; background: none"}
+
+#### **How is the Swiss economy doing today?**
+
+##### trendEconoffers new insights
+
+May 25, 2020
+
+The first half of 2020 can already be regarded as historic. Seldom before have economies shrunkas fast in such a short time. As a result of COVID-19 and the related government measures, unemployment figures are rising rapidly practically everywhere. Economic performance measured by gross domestic product (GDP) is falling more sharply than we have seen in decades. However, there is still vast uncertainty about how dramatic the economic slump will be and how quickly economies will recover from the crisis.
+
+In Switzerland, annual GDP is expected to fall by around six percent [(Seco, April 2020)](https://www.seco.admin.ch/seco/de/home/wirtschaftslage---wirtschaftspolitik/Wirtschaftslage/konjunkturprognosen.html){target="_blank"}. However, this will not affect all sectors of the economy equally. Restaurants and airports are himuch harder hit than supermarkets or the pharmaceutical industry, for example. While the extremes are quite obvious, many questions remain open. 
+
+How quickly, for example, will the demand for durable goods rise again? In recessions, consumers save money, reducing spending especially on clothing, furniture, or cars. Spending in these areas is easier to postpone, which is why these sectors are very pro-cyclical: In a recession they suffer particularly - and with them the advertising industry and, in the next instance, newspapers, which sell fewer advertisements. Consequently, the demand for clothing or cars is also important for many other industries via second- and third-round effects.
+
+The high level of uncertainty poses a problem for both politicians and companies. How much government support is needed and where is it most needed? When will companies again face increasing demand and thus turnover?
+
+Data can help us to improvethe answersto such questions. However, in many case, data first have to be prepared and graphically illustrated. The new platform [trendEcon.org](#home) created by us aims at exactly this. Every day, Swiss people search Google for countless keywords. Via [Google Trends](https://trends.google.de/trends/?geo=CH){target="_blank"}, anyone can see which keywords are currently being searched for very frequently. A look at the terms "WC Papier" (toilet paper) and "Rezession” (recession) is illustrative:
+
+## Row
+
+### {}
+```{r}
+wc_papier_ts <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/wc_papier.csv",index.column = 1))
+
+rezession_ts <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/rezession.csv",index.column = 1))
+
+ts_dygraphs(ts_c(
+  `WC Papier` = wc_papier_ts,
+  `Rezession` = rezession_ts
+)) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("WC Papier", strokePattern = "dashed") %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+It can be clearly seen here how from the second week of March onwards the number of search requests for "recession" increased. We also observe the large number of people searching for toilet paper on the Internet in mid-March due to a short-term shortage. The concern about toilet paper quickly disappeared, but the topic of recession is still very present.
+
+While such examples are very illustrative, they also highlight some of the problems: Which search terms are actually relevant and how can several terms be combined? How can the data be presented in a clean and comparable way? What are useful benchmarks? We at **trendEcon** try to address these aspects by selecting the most suitable search terms from a multitude of possible search terms and preparing the data from January 2006 onwards. The latter includes among others a seasonal adjustment as well as the consideration of public holidays.
+
+As a result, **trendEcon** currently shows not only a crisis index but also the development over time for several sectors. Our main indicator "Perceived Economic Situation" is based on the keywords "economic crisis", "short-time work", "unemployed" and "insolvency". The data based on this provides a picture of the extent to which people in Switzerland are concerned about economic development. The more frequently the four terms are searched for, the worse the assessment of the current situation. The slump from the end of February onwards and the low point shortly after the Federal Council's decisions of March 16, 2020 are clearly visible in the graph:
+
+
+## Row {.tabset .tabset-fade}
+
+### Perceived Economic Situation (daily)
+
+```{r}
+
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+dygraph(trendecon_all_sa,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("value", label = "Index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Monthly
+
+```{r}
+
+data_monthly <- trendecon_all_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Perceived Economic Situation` = data_monthly
+)) %>%
+  dyRangeSelector()
+```
+
+### Info
+
+###### Description
+
+The indicator for *Perceived Economic Situation* includes search terms that reflect people’s worries about the economy. For instance, people then google “economic crisis” (Wirtschaftskrise).
+
+###### Keywords
+
+- wirtschaftskrise
+- kurzarbeit
+- arbeitslos
+- insolvenz
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv){target="_blank"}
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+It is also noticeable that sentiment has already brightened considerably again - although the indicator is still below the long-term level. As comparison, one can use the data from 2019 to see the striking differ-ence:
+
+## Row
+
+### {}
+```{r}
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+PEI_2019 <- ts_data.frame(trendecon_all_sa["2019/2019-05-25"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+PEI_2020 <- ts_data.frame(trendecon_all_sa["2020/2020-05-25"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2019` = PEI_2019,
+  `2020` = PEI_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = "Perceived Economic Situation")
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+In addition to the overall economic analysis, **trendEcon** also offers a range of sector-specific indicators. The strong and continuing slump in the travel industry is a confirmation of the quality of the data. Search queries for"city trip", "book flight" or "cheap flights" (note: we use the German words) are still rare compared to the pre-Corona period:
+
+## Row {.tabset .tabset-fade}
+
+### Travel Abroad
+```{r}
+travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
+
+dygraph(travel_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Info
+
+###### Description
+
+The category *Travel Abroad* includes search terms used to book flights and holidays.
+
+###### Keywords
+
+- städtetrip
+- flug buchen
+- günstige flüge
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv){target="_blank"}
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+We see a similar and continuing slump in cultural events. In contrast, demand for food deliveries or DIY stores is at a (positive) record level.
+
+In summary, **trendEcon** offers a platform for daily updated information on the state of the Swiss economy. In the coming weeks, we will be adding further search terms and (sub-) indicators in order to constantly increase the amount of information available. In addition, we are constantly testing the usefulness of our data for forecasting economically relevant variables. All data are freely available for [Download](https://github.com/trendecon/data/tree/master/daily) and the code will be publicly available soon.
 
 <!----------------------------------------------------------------------->
 <!-------------------------------------------------------- METHOD PAGE -->
