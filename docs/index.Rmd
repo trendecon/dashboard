@@ -8,8 +8,10 @@ output:
     orientation: rows
     social: ["menu"]
     navbar:
-      - { icon: "fa-github", title: "Data", href: "https://github.com/trendecon/data", align: right}
-      - {title: "R package", href: "https://trendecon.github.io/trendecon/", align: right}
+      - {icon: "fa-github", 
+         title: "Data", 
+         href: "https://github.com/trendecon/data", align: right, target: blank}
+      - {title: "R package", href: "https://trendecon.github.io/trendecon/", align: right, target: blank}
     includes:
        in_header: v_Script.html
 ---
@@ -310,6 +312,24 @@ The category *Food Delivery* includes search terms related to take away and orde
 - dieci pizza
 
 [Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/fooddelivery_sa.csv){target="_blank"}
+
+## News {.sidebar data-width=310}
+
+##### Latest News
+
+- _08.06.2020_ : [Ökonomenstimme](https://www.oekonomenstimme.org/artikel/2020/06/trendecon-google-suchanfragen-als-hoffnungstraeger-fuer-die-konjunkturanalyse/){target="_blank"} article.
+
+- _02.06.2020_ : New section _Blog_ in [German](#deutsch) and [English](#english) on the website.
+
+- _29.05.2020_ : [Awardee](https://milano-r.github.io/erum2020-covidr-contest/trendecon.html){target="_blank"} at the eRum2020::CovidR contest.
+
+- _22.05.2020_ : [R package](https://trendecon.github.io/trendecon/){target="_blank"} released.
+
+- _18.05.2020_ : [NZZ](https://www.nzz.ch/wirtschaft/corona-krise-wie-die-lockerungsmassnahmen-wirken-ld.1556075){target="_blank"} article.
+
+- _08.05.2020_ : [KOF Bulletin](https://kof.ethz.ch/en/news-and-events/news/kof-bulletin/kof-bulletin/2020/05/trendecon-taegliche-wirtschaftsindikatoren-basierend-auf-schweizer-google-suchtrends.html){target="_blank"} article.
+
+- _08.05.2020_ : trendEcon is 1 out of 16 projects receiving [funding](https://www.versusvirus.ch/funding){target="_blank"} from #versusvirus hackathon. We are thankful for the financial support to keep the project alive.
 
 <!----------------------------------------------------------------------->
 <!---------------------------------------------------- BACKGROUND PAGE -->
