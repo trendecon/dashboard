@@ -113,6 +113,19 @@ dygraph(luxury_sa)%>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
+### Monthly
+
+```{r}
+
+dm_luxury_sa <- luxury_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Watches and Jewellery` = dm_luxury_sa
+)) %>%
+  dyRangeSelector()
+```
+
 ### Info
 
 ###### Description
@@ -145,6 +158,19 @@ dygraph(mobility_sa)%>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
+### Monthly
+
+```{r}
+
+dm_mobility_sa <- mobility_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Mobility` = dm_mobility_sa
+)) %>%
+  dyRangeSelector()
+```
+
 ### Info
 
 ###### Description
@@ -173,6 +199,19 @@ dygraph(travel_sa)%>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
+### Monthly
+
+```{r}
+
+dm_travel_sa <- travel_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Travel Abroad` = dm_travel_sa
+)) %>%
+  dyRangeSelector()
+```
+
 ### Info
 
 ###### Description
@@ -199,6 +238,19 @@ dygraph(social_sa)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Monthly
+
+```{r}
+
+dm_social_sa <- social_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Cultural Events` = dm_social_sa
+)) %>%
+  dyRangeSelector()
 ```
 
 ### Info
@@ -233,6 +285,19 @@ dygraph(garden_sa)%>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
+### Monthly
+
+```{r}
+
+dm_garden_sa <- garden_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Gardening and Home Improvement` = dm_garden_sa
+)) %>%
+  dyRangeSelector()
+```
+
 ### Info
 
 ###### Description
@@ -263,6 +328,19 @@ dygraph(clothing_sa)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Monthly
+
+```{r}
+
+dm_clothing_sa <- clothing_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Clothing and Shoes` = dm_clothing_sa
+)) %>%
+  dyRangeSelector()
 ```
 
 ### Info
@@ -297,6 +375,20 @@ dygraph(fd_sa)%>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
+
+### Monthly
+
+```{r}
+
+dm_fd_sa <- fd_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Food Delivery` = dm_fd_sa
+)) %>%
+  dyRangeSelector()
+```
+
 
 ### Info
 
