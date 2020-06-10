@@ -102,7 +102,7 @@ The indicator for *Perceived Economic Situation* includes search terms that refl
 
 ## Row {.tabset .tabset-fade}
 
-### Watches and Jewellery
+### Watches and Jewellery (daily)
 ```{r}
 luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
 
@@ -146,7 +146,7 @@ The category *Watches and Jewellery* includes stores and brands selling luxuriou
 
 ## Row {.tabset .tabset-fade}
 
-### Mobility
+### Mobility (daily)
 
 ```{r}
 mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv",index.column = 1))
@@ -188,7 +188,7 @@ The category *Mobility* includes search terms related to ground transportation: 
 
 ## Row {.tabset .tabset-fade}
 
-### Travel Abroad
+### Travel Abroad (daily)
 ```{r}
 travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
 
@@ -228,7 +228,7 @@ The category *Travel Abroad* includes search terms used to book flights and holi
 
 ## Row {.tabset .tabset-fade}
 
-### Cultural Events
+### Cultural Events (daily)
 
 ```{r}
 social_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv",index.column = 1))
@@ -273,7 +273,7 @@ The category *Cultural Events* includes search terms related to concerts, theatr
 
 ## Row {.tabset .tabset-fade}
 
-### Gardening and Home Improvement
+### Gardening and Home Improvement (daily)
 
 ```{r}
 garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv",index.column = 1))
@@ -318,7 +318,7 @@ The category *Gardening and Home Improvement* includes stores selling materials 
 
 ## Row {.tabset .tabset-fade}
 
-### Clothing and Shoes
+### Clothing and Shoes (daily)
 
 ```{r}
 clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
@@ -364,7 +364,7 @@ The category *Clothing and Shoes* includes clothing and shoe stores as well as a
 
 ## Row {.tabset .tabset-fade}
 
-### Food Delivery
+### Food Delivery (daily)
 
 ```{r}
 fd_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/fooddelivery_sa.csv",index.column = 1))
@@ -411,13 +411,15 @@ The category *Food Delivery* includes search terms related to take away and orde
 
 - _08.06.2020_ : [Ökonomenstimme](https://www.oekonomenstimme.org/artikel/2020/06/trendecon-google-suchanfragen-als-hoffnungstraeger-fuer-die-konjunkturanalyse/){target="_blank"} article.
 
-- _02.06.2020_ : New section _Blog_ in [German](#deutsch) and [English](#english) on the website.
+- _02.06.2020_ : New section [Blog](#deutsch) on the website.
 
 - _29.05.2020_ : [Awardee](https://milano-r.github.io/erum2020-covidr-contest/trendecon.html){target="_blank"} at the eRum2020::CovidR contest.
 
 - _22.05.2020_ : [R package](https://trendecon.github.io/trendecon/){target="_blank"} released.
 
 - _18.05.2020_ : [NZZ](https://www.nzz.ch/wirtschaft/corona-krise-wie-die-lockerungsmassnahmen-wirken-ld.1556075){target="_blank"} article.
+
+- _18.05.2020_ : [Makronom](https://makronom.de/trendecon-google-suchanfragen-als-hoffnungstraeger-fuer-die-konjunkturanalyse-35945){target="_blank"} article.
 
 - _08.05.2020_ : [KOF Bulletin](https://kof.ethz.ch/en/news-and-events/news/kof-bulletin/kof-bulletin/2020/05/trendecon-taegliche-wirtschaftsindikatoren-basierend-auf-schweizer-google-suchtrends.html){target="_blank"} article.
 
@@ -558,6 +560,8 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 - [Background](#background)
 
 - [Method](#method)
+
+- [Blog](#english) in English.
 
 ## article_1_de
 
@@ -735,6 +739,8 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 - [Background](#background)
 
 - [Method](#method)
+
+- [Blog](#deutsch) auf Deutsch.
 
 ## article_1_en
 
