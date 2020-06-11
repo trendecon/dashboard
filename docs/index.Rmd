@@ -409,6 +409,8 @@ The category *Food Delivery* includes search terms related to take away and orde
 
 ##### Latest News
 
+- _08.06.2020_ : [Republik](https://www.republik.ch/2020/06/08/seismografie-der-krise) article.
+
 - _08.06.2020_ : [Ökonomenstimme](https://www.oekonomenstimme.org/artikel/2020/06/trendecon-google-suchanfragen-als-hoffnungstraeger-fuer-die-konjunkturanalyse/){target="_blank"} article.
 
 - _02.06.2020_ : New section [Blog](#deutsch) on the website.
