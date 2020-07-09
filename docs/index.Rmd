@@ -409,7 +409,13 @@ The category *Food Delivery* includes search terms related to take away and orde
 
 ##### Latest News
 
-- _08.06.2020_ : [Republik](https://www.republik.ch/2020/06/08/seismografie-der-krise) article.
+- _08.07.2020_ : [Finanz und Wirtschaft](https://www.fuw.ch/article/die-zweite-welle-laesst-die-konsumenten-kalt/){target="_blank"} article.
+
+- _29.06.2020_ : [Working paper](https://drive.google.com/file/d/12ssYVfF0Kdp0pQXZgFtKetGJmGGH2KEd/view?usp=sharing){target="_blank"}: Constructing Daily Economic Sentiment Indices Based on Google Trends.
+
+- _22.06.2020_ : [Google-anfragen für die Konjunkturanalyse](https://drive.google.com/file/d/1ZpqYkj4FisaiAgewQuQB0TiorNlFdo2T/view?usp=sharing){target="_blank"}. Article in [Schlaglichter der Wirtschaftspolitik](https://www.bmwi.de/Redaktion/DE/Publikationen/Schlaglichter-der-Wirtschaftspolitik/schlaglichter-der-wirtschaftspolitik-07-2020.html){target="_blank"} - Bundesministerium für Wirtschaf und Energie.
+
+- _08.06.2020_ : [Republik](https://www.republik.ch/2020/06/08/seismografie-der-krise){target="_blank"} article.
 
 - _08.06.2020_ : [Ökonomenstimme](https://www.oekonomenstimme.org/artikel/2020/06/trendecon-google-suchanfragen-als-hoffnungstraeger-fuer-die-konjunkturanalyse/){target="_blank"} article.
 
@@ -980,6 +986,10 @@ not model monthly seasonality and all the seasonal effects are assumed to be con
 ##### **Aggregation of indicators**
 
 In a final step, we use principal component analysis (PCA) to extract the common signal from a group of seasonally adjusted, daily time series. The idea of PCA is to identify several principal components that summarize most of the variance in the data. We then use the first principal component as our index. We manually checked the factor loadings and scores and adjusted the variable selection if needed.
+
+##### **Find out more in our working paper**
+
+[Constructing Daily Economic Sentiment Indices Based on Google Trends](https://drive.google.com/file/d/12ssYVfF0Kdp0pQXZgFtKetGJmGGH2KEd/view?usp=sharing){target="_blank"}.
 
 #### **Access our data**
 
