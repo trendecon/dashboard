@@ -61,7 +61,7 @@ As a solution, we provide a set of economic indicators for Switzerland based on 
 
 ```{r}
 
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -98,13 +98,13 @@ The indicator for *Perceived Economic Situation* includes search terms that refl
 - arbeitslos
 - insolvenz
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
 ### Watches and Jewellery (daily)
 ```{r}
-luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv",index.column = 1))
+luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/luxury_sa.csv",index.column = 1))
 
 dygraph(luxury_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -142,14 +142,14 @@ The category *Watches and Jewellery* includes stores and brands selling luxuriou
 - rhomberg
 - juwelier
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/luxury_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/luxury_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
 ### Mobility (daily)
 
 ```{r}
-mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv",index.column = 1))
+mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv",index.column = 1))
 
 dygraph(mobility_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -184,13 +184,13 @@ The category *Mobility* includes search terms related to ground transportation: 
 - sixt
 - google maps
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/mobility_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
 ### Travel Abroad (daily)
 ```{r}
-travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
+travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv",index.column = 1))
 
 dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -224,14 +224,14 @@ The category *Travel Abroad* includes search terms used to book flights and holi
 - flug buchen
 - günstige flüge
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
 ### Cultural Events (daily)
 
 ```{r}
-social_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv",index.column = 1))
+social_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv",index.column = 1))
 
 dygraph(social_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -269,14 +269,14 @@ The category *Cultural Events* includes search terms related to concerts, theatr
 - oper
 - konzert
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
 ### Gardening and Home Improvement (daily)
 
 ```{r}
-garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv",index.column = 1))
+garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv",index.column = 1))
 
 dygraph(garden_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -314,14 +314,14 @@ The category *Gardening and Home Improvement* includes stores selling materials 
 - Gartencenter
 - Bauhaus
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
 ### Clothing and Shoes (daily)
 
 ```{r}
-clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv",index.column = 1))
+clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/clothing_sa.csv",index.column = 1))
 
 dygraph(clothing_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -360,14 +360,14 @@ The category *Clothing and Shoes* includes clothing and shoe stores as well as a
 - schuhe kaufen
 - ochsner schuhe
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/clothing_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/clothing_sa.csv){target="_blank"}
 
 ## Row {.tabset .tabset-fade}
 
 ### Food Delivery (daily)
 
 ```{r}
-fd_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/fooddelivery_sa.csv",index.column = 1))
+fd_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_sa.csv",index.column = 1))
 
 dygraph(fd_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -403,7 +403,7 @@ The category *Food Delivery* includes search terms related to take away and orde
 - pizza bestellen
 - dieci pizza
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/fooddelivery_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_sa.csv){target="_blank"}
 
 ## News {.sidebar data-width=310}
 
@@ -480,7 +480,7 @@ target3 <-
   ts_span(2007)
 target3$value <- target3$value/100 # rescale consumer sentiment
 
-data <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+data <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_frequency("quarter")
 
@@ -507,7 +507,7 @@ For some indicators, such as *Cultural Events* -- which includes demand for rest
 
 ### Cultural Events
 ```{r echo = FALSE}
-data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/social_sa.csv") %>%
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv") %>%
   ts_span(2019)
 
 # %>%
@@ -526,7 +526,7 @@ ts_dygraphs(ts_c(
 
 ### Gardening and Home Improvement
 ```{r echo = FALSE}
-data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/garden_sa.csv") %>%
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv") %>%
   ts_span(2019)
 
 # %>%
@@ -625,7 +625,7 @@ Im Ergebnis zeigt **trendEcon** derzeit neben einem Krisenindex auch für mehrer
 
 ```{r}
 
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -662,7 +662,7 @@ The indicator for *Perceived Economic Situation* includes search terms that refl
 - arbeitslos
 - insolvenz
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv){target="_blank"}
 
 ## Row
 
@@ -674,7 +674,7 @@ Auffällig ist zudem, dass sich die Stimmung bereits wieder deutlich aufgehellt 
 
 ### {}
 ```{r}
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -704,7 +704,7 @@ Neben der gesamtwirtschaftlichen Betrachtung bietet **trendEcon** auch eine Reih
 
 ### Travel Abroad
 ```{r}
-travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
+travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv",index.column = 1))
 
 dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -725,7 +725,7 @@ The category *Travel Abroad* includes search terms used to book flights and holi
 - flug buchen
 - günstige flüge
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv){target="_blank"}
 
 ## Row
 
@@ -733,7 +733,7 @@ The category *Travel Abroad* includes search terms used to book flights and holi
 
 Einen ähnlichen und anhalten Einbruch sehen wir bei kulturellen Veranstaltungen. Im Gegensatz dazu ist die Nachfrage nach Essenslieferungen oder auch Baumärkten auf einem (positiven) Rekordstand.
 
-Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesaktuelle Informationen zum Zustand der schweizerischen Wirtschaft bietet. Wir werden in den kommenden Wochen weitere Suchbegriffe und (Sub-) Indikatoren hinzufügen, um das Angebot an Informationen stetig zu vergrössern. Ausserdem testen wir laufend die Nützlichkeit unserer Daten für die Prognose von volkswirtschaftlich relevanten Grössen. Sämtliche Daten sind frei zum [Download](https://github.com/trendecon/data/tree/master/daily) verfügbar und der Code wird bald auf GitHub veröffentlicht.
+Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesaktuelle Informationen zum Zustand der schweizerischen Wirtschaft bietet. Wir werden in den kommenden Wochen weitere Suchbegriffe und (Sub-) Indikatoren hinzufügen, um das Angebot an Informationen stetig zu vergrössern. Ausserdem testen wir laufend die Nützlichkeit unserer Daten für die Prognose von volkswirtschaftlich relevanten Grössen. Sämtliche Daten sind frei zum [Download](https://github.com/trendecon/data/tree/master/data/) verfügbar und der Code wird bald auf GitHub veröffentlicht.
 
 <!----------------------------------------------------------------------->
 <!----------------------------------------------------BLOG PAGE ENGLISH-->
@@ -804,7 +804,7 @@ As a result, **trendEcon** currently shows not only a crisis index but also the 
 
 ```{r}
 
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -841,7 +841,7 @@ The indicator for *Perceived Economic Situation* includes search terms that refl
 - arbeitslos
 - insolvenz
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv){target="_blank"}
 
 ## Row
 
@@ -853,7 +853,7 @@ It is also noticeable that sentiment has already brightened considerably again -
 
 ### {}
 ```{r}
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv") %>%
+trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -883,7 +883,7 @@ In addition to the overall economic analysis, **trendEcon** also offers a range 
 
 ### Travel Abroad
 ```{r}
-travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv",index.column = 1))
+travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv",index.column = 1))
 
 dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
@@ -904,7 +904,7 @@ The category *Travel Abroad* includes search terms used to book flights and holi
 - flug buchen
 - günstige flüge
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/daily/travel_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv){target="_blank"}
 
 ## Row
 
@@ -912,7 +912,7 @@ The category *Travel Abroad* includes search terms used to book flights and holi
 
 We see a similar and continuing slump in cultural events. In contrast, demand for food deliveries or DIY stores is at a (positive) record level.
 
-In summary, **trendEcon** offers a platform for daily updated information on the state of the Swiss economy. In the coming weeks, we will be adding further search terms and (sub-) indicators in order to constantly increase the amount of information available. In addition, we are constantly testing the usefulness of our data for forecasting economically relevant variables. All data are freely available for [Download](https://github.com/trendecon/data/tree/master/daily) and the code will be publicly available soon.
+In summary, **trendEcon** offers a platform for daily updated information on the state of the Swiss economy. In the coming weeks, we will be adding further search terms and (sub-) indicators in order to constantly increase the amount of information available. In addition, we are constantly testing the usefulness of our data for forecasting economically relevant variables. All data are freely available for [Download](https://github.com/trendecon/data/tree/master/data/) and the code will be publicly available soon.
 
 <!----------------------------------------------------------------------->
 <!-------------------------------------------------------- METHOD PAGE -->
