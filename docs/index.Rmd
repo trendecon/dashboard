@@ -883,7 +883,7 @@ ts_dygraphs(article_2) %>%
 
 #### **How is the Swiss economy doing today?**
 
-##### trendEconoffers new insights
+##### trendEcon offers new insights
 
 May 25, 2020
 
