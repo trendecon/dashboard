@@ -69,6 +69,9 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("value", label = "Index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -110,6 +113,9 @@ dygraph(luxury_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -155,6 +161,9 @@ dygraph(mobility_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -196,6 +205,9 @@ dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -237,6 +249,9 @@ dygraph(social_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -282,6 +297,9 @@ dygraph(garden_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -327,6 +345,9 @@ dygraph(clothing_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -373,6 +394,9 @@ dygraph(fd_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
   dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -408,6 +432,12 @@ The category *Food Delivery* includes search terms related to take away and orde
 ## News {.sidebar data-width=310}
 
 ##### Latest News
+
+- _24.08.2020_ : New blog post
+
+  + [Large events will be allowed soon – but will people show up?](#english)
+  
+  + [Grossveranstaltungen werden bald erlaubt sein - aber werden die Leute auch kommen?](#deutsch).
 
 - _08.07.2020_ : [Finanz und Wirtschaft](https://www.fuw.ch/article/die-zweite-welle-laesst-die-konsumenten-kalt/){target="_blank"} article.
 
@@ -569,7 +599,54 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 - [Method](#method)
 
-- [Blog](#english) in English.
+- [Blog in English.](#english)
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 2-->
+<!----------------------------------------------------------------------->
+
+## article_2_de
+
+### {style="border: 0px; background: none"}
+
+#### **Grossveranstaltungen werden bald erlaubt sein - aber werden die Leute auch kommen?**
+
+August 24th, 2020
+
+Am 12. August 2020 hat der Bundesrat [angekündigt](https://www.srf.ch/news/schweiz/grossanlaesse-masken-kredite-das-hat-der-bundesrat-entschieden){target="_blank"}, dass ab Oktober wieder Grossanlässe mit mehr als tausend Teilnehmenden zugelassen werden. Damit wurden die im März verhängten COVID-19-bezogenen Einschränkungen erneut gelockert. Viele Unternehmen, Sportvereine und Organisatoren von Veranstaltungen waren erleichtert, endlich Licht am Ende des Tunnels zu sehen. 
+
+Aber nur weil Grossveranstaltungen erlaubt sind, heißt das noch lange nicht, dass die Menschen sie auch tatsächlich besuchen werden. Die Zahl der täglich neuen COVID-19-Fälle ist seit Wochen im Aufwärtstrend. Viele - aber nicht alle - Menschen in der Schweiz versuchen nach wie vor, Grossanlässe zu vermeiden. Eine [US-amerikanische](https://www.nber.org/papers/w27650){target="_blank"} Studie zeigt, dass die Wiedereröffnung von Restaurants nach der Schliessung die Kunden glauben lässt, dass es sicher war, wieder auswärts zu essen. In ähnlicher Weise kann das Zulassen von Grossveranstaltungen ein Signal der Sicherheit setzen. Hat die jüngste Ankündigung also Einzelpersonen dazu veranlasst, ihre Meinung zu ändern?
+
+Mithilfe von trendEcon können wir sehen, wie sich die Google-Suchfrequenzen in den vergangenen Tagen, Wochen oder Monaten entwickelt haben. Als Suchbegriffe verwenden wir "Festival", "Tickets kaufen", "Hallenstadion" (eine Mehrzweckanlage in Zürich), "Letzigrund" (Stadion in Zürich), sowie "Konzert".
+
+Für keines der Stichworte deuten die Daten auf eine positive Wirkung der jüngsten Ankündigung hin. Es scheint, dass die Schweizerinnen und Schweizer sich bisher nicht beeilt haben, Veranstaltungen zu finden und Tickets zu kaufen. Für diese verhaltene Reaktion kann es viele Gründe geben: Die Bevölkerung ist nach wie vor besorgt über das Virus (die Zahl der Suchanfragen nach "Corona" oder "Corona Symptomen" bleibt auf hohem Niveau stabil), und die wahrgenommene wirtschaftliche Situation ist nach wie vor schlechter als vor dem Ausbruch der Pandemie Ende Februar. Darüber hinaus zögern die Organisatoren von Grossveranstaltungen immer noch, für 2020 zu planen. Das Hallenstadion Zürich führt derzeit nur sieben Veranstaltungen für den Rest des Jahres auf.
+
+Die kommenden Wochen werden zeigen, ob die Nachfrage nach Grossanlässen steigt, je näher die Schweiz der Wiederaufnahme von Grossanlässen im Oktober kommt. Wenn nicht, wird das Licht am Ende des Tunnels vielleicht doch nicht allzu hell sein.
+
+## Row
+
+### {}
+```{r}
+
+article_2 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_2.csv") %>%
+  ts_xts()
+
+ts_dygraphs(article_2) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("Hallenstadion", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("Festival",strokeWidth = 1, strokePattern = "dashed") %>%
+  dySeries("Konzert",drawPoints = TRUE) %>%
+  dyEvent("2020-3-16", "Lockdown     ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Phase I - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Phase II - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 1-->
+<!----------------------------------------------------------------------->
 
 ## article_1_de
 
@@ -748,7 +825,57 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 - [Method](#method)
 
-- [Blog](#deutsch) auf Deutsch.
+- [Blog auf Deutsch](#deutsch)
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 2-->
+<!----------------------------------------------------------------------->
+
+## article_2_en
+
+### {style="border: 0px; background: none"}
+
+#### **Large events will be allowed soon – but will people show up?**
+
+August 24th, 2020
+
+On August 12, 2020 the Federal Council of Switzerland [announced](https://www.srf.ch/news/schweiz/grossanlaesse-masken-kredite-das-hat-der-bundesrat-entschieden){target="_blank"} that starting in October large events with more than one thousand participants will be allowed again. This marked another round of easing the COVID-19 related restrictions imposed in March. Many companies, sports clubs, and event organizers were relieved to finally see light at the end of the tunnel.
+
+
+But just because large events are allowed does not mean that people will actually attend them. The number of daily new COVID-19 cases has been on an upward trend for weeks. Many - but not all – people in Switzerland still try to avoid large gatherings. A [U.S. study shows](https://www.nber.org/papers/w27650){target="_blank"} that reopening restaurants after lock-downs lead customers to believe that it was safe to eat out again. Similarly, allowing large events may send a signal of safety. So, has the recent announcement led individuals to change their mind?
+
+
+Using trendEcon, we can see how Google search frequencies evolved in the past days, weeks, or months. As keywords we use “Festival”, “Tickets kaufen” (buy tickets), “Hallenstadion” (a multi-purpose facility in Zurich), “Letzigrund” (stadium in Zurich), as well as “Konzert” (concert).
+For none of the keywords do the data indicate a positive impact of the recent announcement. It appears that Swiss people have not rushed to find events and buy tickets. There could be many reasons for this muted response: the population is still concerned about the virus (the number of searches for “corona” or “corona symptoms” remains stable at a high level) and the perceived economic situation continues to be worse than before the pandemic hit in late February. Furthermore, organizers of large events still hesitate to plan for 2020. The Hallenstadion Zurich currently lists only seven events for the rest of the year.
+The coming weeks will show whether the demand for large events increases as Switzerland comes closer to the October relaunch of large events. If not, that light at the end of the tunnel might not be too bright after all.
+
+## Row
+
+### {}
+```{r}
+
+article_2 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_2.csv") %>%
+  ts_xts()
+
+ts_dygraphs(article_2) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("Hallenstadion", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("Festival",strokeWidth = 1, strokePattern = "dashed") %>%
+  dySeries("Konzert",drawPoints = TRUE) %>%
+  dyEvent("2020-3-16", "Lockdown     ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Phase I - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Phase II - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+
+
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 1-->
+<!----------------------------------------------------------------------->
 
 ## article_1_en
 
