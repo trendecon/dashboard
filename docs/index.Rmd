@@ -433,6 +433,12 @@ The category *Food Delivery* includes search terms related to take away and orde
 
 ##### Latest News
 
+- _26.08.2020_ : New blog post
+
+  + [Still a long way to go](#english)
+  
+  + [Ein weiter Weg](#deutsch).
+
 - _24.08.2020_ : New blog post
 
   + [Large events will be allowed soon – but will people show up?](#english)
@@ -601,6 +607,103 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 - [Blog in English.](#english)
 
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 3A-->
+<!----------------------------------------------------------------------->
+
+
+## article_3a_de
+
+### {style="border: 0px; background: none"}
+
+#### **Ein weiter Weg**
+
+August 26, 2020
+
+Viele der Aufgaben, die die Menschen tagtäglich erledigen müssen, haben sich seit Jahrhunderten nicht verändert: Essen besorgen, einen bequemen Schlafplatz finden, Verletzungen und Krankheiten behandeln oder von einem Ort zum anderen gelangen. Der einflussreiche Wirtschaftstheoretiker Clayton M. Christensen hat auf der Grundlage dieser Tatsache eine Theorie der zu erledigenden Aufgaben ([jobs to be done](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done){target="_blank"} aufgestellt. Seine wichtigste Beobachtung ist, dass sich die Werkzeuge und Verfahren, die die Menschen zur Erledigung dieser Aufgaben einsetzen, viel häufiger ändern als die Aufgaben selbst.
+
+Was die Mobilität betrifft, so wechselten die Menschen ihr primäres Verkehrsmittel immer dann, wenn neue Technologien - Zug, Auto, Flugzeug - es ihnen erlaubten und Anreize dazu boten. In jüngster Zeit wurden wir Zeugen eines weiteren Grundes, warum die Menschen die Art und Weise, wie sie von A nach B kamen, änderten: Die Covid-19-Pandemie machte einige Transportmittel weniger attraktiv. Darüber hinaus reisten viele Menschen aufgrund von Gesundheitsbedenken weit weniger. 
+
+Aktuelle Daten der KOF deuten darauf hin, dass sich die durchschnittlich zurückgelegte Entfernung (veranschaulicht durch den [Mobilitätsindex](https://kofdata.netlify.app/#/keys?dataset=ch.kof.mobind){target="_blank"}) von ihrem Tiefpunkt Ende März weitgehend erholt hat. Dies erlaubt es uns, interessante Fragen zu stellen: Hat die Pandemie zu nachhaltigen Veränderungen bei der Wahl der Verkehrsmittel geführt? Benutzen Menschen weiterhin Fahrräder und Autos statt der öffentlichen Verkehrsmittel?
+
+Daten von trendEcon geben darüber Aufschluss. Wir beobachten, wie sich die Google-Suchfrequenzen in der jüngeren Vergangenheit entwickelt haben und können sie mit den Werten von 2019 oder 2018 vergleichen. So können wir prüfen, ob die Schweizer Bürgerinnen und Bürger ihre Mobilitätspräferenzen nur vorübergehend oder dauerhaft verschoben haben. In der Abbildung unten illustrieren wir die Ergebnisse für die Suchbegriffe "Velo kaufen", "Auto kaufen", "Busticket" sowie "Zugticket". Ausserdem zeigen wir unseren Index für Mobilität zusammen mit jenem der KOF.
+
+Die Daten deuten auf eine deutliche kurzfristige Auswirkung von Covid-19 hin: Das Interesse an Fahrrädern erreichte einen Höhepunkt, während die Suche nach öffentlichen Verkehrsmitteln stark zurückging. Interessanter sind die nachhaltigen Folgen dieses Schocks. Zwar ist die Analyse zum jetzigen Zeitpunkt noch früh - die Pandemie ist nicht vorbei - aber wir sehen weiterhin ein erhöhtes Interesse an Fahrrädern. Es bleibt abzuwarten, ob sich dies in den kommenden Monaten fortsetzt. Auch der negative Schock für die öffentlichen Verkehrsmittel (Busse und Züge) dauert noch an: das Interesse am Öffentlichen Verkehr ist im Vergleich zur Zeit vor Corona deutlich zurückgegangen.
+
+Covid-19 verursachte einige dramatische Veränderungen im Leben der Menschen und in ihren Mobilitätspräferenzen. Die von trendEcon bereitgestellten Daten bieten aktuelle Einblicke in die wichtigsten Mobilitätstrends.
+
+## Row
+
+### {}
+```{r art_3a_mob_1_de}
+
+blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+  ts_xts()
+
+ts_dygraphs(blog_ar_3_a[,1:2]  %>%
+              ts_frequency("month")) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dySeries("Auto kaufen", strokePattern = "dashed") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+```
+
+## Row
+
+### {}
+```{r art_3a_mob_2_de}
+
+blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+  ts_xts()
+
+ts_dygraphs(blog_ar_3_a[,3:4]  %>%
+              ts_frequency("month")) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dySeries("Zugticket", strokePattern = "dashed") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+
+```
+
+## Row
+
+### {}
+```{r art_3a_mob_3_de}
+
+kof_mob <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a_mobility_kof.csv") %>%
+  ts_xts()
+
+mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv",index.column = 1))
+mobility_trendecon <- as.xts(mobility_sa["2020-01-07/2020-08-24"])
+mobility_trendecon_r <- (mobility_trendecon-min(mobility_trendecon))/(max(mobility_trendecon)-min(mobility_trendecon))
+
+mobility <- cbind(kof_mob,mobility_trendecon_r)
+
+ts_dygraphs(mobility) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyAxis("y", label = "rescaled index") %>% 
+  dySeries("value", label = "KOF mobility index") %>%
+  dySeries("mobility_trendecon_r", label = "trendecon mobility index", strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Lockdown    ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I    ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II    ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III    ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+
+```
+
+------
+
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE GERMAN / Article 2-->
 <!----------------------------------------------------------------------->
@@ -643,6 +746,7 @@ ts_dygraphs(article_2) %>%
   dyLegend(width = 500) %>%
   dyAxis("x", drawGrid = FALSE)
 ```
+<br><br><br><br>
 
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE GERMAN / Article 1-->
@@ -827,6 +931,103 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 - [Blog auf Deutsch](#deutsch)
 
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 3a-->
+<!----------------------------------------------------------------------->
+
+## article_3a_en
+
+### {style="border: 0px; background: none"}
+
+#### **Still a long way to go**
+
+August 26th, 2020
+
+_Written by Stefan Legge, Ph.D., University of St.Gallen, Department of Economics - SIAW HSG_
+
+Many of the tasks that people need to get done have not changed in centuries: getting food, finding a comfortable place to sleep, treating injuries and illnesses, or getting from one place to another. Influential business theorists Clayton M. Christensen built a theory of the [jobs to be done](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done){target="_blank"} based on this fact. His key observation was that the tools and procedures people employ to get these jobs done change much more frequently than the jobs themselves.
+
+Concerning mobility, people changed their primary mode of transportation whenever new technologies – the train, the car, the airplane – allowed and incentivized them to do so. Most recently, we witnessed another reason why people changed the way they got from A to B: the Covid-19 pandemic made some forms of transportation less attractive. In addition, due to health concerns many people travelled far less. 
+
+Current data from KOF indicate that the average distance travelled (illustrated by the [mobility](https://kofdata.netlify.app/#/keys?dataset=ch.kof.mobind){target="_blank"} index) has largely recovered from its low point at the end of March. This allows us to ask interesting questions: Has the pandemic led to sustained changes in the modes of transportation? Do people continue to use bikes and cars instead of public transport?
+
+The data provided by trendEcon shed light on this.We observe how Google search frequencies evolved in the recent past and can compare it to levels in 2019 or 2018. This enables us to test whether Swiss citizens shifted preferences on mobility only temporarily or permanently. In the figure below, we illustrate the results for the keywords “Velo kaufen” (buying a bike), “Auto kaufen” (buying a car), “Bus Ticket”,as well as “Zugticket” (train ticket). In addition, we plot our mobility index together with the one from KOF.
+
+The data indicate a clear short-term impact of Covid-19: interest in bikes peaked while searches for public transport plummeted. More interesting are the lasting consequences of this shock. While still early – the pandemic is not over – we continue to see an elevated interest in bikes. It remains to be seen whether this prevails in the coming months. Similarly, the negative shock to public transportation (buses and trains) still lasts with public interest reduced substantially compared to pre-Corona times.
+
+Covid-19 caused some dramatic changes in people’s lives and mobility preferences.Data provided by trendEconoffers up-to-date insights into key mobility trends.
+
+## Row
+
+### {}
+```{r art_3a_mob_1}
+
+blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+  ts_xts()
+
+ts_dygraphs(blog_ar_3_a[,1:2]  %>%
+              ts_frequency("month")) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dySeries("Auto kaufen", strokePattern = "dashed") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+```
+
+## Row
+
+### {}
+```{r art_3a_mob_2}
+
+blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+  ts_xts()
+
+ts_dygraphs(blog_ar_3_a[,3:4]  %>%
+              ts_frequency("month")) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dySeries("Zugticket", strokePattern = "dashed") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+
+```
+
+## Row
+
+### {}
+```{r art_3a_mob_3}
+
+kof_mob <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a_mobility_kof.csv") %>%
+  ts_xts()
+
+mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv",index.column = 1))
+mobility_trendecon <- as.xts(mobility_sa["2020-01-07/2020-08-24"])
+mobility_trendecon_r <- (mobility_trendecon-min(mobility_trendecon))/(max(mobility_trendecon)-min(mobility_trendecon))
+
+mobility <- cbind(kof_mob,mobility_trendecon_r)
+
+ts_dygraphs(mobility) %>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dyAxis("y", label = "rescaled index") %>% 
+  dySeries("value", label = "KOF mobility index") %>%
+  dySeries("mobility_trendecon_r", label = "trendecon mobility index", strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Lockdown    ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I    ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Reopening - Phase II    ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Reopening - Phase III    ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+
+```
+
+
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE ENGLISH / Article 2-->
 <!----------------------------------------------------------------------->
@@ -837,7 +1038,7 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 #### **Large events will be allowed soon – but will people show up?**
 
-August 24th, 2020
+August 26th, 2020
 
 On August 12, 2020 the Federal Council of Switzerland [announced](https://www.srf.ch/news/schweiz/grossanlaesse-masken-kredite-das-hat-der-bundesrat-entschieden){target="_blank"} that starting in October large events with more than one thousand participants will be allowed again. This marked another round of easing the COVID-19 related restrictions imposed in March. Many companies, sports clubs, and event organizers were relieved to finally see light at the end of the tunnel.
 
