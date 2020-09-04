@@ -432,7 +432,12 @@ The category *Food Delivery* includes search terms related to take away and orde
 ## News {.sidebar data-width=310}
 
 ##### Latest News
+- _03.09.2020_ : New blog post
 
+  + [Culinary consumption patterns before, during and after the lockdown: Will the changes remain?](#english)
+  
+  + [Kulinarische Konsummuster vor, während und nach dem Lockdown: Veränderungen, die bleiben?](#deutsch).
+  
 - _26.08.2020_ : New blog post
 
   + [Still a long way to go](#english)
@@ -606,6 +611,53 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 - [Method](#method)
 
 - [Blog in English.](#english)
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 3-->
+<!----------------------------------------------------------------------->
+
+## article_3_de
+
+### {style="border: 0px; background: none"}
+
+#### **Kulinarische Konsummuster vor, während und nach dem Lockdown: Veränderungen, die bleiben?**
+
+03. September 2020
+
+Am 27. August 2020 verkündete das Staatssekretariat für Wirtschaft (SECO) den historischen Rückgang der Schweizer Wirtschaftsleistung während des zweiten Quartals 2020 gegenüber dem Vorquartal um 8.2%. Die Ökonomen des SECO erklären in ihrer [Konjunkturnotiz](https://www.seco.admin.ch/dam/seco/de/dokumente/Wirtschaft/Wirtschaftslage/VIP%20Quartalsschätzungen/konjunkturnotiz_2020_08_27.pdf.download.pdf/konjunkturnotiz_2020_08_27.pdf){target="_blank"}, dass insbesondere der private Konsum einen noch nie dagewesenen Einbruch erlitten hat. In vergangenen Krisen hat sich gezeigt, dass der private Konsum die Wirtschaft vor schlimmeren Entwicklungen, welche zumeist von rückläufige Investitionen angeheizt werden, bewahrt hat. In der gegenwärtigen Krise haben lediglich die Veränderungen der Staatsausgaben sich positiv auf die BIP-Veränderung ausgewirkt. Der Aussenhandel brach ebenso ein, da wichtige Handelspartner der Schweiz auch von Restriktionen betroffen waren. Weil der private Konsum den grössten Anteil aller BIP-Komponenten darstellt, wirken sich dessen Schwankungen besonders stark auf die Wirtschaftsleistung aus. So trägt der Konsumrückgang bedeutend zum BIP-Rückgang bei und konnte folglich seiner Rolle als Garant von Stabilität nicht nachkommen.
+
+Schon seit Ausbruch der Pandemie und während des Lockdowns spekulieren [US-amerikanische Ökonomen](https://www.nber.org/papers/w26949){target="_blank"}, dass die bisherigen Konsumgewohnheiten sich nicht nur kurzfristig sondern auch mittel- und langfristig verändern könnten. Insbesondere die Nutzung von Online-Shops für alltägliche Einkäufe habe durch die Ausgeh-Restriktionen einen weiteren Schub erhalten, welche durchaus eine Zeitenwende im Einzelhandel einläuten könnte. 
+
+Ob sich aber die Zusammensetzung des Konsumkorbs mit den Einkaufsmöglichkeiten, z.B. eben über Online-Shops statt im Supermarkt, verändert, ist eine andere Frage. Ob und wie sich die Nachfrage nach Gütern verändert, lässt sich mit einem Blick auf einzelne Konsumrubriken genauer erforschen. Im Folgenden wollen wir uns Konsumrubriken widmen, die zu den alltäglichsten des Lebens gehören: dem Essen.
+
+Mit trendEcon können wir die Suchanfragen nach spezifischen Konsumgütern, welche mutmasslich durch die Pandemie und dem Lockdown beeinflusst wurden, genauer betrachten. Als Suchbegriffe haben wir die Begriffe «Restaurant» und «Bar» sowie «Rezept» und «Sauerteig» gewählt. 
+
+Das erste Begriffspaar («Restaurant» und «Bar»; gestrichelte Linien) spiegelt Suchanfragen wider, die mit dem Ausgehen zusammenhängen. Betrachten wir den zeitlichen Verlauf der Suchanfragen, fällt auf, dass die beiden Begriffe während des Lockdowns kaum mehr gegoogelt wurden und erst wieder gegen Anfang Juni 2020 das übliche Niveau erlangten. Interessanterweise sehen wir auch, dass der Begriff «Restaurant» nach den Lockerungsphasen sogar stärker gesucht wurde als vor dem Lockdown. Dies kann einerseits ein Kompensationseffekt sein, wobei man sich danach danach sehnte sich bekochen zu lassen anstatt selbst zu kochen. Aber auch eine weit verbreitete Unsicherheit ist denkbar, so dass wir in der Schweiz vor einem Restaurant viel eher nachsehen, ob dieses überhaupt geöffnet ist. In der angesprochenen Konjunkturnotiz berichtet das SECO ebenfalls von Kompensationseffekten im Konsum aus, rechnet aber nicht mit einer vollständigen Kompensation der Ausfälle der ersten Jahreshälfte.
+
+Die anderen Begriffe («Rezept» und «Sauerteig», durchgezogene Linien) stehen für Aktivitäten, die wir mit dem Kochen zuhause in Verbindung bringen. Die Entwicklung der Suchanfrage «Rezept» lässt erkennen, dass es typischerweise während der Festtage im Dezember ins Suchfeld eingegeben wird. Der Lockdown scheint aber aus den Restaurantgänger\*innen Köch\*innen gemacht zu haben. Erstaunlicherweise haben Schweizer\*innen sich auch Zeit für aufwändigere Verfahren wie die Kultivierung von Sauerteigen genommen [(NZZ, Juni 2020)](https://www.nzz.ch/zuerich/sauerteig-eine-ode-an-das-tamagotchi-der-corona-krise-ld.1558248){target="_blank"}.  So dokumentiert die Zeitreihe über das Suchverhalten nach «Sauerteig» einen gewaltigen Hype zwischen März und Mai, der nach den ersten Lockerungen sein jähes Ende fand, was daran liegen könnte, dass Arbeitnehmende ihre Home-Offices wieder verliessen. 
+
+Ein Blick auf den heutigen Stand zeigt, dass die erläuterten Suchbegriffe wieder alte Niveaus erreicht haben. Sorgen über die Auswirkungen der zweiten Infektionswelle oder Jobsicherheit können sich jedoch auch in den kommenden Wochen auf das Konsumverhalten auswirken. Es bleibt also zu beobachten, ob der Konsum im kommenden Quartal die rückläufige Wirtschaftsleistung zu stabilisieren vermag. Wir sind jedoch skeptisch, ob der Sauerteig Teil dieser nahen Zukunft sein wird.
+
+## Row
+
+### {}
+```{r}
+
+article_3 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3.csv") %>%
+  ts_xts()
+
+ts_dygraphs(article_3) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("Restaurant", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("Bar", strokeWidth = 2, strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Lockdown     ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Phase I - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Phase II - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
 
 
 <!----------------------------------------------------------------------->
@@ -930,6 +982,55 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 - [Method](#method)
 
 - [Blog auf Deutsch](#deutsch)
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 3-->
+<!----------------------------------------------------------------------->
+
+## article_3_en
+
+### {style="border: 0px; background: none"}
+
+#### **Culinary consumption patterns before, during and after the lockdown: Will the changes remain?**
+
+September 3rd, 2020
+
+On 27 August 2020, the State Secretariat for Economic Affairs (SECO) announced the historic 8.2% quarter-on-quarter decline in Swiss economic output during the second quarter of 2020. In their [economic note](https://www.seco.admin.ch/dam/seco/de/dokumente/Wirtschaft/Wirtschaftslage/VIP%20Quartalsschätzungen/konjunkturnotiz_2020_08_27.pdf.download.pdf/konjunkturnotiz_2020_08_27.pdf){target="_blank"}, SECO's economists explain that private consumption in particular has suffered an unprecedented slump. Past crises have shown that private consumption has saved the economy from worse developments, which are mostly fuelled by declining investments. During the current crisis, only changes in government expenditure have had a positive impact on the change in GDP. Foreign trade collapsed, as important trading partners of Switzerland were also affected by restrictions. Because private consumption represents the largest share of all GDP components, its fluctuations have a particularly strong impact on economic output. Therefore, the decline in consumption is a major contributor to the decline in GDP and has therefore been unable to fulfill its role as a guarantor of stability.
+
+Ever since the outbreak of the pandemic and during the lockdown, [US economists](https://www.nber.org/papers/w26949){target="_blank"} have been speculating that current consumption habits could change not only in the short term but also in the medium or long term. In particular, the use of online shops for everyday shopping has been given a further boost by the lockdown restrictions, which could well ring in a turnaround in the retail sector. 
+
+However, whether the composition of the consumer basket will change with shopping opportunities (e.g. via online shops instead of going to supermarkets) is another question. Whether and how the demand for goods changes can be investigated more closely by taking a look at specific consumer categories. In the following, we will look at consumption categories that are among the most everyday things in life: food.
+
+With trendEcon we can take a closer look at the search queries for specific consumer goods that were presumably influenced by the pandemic and the lockdown. We have chosen the terms "restaurant" and "bar" as well as "recipe" and "sourdough" as search terms. 
+
+The first pair of terms ("Restaurant" and "Bar"; dashed lines) reflects search queries related to going out. If we look at the temporal course of the search queries, it is apparent that the two terms were hardly googled during the lockdown and only regained their usual level towards the beginning of June 2020. Interestingly, we also see that the term "Restaurant" was searched for even more after than before the lockdown. On the one hand, this can be a compensatory effect, where people longed to enjoy a prepared meal instead of cooking themselves. But also a widespread uncertainty is conceivable; we are much more likely to check whether a restaurant is even open before we visit it. In the above-mentioned economic note, the SECO also reports compensatory effects in private consumption, but does not expect full compensation for the losses of the first half of the year.
+
+The other terms ("Rezept" and "Sauerteig", solid lines) stand for activities that we associate with cooking at home. The development of search queries with "Rezept" shows that people typically look for recipes during holiday season in late December. However, the lockdown seems to have turned restaurant goers into cooks. Surprisingly, Swiss people have also taken time for more complex procedures such as the cultivation of sourdough [(NZZ, June 2020)](https://www.nzz.ch/zuerich/sauerteig-eine-ode-an-das-tamagotchi-der-corona-krise-ld.1558248){target="_blank"}. The time series on the search behavior for "Sauerteig" documents a huge hype between March and May, which came to an abrupt end after the first easing of the lockdown rules, which could be due to the fact that employees left their home offices again. 
+
+A look at the current state shows that the search terms shown have reached old levels again. Concerns about the effects of the second infection wave or job security may, however, continue to affect consumer behavior in the coming weeks. Therefore, we will see whether private consumption will be able to stabilize the declining economic output in the coming quarter. We are skeptical, however, whether sourdough will be part of this near future.
+
+
+## Row
+
+### {}
+```{r}
+
+article_3 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3.csv") %>%
+  ts_xts()
+
+ts_dygraphs(article_3) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("Restaurant", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("Bar", strokeWidth = 2, strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Lockdown     ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Phase I - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Phase II - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+
 
 
 <!----------------------------------------------------------------------->
@@ -1343,6 +1444,7 @@ We will continue to work on this project along the way and possibly add further 
 
 * [Angelica Becerra](https://www.linkedin.com/in/angelicambg/){target="_blank"} (Statistician and data scientist, ETH KOF)
 * [Vera Z. Eichenauer](https://sites.google.com/view/vera-eichenauer/home){target="_blank"} (Economist, ETH KOF)
+* [Alexander Götz](https://www.linkedin.com/in/a1exandergoetz/){target="_blank"} (Economist, ETH GESS)
 * Ronald Indergand (Head of Short Term Economic Analyses, SECO)
 * [Stefan Legge](https://sites.google.com/view/stefanlegge){target="_blank"} (Economist, University of St.Gallen)
 * [Isabel Martinez](https://sites.google.com/view/isabelzmartinez/home){target="_blank"} (Economist, ETH KOF, formerly SGB)
