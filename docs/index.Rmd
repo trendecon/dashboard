@@ -436,19 +436,19 @@ The category *Food Delivery* includes search terms related to take away and orde
 
   + [Culinary consumption patterns before, during and after the lockdown: Will the changes remain?](#english)
   
-  + [Kulinarische Konsummuster vor, während und nach dem Lockdown: Veränderungen, die bleiben?](#deutsch).
+  + [Kulinarische Konsummuster vor, während und nach dem Lockdown: Veränderungen, die bleiben?](#deutsch)
   
 - _26.08.2020_ : New blog post
 
   + [Still a long way to go](#english)
   
-  + [Ein weiter Weg](#deutsch).
+  + [Ein weiter Weg](#deutsch)
 
 - _24.08.2020_ : New blog post
 
   + [Large events will be allowed soon – but will people show up?](#english)
   
-  + [Grossveranstaltungen werden bald erlaubt sein - aber werden die Leute auch kommen?](#deutsch).
+  + [Grossveranstaltungen werden bald erlaubt sein - aber werden die Leute auch kommen?](#deutsch)
 
 - _08.07.2020_ : [Finanz und Wirtschaft](https://www.fuw.ch/article/die-zweite-welle-laesst-die-konsumenten-kalt/){target="_blank"} article.
 
@@ -622,7 +622,8 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 #### **Kulinarische Konsummuster vor, während und nach dem Lockdown: Veränderungen, die bleiben?**
 
-03. September 2020
+<font size="2">03. September 2020</font><br>
+<font size="2">_Alexander Götz_</font>
 
 Am 27. August 2020 verkündete das Staatssekretariat für Wirtschaft (SECO) den historischen Rückgang der Schweizer Wirtschaftsleistung während des zweiten Quartals 2020 gegenüber dem Vorquartal um 8.2%. Die Ökonomen des SECO erklären in ihrer [Konjunkturnotiz](https://www.seco.admin.ch/dam/seco/de/dokumente/Wirtschaft/Wirtschaftslage/VIP%20Quartalsschätzungen/konjunkturnotiz_2020_08_27.pdf.download.pdf/konjunkturnotiz_2020_08_27.pdf){target="_blank"}, dass insbesondere der private Konsum einen noch nie dagewesenen Einbruch erlitten hat. In vergangenen Krisen hat sich gezeigt, dass der private Konsum die Wirtschaft vor schlimmeren Entwicklungen, welche zumeist von rückläufige Investitionen angeheizt werden, bewahrt hat. In der gegenwärtigen Krise haben lediglich die Veränderungen der Staatsausgaben sich positiv auf die BIP-Veränderung ausgewirkt. Der Aussenhandel brach ebenso ein, da wichtige Handelspartner der Schweiz auch von Restriktionen betroffen waren. Weil der private Konsum den grössten Anteil aller BIP-Komponenten darstellt, wirken sich dessen Schwankungen besonders stark auf die Wirtschaftsleistung aus. So trägt der Konsumrückgang bedeutend zum BIP-Rückgang bei und konnte folglich seiner Rolle als Garant von Stabilität nicht nachkommen.
 
@@ -669,9 +670,12 @@ ts_dygraphs(article_3) %>%
 
 ### {style="border: 0px; background: none"}
 
+#### --------------------------------------------
+
 #### **Ein weiter Weg**
 
-August 26, 2020
+<font size="2">26. August 2020</font><br>
+<font size="2">Stefan Legge</font>
 
 Viele der Aufgaben, die die Menschen tagtäglich erledigen müssen, haben sich seit Jahrhunderten nicht verändert: Essen besorgen, einen bequemen Schlafplatz finden, Verletzungen und Krankheiten behandeln oder von einem Ort zum anderen gelangen. Der einflussreiche Wirtschaftstheoretiker Clayton M. Christensen hat auf der Grundlage dieser Tatsache eine Theorie der zu erledigenden Aufgaben ([jobs to be done](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done){target="_blank"} aufgestellt. Seine wichtigste Beobachtung ist, dass sich die Werkzeuge und Verfahren, die die Menschen zur Erledigung dieser Aufgaben einsetzen, viel häufiger ändern als die Aufgaben selbst.
 
@@ -764,9 +768,12 @@ ts_dygraphs(mobility) %>%
 
 ### {style="border: 0px; background: none"}
 
+#### --------------------------------------------
+
 #### **Grossveranstaltungen werden bald erlaubt sein - aber werden die Leute auch kommen?**
 
-August 24th, 2020
+<font size="2">24. August 2020</font><br>
+<font size="2">Stefan Legge</font>
 
 Am 12. August 2020 hat der Bundesrat [angekündigt](https://www.srf.ch/news/schweiz/grossanlaesse-masken-kredite-das-hat-der-bundesrat-entschieden){target="_blank"}, dass ab Oktober wieder Grossanlässe mit mehr als tausend Teilnehmenden zugelassen werden. Damit wurden die im März verhängten COVID-19-bezogenen Einschränkungen erneut gelockert. Viele Unternehmen, Sportvereine und Organisatoren von Veranstaltungen waren erleichtert, endlich Licht am Ende des Tunnels zu sehen. 
 
@@ -808,11 +815,13 @@ ts_dygraphs(article_2) %>%
 
 ### {style="border: 0px; background: none"}
 
+#### --------------------------------------------
+
 #### **Wie geht es der Schweizer Wirtschaft heute?**
 
 ##### trendEcon bietet neue Erkenntnisse
 
-25. Mai 2020
+<font size="2">25. Mai 2020</font><br>
 
 Die erste Jahreshälfte 2020 darf schon jetzt als historisch betrachtet werden. Selten zuvor sind Volkswirtschaften in derart kurzer Zeit so sehr eingebrochen wie jetzt. Infolge von COVID-19 und den diesbezüglichen staatlichen Massnahmen steigen praktisch überall die Arbeitslosenzahlen rapide an. Die wirtschaftliche Leistung gemessen am Bruttoinlandsprodukt (BIP) fällt stärker als wir es seit Jahrzehnten gesehen haben. Nach wie vor herrscht jedoch grosse Unsicherheit darüber, wie dramatisch der wirtschaftliche Einbruch wird und wie rasch sich Volkswirtschaften von der Krise erholen werden.
 
@@ -993,7 +1002,8 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 #### **Culinary consumption patterns before, during and after the lockdown: Will the changes remain?**
 
-September 3rd, 2020
+<font size="2">September 3rd, 2020</font><br>
+<font size="2">Alexander Götz</font>
 
 On 27 August 2020, the State Secretariat for Economic Affairs (SECO) announced the historic 8.2% quarter-on-quarter decline in Swiss economic output during the second quarter of 2020. In their [economic note](https://www.seco.admin.ch/dam/seco/de/dokumente/Wirtschaft/Wirtschaftslage/VIP%20Quartalsschätzungen/konjunkturnotiz_2020_08_27.pdf.download.pdf/konjunkturnotiz_2020_08_27.pdf){target="_blank"}, SECO's economists explain that private consumption in particular has suffered an unprecedented slump. Past crises have shown that private consumption has saved the economy from worse developments, which are mostly fuelled by declining investments. During the current crisis, only changes in government expenditure have had a positive impact on the change in GDP. Foreign trade collapsed, as important trading partners of Switzerland were also affected by restrictions. Because private consumption represents the largest share of all GDP components, its fluctuations have a particularly strong impact on economic output. Therefore, the decline in consumption is a major contributor to the decline in GDP and has therefore been unable to fulfill its role as a guarantor of stability.
 
@@ -1031,8 +1041,6 @@ ts_dygraphs(article_3) %>%
 ```
 
 
-
-
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE ENGLISH / Article 3a-->
 <!----------------------------------------------------------------------->
@@ -1041,11 +1049,12 @@ ts_dygraphs(article_3) %>%
 
 ### {style="border: 0px; background: none"}
 
+#### --------------------------------------------
+
 #### **Still a long way to go**
 
-August 26th, 2020
-
-_Written by Stefan Legge, Ph.D., University of St.Gallen, Department of Economics - SIAW HSG_
+<font size="2">August 26th, 2020</font><br>
+<font size="2">Stefan Legge</font>
 
 Many of the tasks that people need to get done have not changed in centuries: getting food, finding a comfortable place to sleep, treating injuries and illnesses, or getting from one place to another. Influential business theorists Clayton M. Christensen built a theory of the [jobs to be done](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done){target="_blank"} based on this fact. His key observation was that the tools and procedures people employ to get these jobs done change much more frequently than the jobs themselves.
 
@@ -1137,9 +1146,12 @@ ts_dygraphs(mobility) %>%
 
 ### {style="border: 0px; background: none"}
 
+#### --------------------------------------------
+
 #### **Large events will be allowed soon – but will people show up?**
 
-August 26th, 2020
+<font size="2">August 24th, 2020</font><br>
+<font size="2">Stefan Legge</font>
 
 On August 12, 2020 the Federal Council of Switzerland [announced](https://www.srf.ch/news/schweiz/grossanlaesse-masken-kredite-das-hat-der-bundesrat-entschieden){target="_blank"} that starting in October large events with more than one thousand participants will be allowed again. This marked another round of easing the COVID-19 related restrictions imposed in March. Many companies, sports clubs, and event organizers were relieved to finally see light at the end of the tunnel.
 
@@ -1183,11 +1195,13 @@ ts_dygraphs(article_2) %>%
 
 ### {style="border: 0px; background: none"}
 
+#### --------------------------------------------
+
 #### **How is the Swiss economy doing today?**
 
 ##### trendEcon offers new insights
 
-May 25, 2020
+<font size="2">May 25th, 2020</font><br>
 
 The first half of 2020 can already be regarded as historic. Seldom before have economies shrunkas fast in such a short time. As a result of COVID-19 and the related government measures, unemployment figures are rising rapidly practically everywhere. Economic performance measured by gross domestic product (GDP) is falling more sharply than we have seen in decades. However, there is still vast uncertainty about how dramatic the economic slump will be and how quickly economies will recover from the crisis.
 
