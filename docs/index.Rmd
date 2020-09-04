@@ -438,6 +438,12 @@ The category *Food Delivery* includes search terms related to take away and orde
   
   + [Kulinarische Konsummuster vor, während und nach dem Lockdown: Veränderungen, die bleiben?](#deutsch)
   
+- _02.09.2020_ : New blog post
+
+  + [Back to normal or permanent shifts in demand?](#english)
+  
+  + [Zurück zur Normalität oder dauerhafte Veränderung der Nachfrage?](#deutsch)
+  
 - _26.08.2020_ : New blog post
 
   + [Still a long way to go](#english)
@@ -612,11 +618,13 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 - [Blog in English.](#english)
 
+- ------
+
 <!----------------------------------------------------------------------->
-<!----------------------------------------BLOG PAGE GERMAN / Article 3-->
+<!----------------------------------------BLOG PAGE GERMAN / Article 5-->
 <!----------------------------------------------------------------------->
 
-## article_3_de
+## article_5_de
 
 ### {style="border: 0px; background: none"}
 
@@ -657,6 +665,127 @@ ts_dygraphs(article_3) %>%
   dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
   dyLegend(width = 500) %>%
   dyAxis("x", drawGrid = FALSE)
+```
+
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 4-->
+<!----------------------------------------------------------------------->
+
+
+## article_4_de
+
+### {style="border: 0px; background: none"}
+
+#### --------------------------------------------
+
+#### **Zurück zur Normalität oder dauerhafte Veränderung der Nachfrage?**
+
+<font size="2">02. September 2020</font><br>
+<font size="2">Stefan Legge</font>
+
+Für die Menschen in der Schweiz hat sich das Leben im Frühjahr 2020 dramatisch verändert, als der Bundesrat Mitte März den so genannten Lockdown verkündete. Da die Schweizerinnen und Schweizer nicht mehr in Restaurants, Bars oder Einkaufszentren gehen konnten, fanden sie neue Wege, ihre Freizeit zu geniessen.
+
+Bei den Lebensmitteln standen zwei Aktivitäten im Vordergrund: Brot backen und online Essen bestellen. Erstere war so weit verbreitet, dass derEconomist im Juli [darüber schrieb](https://www.economist.com/leaders/2020/07/09/sourdough-economics-no-need-to-knead){target="_blank"}. Das britische Magazin wies jedoch darauf hin, dass die Menschen, sobald die Pandemie und der wirtschaftliche Abschwung vorbei sind, das Brotbacken den Experten überlassen und sich darauf konzentrieren sollten, das Brot mit ihrer normalen Arbeit zu verdienen. Ähnlich verhält es sich mit anderen Aktivitäten während des Lockdowns. Viele Menschen gingenrasch nach den ersten Lockerungen wieder ins Restaurant anstatt zu Hause zu kochen.
+
+Dies wirft die Frage auf, ob der Covid-19-Schock nur zu kurzfristigen Anpassungen in der Art und Weise führte, wie die Menschen ihre Freizeit verbringen. Oder ist es wirklich so, dass wir (bislang) dauerhafte Veränderungen in der Konsumentennachfrage beobachten?
+
+Mit trendEcon sehen wir, wie sich die Google-Suchfrequenzen in den letzten Wochen, Monaten und Jahren entwickelt haben. Damit können wir prüfen, ob sich die Präferenzen der Schweizer Konsumenten nur vorübergehend oder dauerhaft verschoben haben. In der untenstehenden Abbildung sind die Ergebnisse für die Suchbegriffe "Brot backen", "Essen bestellen", "Netflix" sowie für eine Wortgruppe zum Thema Garten und Heimwerken dargestellt.
+
+## Row
+
+### {}
+```{r art_4_0_de}
+
+blog_ar_4 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_4.csv") %>%
+  ts_xts()
+
+ts_dygraphs(blog_ar_4) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dySeries("Netflix", strokePattern = NULL)%>% 
+  dySeries("Essen bestellen", strokePattern = "dashed") %>% 
+  dySeries("Brot backen", strokePattern = "dotdash") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Für einige der Schlüsselbegriffe deuten die Daten auf einen kurzfristigen Boom während des Covid-19 Lockdown hin. Das Interesse am Brotbacken oder an Nahrungsmittellieferungen stieg während der Abriegelung rapide an, brach aber ebenso schnell mit den ersten Lockerungen der Beschränkungen wieder ein. Unterdessen bleibt die Suche nach gartenbezogenen Begriffen im Vergleich zur Zeit vor Corona auf einem leicht erhöhten Niveau. Die Covid-19-Krise hat zu einigen dramatischen Veränderungen im Leben und im Konsumverhalten der Menschen geführt. Es scheint plausibel, dass die Menschen an einigen dieser neuen Gewohnheiten festhalten werden, wie z.B. an der Online-Bestellung von Lebensmitteln oder an der Gartenarbeit in ihrer Freizeit.
+
+Falls dies geschieht, werden Unternehmen in Zukunft mit einer anderen Verbrauchernachfrage konfrontiert sein. Dies hätte dann bedeutende Auswirkungen auf Investitionsentscheidungen. Diese allerdings in Erwartung eines anhaltenden Booms zu treffen, sollte auf einem tieferen Verständnis der Nachfrageverschiebungen basieren. Die Daten von trendEcon helfen dabei, indem sie wertvolle Einblicke in die Vorlieben der Verbraucher bieten.
+
+## Row
+
+### {}
+```{r art_4_1_de}
+
+food <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+food_2018 <- ts_data.frame(food["2018/2018-09-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+food_2019 <- ts_data.frame(food["2019/2019-09-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+food_2020 <- ts_data.frame(food["2020/2020-09-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = food_2018,
+  `2019` = food_2019,
+  `2020` = food_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = "Food delivery trendecon index")
+
+```
+
+## Row
+
+### {}
+```{r art_4_2_de}
+
+garden <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+garden_2018 <- ts_data.frame(garden["2018/2018-09-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+garden_2019 <- ts_data.frame(garden["2019/2019-09-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+garden_2020 <- ts_data.frame(garden["2020/2020-09-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = garden_2018,
+  `2019` = garden_2019,
+  `2020` = garden_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = "Gardening and home improvement trendecon index")
+
 ```
 
 
@@ -758,7 +887,6 @@ ts_dygraphs(mobility) %>%
 
 ```
 
-------
 
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE GERMAN / Article 2-->
@@ -992,11 +1120,12 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 - [Blog auf Deutsch](#deutsch)
 
+
 <!----------------------------------------------------------------------->
-<!----------------------------------------BLOG PAGE ENGLISH / Article 3-->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 5-->
 <!----------------------------------------------------------------------->
 
-## article_3_en
+## article_5_en
 
 ### {style="border: 0px; background: none"}
 
@@ -1038,6 +1167,126 @@ ts_dygraphs(article_3) %>%
   dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
   dyLegend(width = 500) %>%
   dyAxis("x", drawGrid = FALSE)
+```
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 4-->
+<!----------------------------------------------------------------------->
+
+
+## article_4_en
+
+### {style="border: 0px; background: none"}
+
+#### --------------------------------------------
+
+#### **Back to normal or permanent shifts in demand?**
+
+<font size="2">02. September 2020</font><br>
+<font size="2">Stefan Legge</font>
+
+Life changed dramatically for people in Switzerland in the spring of 2020 when the Federal Council announced the so-called lock-down in mid-March. Not being able to go to restaurants, bars, or shopping malls, Swiss people found new ways to enjoy their leisure time.
+
+Concerning food, two activities stood out: baking bread and ordering food online. The former was so widespread that The Economist [wrote about it in July](https://www.economist.com/leaders/2020/07/09/sourdough-economics-no-need-to-knead){target="_blank"}. As the British magazine pointed out, however, when the pandemic and economic downturn is over, people should leave bread-making to the experts and focus on bread-winning with their normal jobs. Similarly, when restaurants opened again many people quickly abandoned food delivery and went out again.
+
+This raises the question whether the Covid-19 shock led only to short-term adjustments in how people spend their leisure time. Alternatively, do we find any (thus far) lasting changes in consumer demand?
+
+Using trendEcon, we see how Google search frequencies evolved in the past weeks, months, and years. This allows us to test whether Swiss consumers shifted preferences only temporarily or permanently. In the figure below, we illustrate the results for the keywords “Brot backen” (baking bread), “Essen bestellen” (order food), “Netflix”, as well as a group of words related to gardening and home improvement.
+
+## Row
+
+### {}
+```{r art_4_0_en}
+
+blog_ar_4 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_4.csv") %>%
+  ts_xts()
+
+ts_dygraphs(blog_ar_4) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dySeries("Netflix", strokePattern = NULL)%>% 
+  dySeries("Essen bestellen", strokePattern = "dashed") %>% 
+  dySeries("Brot backen", strokePattern = "dotdash") %>% 
+  dyLegend(width = 500) %>% 
+  dyHighlight(highlightCircleSize = 3, 
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+For some of the keywords the data indicate a short-term boom during Covid-19. Interest in baking bread or food delivery surged rapidly during the lock-down but plummeted equally fast with the first easing of restrictions. Meanwhile, searches for gardening-related terms remains at an elevated level compared to pre-Corona times.The Covid-19 crisis has caused some dramatic changes in people’s lives and consumption patterns. It seems plausible that people will stick to some of these new habits, such as ordering food online or enjoying their free time gardening.
+
+If that happens companies will face a different consumer demand in the future. This has first-order implications for investment decisions. Making them in anticipation of a sustained boom should be based on a profound understanding of the shifts in demand. The data provided by trendEcon help by offering valuable insights into consumers’ minds.
+
+## Row
+
+### {}
+```{r art_4_1_en}
+
+food <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+food_2018 <- ts_data.frame(food["2018/2018-09-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+food_2019 <- ts_data.frame(food["2019/2019-09-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+food_2020 <- ts_data.frame(food["2020/2020-09-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = food_2018,
+  `2019` = food_2019,
+  `2020` = food_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = "Food delivery trendecon index")
+
+```
+
+## Row
+
+### {}
+```{r art_4_2_en}
+
+garden <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+garden_2018 <- ts_data.frame(garden["2018/2018-09-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+garden_2019 <- ts_data.frame(garden["2019/2019-09-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+garden_2020 <- ts_data.frame(garden["2020/2020-09-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = garden_2018,
+  `2019` = garden_2019,
+  `2020` = garden_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = "Gardening and home improvement trendecon index")
+
 ```
 
 
