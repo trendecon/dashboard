@@ -432,6 +432,11 @@ The category *Food Delivery* includes search terms related to take away and orde
 ## News {.sidebar data-width=310}
 
 ##### Latest News
+- ###### *trendEcon on TV:*
+  + Don't miss the TV interview on RSI LA1 at 22.25 on Friday, September 18th.
+  Repetition on Saturday at 13:15.
+  + Der Ausstrahlung des Beitrages über trendEcon. Es wird am Freitag der 18. September um 22:25 auf RSI LA1 gesendet. Wiederholung am Samstag 13:15 ebenfalls auf RSI LA1.
+
 - _03.09.2020_ : New blog post
 
   + [Culinary consumption patterns before, during and after the lockdown: Will the changes remain?](#english)
