@@ -435,7 +435,13 @@ The category *Food Delivery* includes search terms related to take away and orde
 - ###### *trendEcon on TV:*
   + Don't miss the TV interview on RSI LA1 at 22.25 on Friday, September 18th.
   Repetition on Saturday at 13:15.
-  + Der Ausstrahlung des Beitrages über trendEcon. Es wird am Freitag der 18. September um 22:25 auf RSI LA1 gesendet. Wiederholung am Samstag 13:15 ebenfalls auf RSI LA1.
+  + Sehen Sie das Interview mit trendEcon im TV. Es wird am Freitag, dem 18. September um 22:25 Uhr auf RSI LA1 gesendet. Die Wiederholung wird am Samstag um 13:15 Uhr ebenfalls auf RSI LA1 ausgestrahlt.
+  
+- _18.09.2020_ : New blog post
+
+  + [Football is back! But what about the fans?](#english)
+  
+  + [Der Ball rollt wieder – Werden Fans live dabei sein?](#deutsch)
 
 - _03.09.2020_ : New blog post
 
@@ -625,6 +631,98 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 - ------
 
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 6-->
+<!----------------------------------------------------------------------->
+
+## article_6_de
+
+### {style="border: 0px; background: none"}
+
+#### **Der Ball rollt wieder – Werden Fans live dabei sein?**
+
+<font size="2">03. September 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+An diesem Wochenende beginnt die neue Fussballsaison in der Schweiz und Deutschland. Aufgrund der Corona-Krise hat die Swiss Football League (SFL) den Spielplan für die Saison 2020/2021 angepasst. Neben terminlichen Verschiebungen kommen dem Fussballfan hierzulande jedoch auch neue Regelungen entgegen, auf welche es sich neu einzustellen gilt. Doch sind die Fans bereit und haben sie ihre Eintrittskarten bereits organisiert?
+
+Bereits im vergangenen Monat hat der Schweizerische Fussballverband an einer Vorlage für ein [Schutzkonzept](https://www.football.ch/portaldata/27/resources/dokumente/diverses/Covid_Schutzkonzept_August2020_DE.pdf){target="_blank"} gearbeitet, wie Fussballvereine ihre Fans Corona-konform zu behandeln haben. Neben individuellen Regeln (nur symptomfrei erscheinen, Abstand halten, Hände waschen) müssen auch Richtlinien eingehalten werden, die im Verantwortungsbereich der Vereine liegen. So dürfen sich z.B. bis Ende Oktober maximal 1000 Personen im Stadion befinden. Gemäss der bundesrätlichen Ankündigung vom 12. August sind ab Oktober grundsätzlich wieder mehr als 1000 Leute bei Grossveranstaltungen zugelassen. Wichtiger aber ist, dass der Schutz der Bürger\*innen und somit auch der Stadiongänger\*innen bei den Kantonen liegt. Weiter kann eine Maskenpflicht auf dem Stadiongelände anfallen, welche wiederum von den unterschiedlichen kantonalen Covid-19-Regeln abhängen. Je nach Kanton und Fussballstadion müssen sich Fans an die regionalen Gegebenheiten anpassen.
+
+Es ist also kompliziert! Wenn wir unseren trendEcon-Indikator für kulturelle Events heranziehen, lässt sich eine Niveauverschiebung seit Beginn des Jahres erkennen. Auffällig ist, dass diese Verschiebung einmalig ist in den letzten vier Jahren. Der Indikator illustriert mithin eine Unsicherheit über den Besuch von Veranstaltungen allgemein. Obwohl Fussball nur entfernt mit kulturellen Events in Verbindung gebracht werden kann, spielt diese Unsicherheit auch bei den Fans eine Rolle.
+
+Die Daten von trendEcon veranschaulichen, dass die Unsicherheit bezüglich eines Stadionbesuchs relativ zu den letzten Jahren gross ist. Die Zeitreihe des Suchbegriffs «Spielplan» lässt ein interessantes Muster erkennen: Während grossen Fussballturnieren (Welt- und Europameisterschaft) schiesst das Suchverhalten hoch, während die Aktivität in der übrigen Zeit konstant bleibt. Nur in diesem Jahr ist das Niveau auf ein noch nie erreichtes Tief gesunken. Wenn man auf den Begriff «Saisonkarte» blickt, zeigt sich ein ähnliches Bild: In jede zweiten Jahreshälfte steigt die Nachfrage nach Saisonkarten. In diesem Jahr gab es einen Absturz dieser Nachfrage, die sich im Schnitt auf einem tieferen Niveau einpendelt. Die Unsicherheit über das diesjährige Stadionglück veranlasste z.B. den Schweizer Meister BSC YB den Jahreskartenverkauf temporär auszusetzen [(BSCYB News)](https://www.bscyb.ch/news?nID=12105){target="_blank"}. Auch solche Massnahmen tragen dazu bei, dass die Tendenz der Saisonkarten-Verkäufe nach unten zeigt.
+
+Wir haben auch einen Blick auf die Suchbegriffe «Fallzahlen» und «Maskenpflicht» geworfen und erkennen klar eine erhöhte Suchaktivität nach den beiden Begriffen. Insbesondere der Begriff «Fallzahlen» erreicht einen neuen Rekordwert, welcher das Level der ersten Infektionswelle im Frühling weit überragt.
+
+Die Daten unserer Analyse verbildlichen die Unsicherheiten von Schweizer Fussballfans. Aufgrund dieser Unsicherheiten und über die zweite Welle und möglichen neuen Restriktionen gehen wir davon aus, dass die Besuchszahlen in Fussballstadien niedrig bleiben werden. Generell handelt es sich um Unsicherheiten, die die Mehrheit der Schweizer\*innen betreffen: Wie entwickelt sich die zweite Welle? Muss eine Maske in der Öffentlichkeit getragen werden? Es sind letztlich Fragen, die sich nicht nur auf den Verkauf von Stadionkarten, sondern auf die generelle Konsumfreude auswirken könnten.
+
+## Row
+
+### {}
+```{r}
+
+article_6 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_6.csv") %>%
+  ts_xts()
+
+ts_dygraphs(article_6) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyOptions(connectSeparatedPoints = TRUE) %>% 
+  dySeries("maskenpflicht", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("fallzahlen", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("spielplan", strokeWidth = 2,drawPoints = FALSE) %>%
+  dySeries("saisonkarte", strokeWidth = 2) %>%
+  dyEvent("2020-3-16", "Lockdown     ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Phase I - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Phase II - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {}
+```{r}
+
+# Cultural Event indicator
+cultural <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+cultural_2017 <- ts_data.frame(cultural["2017/2017-09-17"])%>% 
+  mutate(time = as.Date(gsub("2017","2020",time))) %>% 
+  ts_xts()
+
+cultural_2018 <- ts_data.frame(cultural["2018/2018-09-17"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+cultural_2019 <- ts_data.frame(cultural["2019/2019-09-17"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+cultural_2020 <- ts_data.frame(cultural["2020/2020-09-17"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2017` = cultural_2017,
+  `2018` = cultural_2018,
+  `2019` = cultural_2019,
+  `2020` = cultural_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2017", strokePattern = "dashed") %>%
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL,  strokeWidth = 1.5) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = " Cultural Event trendecon index")
+
+
+```
+
+
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE GERMAN / Article 5-->
 <!----------------------------------------------------------------------->
@@ -636,7 +734,7 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 #### **Kulinarische Konsummuster vor, während und nach dem Lockdown: Veränderungen, die bleiben?**
 
 <font size="2">03. September 2020</font><br>
-<font size="2">_Alexander Götz_</font>
+<font size="2">Alexander Götz</font>
 
 Am 27. August 2020 verkündete das Staatssekretariat für Wirtschaft (SECO) den historischen Rückgang der Schweizer Wirtschaftsleistung während des zweiten Quartals 2020 gegenüber dem Vorquartal um 8.2%. Die Ökonomen des SECO erklären in ihrer [Konjunkturnotiz](https://www.seco.admin.ch/dam/seco/de/dokumente/Wirtschaft/Wirtschaftslage/VIP%20Quartalsschätzungen/konjunkturnotiz_2020_08_27.pdf.download.pdf/konjunkturnotiz_2020_08_27.pdf){target="_blank"}, dass insbesondere der private Konsum einen noch nie dagewesenen Einbruch erlitten hat. In vergangenen Krisen hat sich gezeigt, dass der private Konsum die Wirtschaft vor schlimmeren Entwicklungen, welche zumeist von rückläufige Investitionen angeheizt werden, bewahrt hat. In der gegenwärtigen Krise haben lediglich die Veränderungen der Staatsausgaben sich positiv auf die BIP-Veränderung ausgewirkt. Der Aussenhandel brach ebenso ein, da wichtige Handelspartner der Schweiz auch von Restriktionen betroffen waren. Weil der private Konsum den grössten Anteil aller BIP-Komponenten darstellt, wirken sich dessen Schwankungen besonders stark auf die Wirtschaftsleistung aus. So trägt der Konsumrückgang bedeutend zum BIP-Rückgang bei und konnte folglich seiner Rolle als Garant von Stabilität nicht nachkommen.
 
@@ -755,7 +853,7 @@ dygraph(ts_c(
   dySeries("2019", strokePattern = "dashed") %>%
   dySeries("2020", strokePattern = NULL) %>%
   dyAxis("x", drawGrid = FALSE) %>% 
-  dyAxis("y", label = "Food delivery trendecon index")
+  dyAxis("y", label = "Food delivery trendEcon index")
 
 ```
 
@@ -1124,6 +1222,99 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 - [Method](#method)
 
 - [Blog auf Deutsch](#deutsch)
+
+
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 6-->
+<!----------------------------------------------------------------------->
+
+## article_6_en
+
+### {style="border: 0px; background: none"}
+
+#### **Football is back! But what about the fans?**
+
+<font size="2">September 18th, 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+This weekend marks the start of the new football season in Switzerland and Germany. Due to the Corona crisis, the Swiss Football League (SFL) has adjusted its match schedule for the 2020/2021 season. In addition to postponements, football fans in this country will also be affected by new regulations to which they will have to adapt. But are the fans ready fort hat and have they already bought their tickets?
+
+Last month, the Swiss Football Association was already working on a draft for a [protection concept](https://www.football.ch/portaldata/27/resources/dokumente/diverses/Covid_Schutzkonzept_August2020_DE.pdf){target="_blank"} on how football clubs should treat their fans in a Corona-compliant manner. In addition to individual rules (only appear free of symptoms, keep your distance, wash your hands), guidelines that are the responsibility of the clubs must also be followed. For example, a maximum of 1000 in the stadium must not be exceeded until the end of October. According to the Federal Council's announcement of 12 August, from October onwards, in principle, more than 1000 people are permitted at major events. More importantly, however, the protection of citizens and thus also of stadium-goers is the responsibility of the cantons. In addition, it may be necessary to wear masks on the stadium grounds, which in turn depends on the various cantonal Covid-19 rules. Thus, depending on the stadium and the canton on which it is located, fans have to adapt to regional conditions.
+
+It is complicated, indeed! If we use our trendEcon indicator for cultural events, we can see a level shift since the beginning of the year. It is striking that this shift is unique in the last four years. The indicator thus illustrates an uncertainty about the attendance of events in general. Although football can only remotely be associated with cultural events, this uncertainty also plays a role for fans.
+
+The trendEcon data illustrate that the uncertainty regarding a stadium visit is high relative to recent years. The time series of the search term "Spielplan" (match schedule) reveals an interesting pattern: During major football tournaments (World and European Championships), the search behavior shoots up, while activity remains constant during the rest of the time. Only this year the level has dropped to an unprecedented low. If we look at the term "Saisonkarte"(season ticket), a similar picture emerges: Every second half of the year the demand for season tickets increases. This year, however, there has been a crash of this demand, which on average has settled at a lower level. Uncertainty about this year's fan joy has prompted, for instance, the Swiss champion BSC YB to temporarily suspend season ticket sales [(BSCYB News)](https://www.bscyb.ch/news?nID=12105){target="_blank"}. Such measures also contribute to the downward trend in season ticket sales.
+
+We have also taken a look at the search terms "Fallzahlen" (incidents) and "Maskenpflicht" (mask requirement) and clearly see increased search activity for both terms. In particular, the term "Fallzahlen" has reached a new record level, which far exceeds the level of the first wave of infections in spring.
+
+The data of our analysis illustrate the uncertainty of Swiss football fans. Due to these uncertainty about the second infection wave or possible new restrictions, we assume that the number of visitors to football stadiums will remain low. In general, this uncertainty affect they majority of Swiss people: How is the second wave developing? Is a mask required at public venues? Ultimately, these are questions that could have an impact not only on the sales of stadium tickets but also on general consumer spending.
+
+
+## Row
+
+### {}
+```{r}
+
+article_6 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_6.csv") %>%
+  ts_xts()
+
+ts_dygraphs(article_6) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dyOptions(connectSeparatedPoints = TRUE) %>% 
+  dySeries("maskenpflicht", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("fallzahlen", strokeWidth = 2, strokePattern = "dashed") %>%
+  dySeries("spielplan", strokeWidth = 2,drawPoints = FALSE) %>%
+  dySeries("saisonkarte", strokeWidth = 2) %>%
+  dyEvent("2020-3-16", "Lockdown     ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Phase I - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-5-11", "Phase II - Reopening     ", labelLoc = "top") %>%
+  dyEvent("2020-6-8", "Phase III - Reopening     ", labelLoc = "top") %>%
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {}
+```{r}
+
+# Cultural Event indicator
+cultural <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+cultural_2017 <- ts_data.frame(cultural["2017/2017-09-17"])%>% 
+  mutate(time = as.Date(gsub("2017","2020",time))) %>% 
+  ts_xts()
+
+cultural_2018 <- ts_data.frame(cultural["2018/2018-09-17"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+cultural_2019 <- ts_data.frame(cultural["2019/2019-09-17"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+cultural_2020 <- ts_data.frame(cultural["2020/2020-09-17"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2017` = cultural_2017,
+  `2018` = cultural_2018,
+  `2019` = cultural_2019,
+  `2020` = cultural_2020
+)) %>%
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2017", strokePattern = "dashed") %>%
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL,  strokeWidth = 1.5) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = " Cultural Event trendecon index")
+
+
+```
 
 
 <!----------------------------------------------------------------------->
