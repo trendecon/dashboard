@@ -59,9 +59,9 @@ As a solution, we provide a set of economic indicators for Switzerland based on 
 
 ### Perceived Economic Situation (daily)
 
-```{r}
+```{r main_index}
 
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
+trendecon_all_sa <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -77,7 +77,7 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
 
 ### Monthly
 
-```{r}
+```{r main_index_monthly}
 
 data_monthly <- trendecon_all_sa %>%
   ts_frequency("month")
@@ -106,7 +106,7 @@ The indicator for *Perceived Economic Situation* includes search terms that refl
 ## Row {.tabset .tabset-fade}
 
 ### Watches and Jewellery (daily)
-```{r}
+```{r luxury}
 luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/luxury_sa.csv",index.column = 1))
 
 dygraph(luxury_sa)%>%
@@ -121,7 +121,7 @@ dygraph(luxury_sa)%>%
 
 ### Monthly
 
-```{r}
+```{r luxury_monthly}
 
 dm_luxury_sa <- luxury_sa %>%
   ts_frequency("month")
@@ -154,7 +154,7 @@ The category *Watches and Jewellery* includes stores and brands selling luxuriou
 
 ### Mobility (daily)
 
-```{r}
+```{r mobility}
 mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv",index.column = 1))
 
 dygraph(mobility_sa)%>%
@@ -169,7 +169,7 @@ dygraph(mobility_sa)%>%
 
 ### Monthly
 
-```{r}
+```{r mobility_monthly}
 
 dm_mobility_sa <- mobility_sa %>%
   ts_frequency("month")
@@ -198,7 +198,7 @@ The category *Mobility* includes search terms related to ground transportation: 
 ## Row {.tabset .tabset-fade}
 
 ### Travel Abroad (daily)
-```{r}
+```{r travel}
 travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv",index.column = 1))
 
 dygraph(travel_sa)%>%
@@ -213,7 +213,7 @@ dygraph(travel_sa)%>%
 
 ### Monthly
 
-```{r}
+```{r travel_monthly}
 
 dm_travel_sa <- travel_sa %>%
   ts_frequency("month")
@@ -242,7 +242,7 @@ The category *Travel Abroad* includes search terms used to book flights and holi
 
 ### Cultural Events (daily)
 
-```{r}
+```{r social}
 social_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv",index.column = 1))
 
 dygraph(social_sa)%>%
@@ -257,7 +257,7 @@ dygraph(social_sa)%>%
 
 ### Monthly
 
-```{r}
+```{r social_monthly}
 
 dm_social_sa <- social_sa %>%
   ts_frequency("month")
@@ -290,7 +290,7 @@ The category *Cultural Events* includes search terms related to concerts, theatr
 
 ### Gardening and Home Improvement (daily)
 
-```{r}
+```{r garden}
 garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv",index.column = 1))
 
 dygraph(garden_sa)%>%
@@ -305,7 +305,7 @@ dygraph(garden_sa)%>%
 
 ### Monthly
 
-```{r}
+```{r garden_monthly}
 
 dm_garden_sa <- garden_sa %>%
   ts_frequency("month")
@@ -338,7 +338,7 @@ The category *Gardening and Home Improvement* includes stores selling materials 
 
 ### Clothing and Shoes (daily)
 
-```{r}
+```{r clothing}
 clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/clothing_sa.csv",index.column = 1))
 
 dygraph(clothing_sa)%>%
@@ -353,7 +353,7 @@ dygraph(clothing_sa)%>%
 
 ### Monthly
 
-```{r}
+```{r clothing monthly}
 
 dm_clothing_sa <- clothing_sa %>%
   ts_frequency("month")
@@ -387,7 +387,7 @@ The category *Clothing and Shoes* includes clothing and shoe stores as well as a
 
 ### Food Delivery (daily)
 
-```{r}
+```{r fd}
 fd_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_sa.csv",index.column = 1))
 
 dygraph(fd_sa)%>%
@@ -402,7 +402,7 @@ dygraph(fd_sa)%>%
 
 ### Monthly
 
-```{r}
+```{r fd_monthly}
 
 dm_fd_sa <- fd_sa %>%
   ts_frequency("month")
@@ -433,9 +433,9 @@ The category *Food Delivery* includes search terms related to take away and orde
 
 ##### Latest News
 - ###### *trendEcon on TV:*
-  + Don't miss the TV interview on RSI LA1 at 22.25 on Friday, September 18th.
+  + [TV interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} on RSI LA1.
   Repetition on Saturday at 13:15.
-  + Sehen Sie das Interview mit trendEcon im TV. Es wird am Freitag, dem 18. September um 22:25 Uhr auf RSI LA1 gesendet. Die Wiederholung wird am Samstag um 13:15 Uhr ebenfalls auf RSI LA1 ausgestrahlt.
+  + Sehen Sie das [Interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} mit trendEcon im TV auf RSI LA1.
   
 - _18.09.2020_ : New blog post
 
@@ -519,7 +519,7 @@ The figure below shows how our main indicator on the perceived economic situatio
 ## Row
 
 ### {}
-```{r}
+```{r seco_comparisson}
 target <-
   dataseries::ds("ch_seco_gdp.sa.real.gdp", "xts") %>%
   ts_tbl() %>%
@@ -538,7 +538,7 @@ target3 <-
   ts_span(2007)
 target3$value <- target3$value/100 # rescale consumer sentiment
 
-data <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_frequency("quarter")
 
@@ -564,7 +564,7 @@ For some indicators, such as *Cultural Events* -- which includes demand for rest
 ## Row
 
 ### Cultural Events
-```{r echo = FALSE}
+```{r ce_background, echo = FALSE}
 data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv") %>%
   ts_span(2019)
 
@@ -583,7 +583,7 @@ ts_dygraphs(ts_c(
 ## Row
 
 ### Gardening and Home Improvement
-```{r echo = FALSE}
+```{r ghi_background, echo = FALSE}
 data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv") %>%
   ts_span(2019)
 
@@ -660,9 +660,9 @@ Die Daten unserer Analyse verbildlichen die Unsicherheiten von Schweizer Fussbal
 ## Row
 
 ### {}
-```{r}
+```{r football_0}
 
-article_6 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_6.csv") %>%
+article_6 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_6.csv") %>%
   ts_xts()
 
 ts_dygraphs(article_6) %>%
@@ -683,7 +683,7 @@ ts_dygraphs(article_6) %>%
 ## Row
 
 ### {}
-```{r}
+```{r football_1}
 
 # Cultural Event indicator
 cultural <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv") %>%
@@ -753,9 +753,9 @@ Ein Blick auf den heutigen Stand zeigt, dass die erläuterten Suchbegriffe wiede
 ## Row
 
 ### {}
-```{r}
+```{r culinary}
 
-article_3 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3.csv") %>%
+article_3 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3.csv") %>%
   ts_xts()
 
 ts_dygraphs(article_3) %>%
@@ -800,7 +800,7 @@ Mit trendEcon sehen wir, wie sich die Google-Suchfrequenzen in den letzten Woche
 ### {}
 ```{r art_4_0_de}
 
-blog_ar_4 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_4.csv") %>%
+blog_ar_4 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_4.csv") %>%
   ts_xts()
 
 ts_dygraphs(blog_ar_4) %>%
@@ -926,7 +926,7 @@ Covid-19 verursachte einige dramatische Veränderungen im Leben der Menschen und
 ### {}
 ```{r art_3a_mob_1_de}
 
-blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+blog_ar_3_a <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
   ts_xts()
 
 ts_dygraphs(blog_ar_3_a[,1:2]  %>%
@@ -945,7 +945,7 @@ ts_dygraphs(blog_ar_3_a[,1:2]  %>%
 ### {}
 ```{r art_3a_mob_2_de}
 
-blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+blog_ar_3_a <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
   ts_xts()
 
 ts_dygraphs(blog_ar_3_a[,3:4]  %>%
@@ -965,7 +965,7 @@ ts_dygraphs(blog_ar_3_a[,3:4]  %>%
 ### {}
 ```{r art_3a_mob_3_de}
 
-kof_mob <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a_mobility_kof.csv") %>%
+kof_mob <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a_mobility_kof.csv") %>%
   ts_xts()
 
 mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv",index.column = 1))
@@ -1019,9 +1019,9 @@ Die kommenden Wochen werden zeigen, ob die Nachfrage nach Grossanlässen steigt,
 ## Row
 
 ### {}
-```{r}
+```{r art_2}
 
-article_2 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_2.csv") %>%
+article_2 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_2.csv") %>%
   ts_xts()
 
 ts_dygraphs(article_2) %>%
@@ -1098,7 +1098,7 @@ Im Ergebnis zeigt **trendEcon** derzeit neben einem Krisenindex auch für mehrer
 
 ```{r}
 
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
+trendecon_all_sa <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -1147,7 +1147,7 @@ Auffällig ist zudem, dass sich die Stimmung bereits wieder deutlich aufgehellt 
 
 ### {}
 ```{r}
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
+trendecon_all_sa <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -1256,7 +1256,7 @@ The data of our analysis illustrate the uncertainty of Swiss football fans. Due 
 ### {}
 ```{r}
 
-article_6 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_6.csv") %>%
+article_6 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_6.csv") %>%
   ts_xts()
 
 ts_dygraphs(article_6) %>%
@@ -1350,7 +1350,7 @@ A look at the current state shows that the search terms shown have reached old l
 ### {}
 ```{r}
 
-article_3 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3.csv") %>%
+article_3 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3.csv") %>%
   ts_xts()
 
 ts_dygraphs(article_3) %>%
@@ -1394,7 +1394,7 @@ Using trendEcon, we see how Google search frequencies evolved in the past weeks,
 ### {}
 ```{r art_4_0_en}
 
-blog_ar_4 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_4.csv") %>%
+blog_ar_4 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_4.csv") %>%
   ts_xts()
 
 ts_dygraphs(blog_ar_4) %>%
@@ -1518,7 +1518,7 @@ Covid-19 caused some dramatic changes in people’s lives and mobility preferenc
 ### {}
 ```{r art_3a_mob_1}
 
-blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+blog_ar_3_a <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
   ts_xts()
 
 ts_dygraphs(blog_ar_3_a[,1:2]  %>%
@@ -1537,7 +1537,7 @@ ts_dygraphs(blog_ar_3_a[,1:2]  %>%
 ### {}
 ```{r art_3a_mob_2}
 
-blog_ar_3_a <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
+blog_ar_3_a <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a.csv") %>%
   ts_xts()
 
 ts_dygraphs(blog_ar_3_a[,3:4]  %>%
@@ -1557,7 +1557,7 @@ ts_dygraphs(blog_ar_3_a[,3:4]  %>%
 ### {}
 ```{r art_3a_mob_3}
 
-kof_mob <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a_mobility_kof.csv") %>%
+kof_mob <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_3_a_mobility_kof.csv") %>%
   ts_xts()
 
 mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv",index.column = 1))
@@ -1613,7 +1613,7 @@ The coming weeks will show whether the demand for large events increases as Swit
 ### {}
 ```{r}
 
-article_2 <- read_csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_2.csv") %>%
+article_2 <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_2.csv") %>%
   ts_xts()
 
 ts_dygraphs(article_2) %>%
@@ -1692,7 +1692,7 @@ As a result, **trendEcon** currently shows not only a crisis index but also the 
 
 ```{r}
 
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
+trendecon_all_sa <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
@@ -1741,7 +1741,7 @@ It is also noticeable that sentiment has already brightened considerably again -
 
 ### {}
 ```{r}
-trendecon_all_sa <- read_csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
+trendecon_all_sa <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv") %>%
   select(time,value) %>%
   ts_xts()
 
