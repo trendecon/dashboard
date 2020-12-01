@@ -3,9 +3,9 @@ get_stage("install") %>%
   add_step(step_install_cran("dygraphs")) %>%
   add_step(step_install_cran("flexdashboard")) %>%
   add_step(step_install_cran("htmlwidgets")) %>%
+  add_step(step_install_cran("knitr")) %>%
   add_step(step_install_cran("timetk")) %>%
-  add_step(step_install_cran("tsbox")) %>%
-  add_step(step_install_github("yihui/knitr@v1.29"))  #TODO: use current version when fixed
+  add_step(step_install_cran("tsbox"))
 
 get_stage("before_deploy") %>%
   add_step(step_setup_ssh()) %>%

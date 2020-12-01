@@ -436,7 +436,15 @@ The category *Food Delivery* includes search terms related to take away and orde
 
   + [TV interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} on RSI LA1.
   + Sehen Sie das [Interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} mit trendEcon im TV auf RSI LA1.
+
+- _28.10.2020_ : [Tages Anzeiger: Der Konsum bricht wegen Corona ein](https://www.tagesanzeiger.ch/der-konsum-bricht-wegen-corona-ein-107545280598){target="_blank"}.
+
+- _21.10.2020_ : New blog post
+
+  + [How do Swiss consumers cope with masks? A view on online and on-site shopping](#english)
   
+  + [Wie kommen Schweizer Konsumenten mit den Masken zurecht? Eine Sicht auf online und on-site Shopping](#deutsch)
+
 - _18.09.2020_ : New blog post
 
   + [Football is back! But what about the fans?](#english)
@@ -630,6 +638,115 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 - [Blog in English.](#english)
 
 - ------
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 7-->
+<!----------------------------------------------------------------------->
+
+## article_7_de
+
+### {style="border: 0px; background: none"}
+
+#### **Wie kommen Schweizer Konsumenten mit den Masken zurecht? Eine Sicht auf online und on-site Shoppin**
+
+<font size="2">21. October 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+Die Maskenpflicht in öffentlichen Verkehrsmitteln (6. Juli 2020) und für den Besuch Zürcher Geschäfte (27. August 2020) wurde zu Beginn ihrer Einführung kritisch beäugt, da sie möglicherweise eine erstarkende post-lockdown Konsumnachfrage bremsen könnte. Dieses Phänomen wurde im Aus- und Inland untersucht, wobei die Analysen uneinheitliche Resultate evozieren. Nach der landesweiten Einführung von erhöhten Schutzmassnahmen (19. Oktober) stellt sich die Frage nach möglichen Auswirkungen einer Maskenpflicht noch mehr. Dieser Artikel versucht daher, die Perspektive von Google-Suchenden einzubringen, um die bereits öffentliche Evidenz um eine weitere Facette zu erweitern.
+
+Die Global Economic Recovery Trackers der [Financial Times](https://www.ft.com/content/272354f2-f970-4ae4-a8ae-848c4baf8f4a){target="_blank"}, welche wie die trendEcon-Indikatoren auf hochfrequenten Daten beruhen, implizieren, dass der Einzelhandel in manchen Ländern wieder auf ein gewöhnliches Konsum-Niveau zurückgekehrt ist. Sieht man jedoch die Daten der Ladeneintritte (Retail Footfall) an, fällt auf, dass der on-site Einzelhandel im Jahresvergleich (y/y) zwischen 20% (Italien, Schweden) bis zu 60% (UK, US) zurückhinkt. Ökonomen kommen in einer auf Mobilität-Echtzeitdaten basierenden [Studie](https://www.econstor.eu/bitstream/10419/218945/1/Compulsory_face_masks_Germany_5june2020.pdf){target="_blank"} in Deutschland zum Schluss, dass die gestaffelte Einführung einer Maskenpflicht keine signifikanten Auswirkungen auf die Besuche im Einzelhandel haben. Die Thematik ist auch von hiesigen Medien aufgenommen worden [(NZZ, 17. September 2020)](https://www.nzz.ch/wirtschaft/coronavirus-maskenpflicht-geringe-einbussen-fuer-geschaefte-ld.1576918?mktcid=nled&mktcval=120&kid=nl120_2020-9-18&ga=&trco=){target="_blank"}. Der Artikel argumentiert, dass die strengere Maskenpflicht in Zürich nicht zu Einbussen im Einzelhandel (gemessen in Anzahl Kartentransaktionen) führt, im Vergleich zur Ost- oder Zentralschweiz. Jedoch begrenzt sich die regionale Analyse auf einen Zeitabschnitt zwischen August und September, ohne Vorjahreszahlen einzubeziehen.
+
+Die Daten von trendEcon lassen eine differenzierte Betrachtung von on-site sowie auch online Handel zu. Zuerst lässt sich festhalten, dass der noch neue Begriff "maskenpflicht"ein grosses Interesse sowohl im Kanton wie auch im gesamten Land (gestrichelte Linie) auslöste. Mit dem bundesrätliche Beschluss vom 18. Oktober 2020 hat das Suchverhalten nach "maskenpflicht" einen neuen Rekordwert erreicht. Doch wie hat sich die Maskenpflicht auf die Konsumfreude im stationären Einzelandel ausgewirkt? 
+
+## Row
+
+### {}
+```{r masks_0}
+
+article_7_CH <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_7_CH.csv") %>%
+  ts_xts()
+article_7_ZH <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_7_ZH.csv") %>%
+  ts_xts()
+
+ts_dygraphs(ts_c(
+  `CH` = article_7_CH$maskenpflicht,
+  `ZH` = article_7_ZH$maskenpflicht)) %>%
+  dyRoller(rollPeriod = 4)%>% 
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("CH", label = "\"maskenpflicht\" searched in CH") %>%
+  dySeries("ZH", label= "\"maskenpflicht\" searched in ZH only", strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Start Lockdown        ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I        ", labelLoc = "top") %>%
+  dyEvent("2020-7-6", "Mask Measure CH - Public transport        ", labelLoc = "top") %>% 
+  dyEvent("2020-8-27", "Mask Measure ZH - Retail        ", labelLoc = "top") %>% 
+  dyEvent("2020-10-19", "Mask Measure CH - Retail        ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Die Suchbegriffe «öffnungszeiten», «shopping center» stehen für Konsumgelegenheiten, die physisch besucht werden. Die folgenden Zeitreihen zeigen das Suchverhalten in der Schweiz und Zürich der letzten zwei Jahren, wobei erkennbar ist, dass sich «Shopping Center»-Suchanfragen nach einem Rückgang während des Lockdowns noch nicht auf ein Vorjahresniveau bewegt haben. Interessant wird sein, welche Auswirkungen die zweite Infektionswelle auf das sonst starke Weihnachtsgeschäft haben wird. Auch sichtbar ist, dass «shopping center» in Zürich weniger gesucht wurde nachdem die Maskenpflicht eingeührt wurde. Nach einer kurzen Aufwärtsentwicklung während im September, hat ein Abwärtstrend eingesetzt, welcher mit den landesweiten Massnahmen zu tun haben könnte.
+Der Begriff «öffnungszeiten» lässt sich nicht eindeutig interpretieren. Einerseits könnte man die Reihe so deuten, dass ein Vor-Corona-Niveau erreicht worden ist. Jedoch muss auch beachtet werden, dass der Lockdown nicht zu relativen Rückgängen geführt hat. Auch denkbar ist, dass Googlende vielleicht sicherheitshalber nach Öffnungszeiten suchen, statt vor verschlossen Türen zu stehen. 
+
+## Row
+
+### {}
+```{r masks_1}
+
+ts_dygraphs(ts_c(
+  `CH_ot` = article_7_CH[,1], 
+  `CH_sc` = article_7_CH[,2],
+  `ZH_ot` = article_7_ZH[,1],
+  `ZH_sc` = article_7_ZH[,2])) %>%
+  dyRoller(rollPeriod = 4)%>% 
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("CH_ot", label = "\"öffnungszeiten\" searched in CH") %>%
+  dySeries("ZH_ot", label = "\"öffnungszeiten\" searched in ZH", strokePattern = "dashed") %>%
+  dySeries("CH_sc", label = "\"shopping center\" searched in CH") %>%
+  dySeries("ZH_sc", label = "\"shopping center\" searched in ZH", strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Start Lockdown        ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I        ", labelLoc = "top") %>%
+  dyEvent("2020-7-6", "Mask Measure CH - Public transport        ", labelLoc = "top") %>% 
+  dyEvent("2020-8-27", "Mask Measure ZH - Retail        ", labelLoc = "top") %>%
+  dyEvent("2020-10-19", "Mask Measure CH - Retail       ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+In der dritten Abbildung blicken wir auf Aushängeschilder des Online-Handels, namentlich «galaxus», «coop at home» und «le shop». Hierbei fällt auf, dass der E-Commerce-Riese Galaxus seine starke Position während des Lockdowns verbessern konnte. Nach einer temporär explodierenden Nachfrage, hat sich das neue Niveau über Vorjahreswerten eingepegelt. Die Online-Ableger der grössten Retailer der Schweiz Coop und Migros zeigen jedoch, dass dem fulminanter Höhepunkt während des Lockdowns ein Abflachen auf Vorjahresniveau folgte. Die neuen Sicherheitsmassnahmen haben jedoch wieder zu einer erhöhten Nachfrage bei Online-Retailern geführt.
+
+## Row
+
+### {}
+```{r masks_2}
+
+ts_dygraphs(ts_c(
+  article_7_CH$`coop at home`,
+  article_7_CH$`le shop`,
+  article_7_CH$galaxus)) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>%
+  dyEvent("2020-3-16", "Start Lockdown        ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I        ", labelLoc = "top") %>%
+  dyEvent("2020-7-6", "Mask Measure CH - Public transport        ", labelLoc = "top") %>% 
+  dyEvent("2020-8-27", "Mask Measure ZH - Retail      ", labelLoc = "top") %>%
+  dyEvent("2020-10-19", "Mask Measure CH - Retail       ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Die Daten zu Google-Suchanfragen können nicht direkt einen Effekt der Maskenpflicht identifizieren; dennoch indizieren sie eine Verschiebung des Konsumgewohnheiten im Non-Food-Bereich von on-site zu online, was insbesondere durch einen Rückgang bei Food-Onlinehändlern währen des Sommers gezeigt werden kann. Vermehrte Einkäufe von Zuhause in Verbindung mit einer eher rückgängigen Konsumquote implizieren jedoch, dass der on-site Konsum sich nicht vollständig erholt hatte. Der erneute Aufschwund des Online-Konsums deutet darauf hin, dass sich die Schweizer*innen in die Sicherheit der eigenen Stuben begeben statt Geschäfte aufzusuchen.
 
 
 <!----------------------------------------------------------------------->
@@ -1222,6 +1339,114 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 - [Method](#method)
 
 - [Blog auf Deutsch](#deutsch)
+
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 7-->
+<!----------------------------------------------------------------------->
+
+## article_7_en
+
+### {style="border: 0px; background: none"}
+
+#### **How do Swiss consumers cope with masks? A view on online and on-site shopping**
+
+<font size="2">October 21st, 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+The introduction of compulsory wearing of masks on public transport (July 6, 2020) and for store visits in Zurich (August 27, 2020) was viewed critically at the beginning, as it could possibly slow down a growing post-lockdown consumer demand. This phenomenon has been studied both domestically and abroad with mixed results.  Following the nationwide introduction of increased protective measures (October 19, 2020), the question of the possible effects of the compulsory wearing of masks is even more pressing. This article therefore tries to add further evidence coming from Google search behavior.
+
+The Global Economic Recovery Trackers of the [Financial Times](https://www.ft.com/content/272354f2-f970-4ae4-a8ae-848c4baf8f4a){target="_blank"}, which are based on high-frequency data like the trendEcon indicators, imply that the retail sector in some countries have returned to normal levels. However, if we look at the data on retail footfall, we see that on-site retail is still lagging behind to previous year’s levels (y/y). The year-to-year gap ranges from 20% (Italy, Sweden) to 60% (UK, US). In a [study](https://www.econstor.eu/bitstream/10419/218945/1/Compulsory_face_masks_Germany_5june2020.pdf){target="_blank"}, based on real-time mobility data, for Germany, economists conclude that a staggered introduction of mandatory masks has no significant impact on retail visits. The topic has also been taken up by local media [(NZZ, September 17, 2020)](https://www.nzz.ch/wirtschaft/coronavirus-maskenpflicht-geringe-einbussen-fuer-geschaefte-ld.1576918?mktcid=nled&mktcval=120&kid=nl120_2020-9-18&ga=&trco=){target="_blank"}. The article argues that the stricter mask obligation in Zurich has not led to losses in retail consumption (measured in number of card transactions) compared to Eastern or Central Switzerland. However, the regional analysis is limited to a period between August and September, without including previous year figures.
+
+The trendEcon data allows a differentiated view of on-site and online retail trade. First of all, we see that the new expression "maskenpflicht" triggered great interest in both the canton and the entire country (dashed line). With the Federal Council's decision of 18 October 2020, search behaviour for "compulsory masks" has reached a new record high. But how has the obligation to wear a mask affected consumer spending in stationary retail stores? 
+
+## Row
+
+### {}
+```{r masks_0_en}
+
+article_7_CH <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_7_CH.csv") %>%
+  ts_xts()
+article_7_ZH <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_7_ZH.csv") %>%
+  ts_xts()
+
+ts_dygraphs(ts_c(
+  `CH` = article_7_CH$maskenpflicht,
+  `ZH` = article_7_ZH$maskenpflicht)) %>%
+  dyRoller(rollPeriod = 4)%>% 
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("CH", label = "\"maskenpflicht\" searched in CH") %>%
+  dySeries("ZH", label= "\"maskenpflicht\" searched in ZH only", strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Start Lockdown        ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I        ", labelLoc = "top") %>%
+  dyEvent("2020-7-6", "Mask Measure CH - Public transport        ", labelLoc = "top") %>% 
+  dyEvent("2020-8-27", "Mask Measure ZH - Retail        ", labelLoc = "top") %>% 
+  dyEvent("2020-10-19", "Mask Measure CH - Retail        ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+The search terms "öffnungszeiten" (opening hours), "shopping center" stand for consumption opportunities that are physically visited. The following time series show the search behavior in Switzerland and Zurich over the last two years. The term "öffnungszeiten" is hard to interpret. On the one hand, we could that that the pre-corona level has been reached again. The search behavior is even stronger compared to the same months last year. However, it is also possible that searchers might be looking for opening hours more often instead of standing in front of closed doors for safety reasons. The term "shopping center" was slightly less searched in Zurich after the compulsory wearing of masks was introduced, but it did pick up again during September. We observe that "shopping center" search queries have not yet reached the level of the previous year after a decline during the lockdown. It will be interesting to see what impact the second wave of infections will have on the typically strong Christmas season. However, the recent decision of the Federal Council has led to a visible downward trend throughout the country. The Federal Council has officially confirmed that the second wave has finally arrived in Switzerland. 
+
+## Row
+
+### {}
+```{r mask_1_en}
+
+ts_dygraphs(ts_c(
+  `CH_ot` = article_7_CH[,1], 
+  `CH_sc` = article_7_CH[,2],
+  `ZH_ot` = article_7_ZH[,1],
+  `ZH_sc` = article_7_ZH[,2])) %>%
+  dyRoller(rollPeriod = 4)%>% 
+  dyAxis("y", label = "Hits (index from Google trends)") %>% 
+  dySeries("CH_ot", label = "\"öffnungszeiten\" searched in CH") %>%
+  dySeries("ZH_ot", label = "\"öffnungszeiten\" searched in ZH", strokePattern = "dashed") %>%
+  dySeries("CH_sc", label = "\"shopping center\" searched in CH") %>%
+  dySeries("ZH_sc", label = "\"shopping center\" searched in ZH", strokePattern = "dashed") %>%
+  dyEvent("2020-3-16", "Start Lockdown        ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I        ", labelLoc = "top") %>%
+  dyEvent("2020-7-6", "Mask Measure CH - Public transport        ", labelLoc = "top") %>% 
+  dyEvent("2020-8-27", "Mask Measure ZH - Retail        ", labelLoc = "top") %>%
+  dyEvent("2020-10-19", "Mask Measure CH - Retail        ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+In the second figure, we look at the big names of Swiss online commerce, namely "galaxus", "coop at home" and "le store". Strikingly, the e-commerce giant Galaxus was able to improve its strong position during the lockdown. After a temporary explosion in search demand, a new level has now been reached above the previous year's figures. However, the online branches of Switzerland's largest retailers Coop and Migros show that the enormous peak during the lockdown was followed by a flattening off at the previous year's level. Nevertheless, the new security measures have again led to increased demand among all online retailers.
+
+## Row
+
+### {}
+```{r mask_2_en}
+
+ts_dygraphs(ts_c(
+  article_7_CH$`coop at home`,
+  article_7_CH$`le shop`,
+  article_7_CH$galaxus)) %>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>%
+  dyEvent("2020-3-16", "Start Lockdown        ", labelLoc = "top") %>%
+  dyEvent("2020-4-27", "Reopening - Phase I        ", labelLoc = "top") %>%
+  dyEvent("2020-7-6", "Mask Measure CH - Public transport        ", labelLoc = "top") %>% 
+  dyEvent("2020-8-27", "Mask Measure ZH - Retail       ", labelLoc = "top") %>%
+  dyEvent("2020-10-19", "Mask Measure CH - Retail        ", labelLoc = "top") %>% 
+  dyLegend(width = 500) %>%
+  dyAxis("x", drawGrid = FALSE)
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+The data on Google search queries cannot directly identify an effect of the mask obligation; however, they do indicate a shift in non-food consumption habits from on-site to online, which can be shown in particular by a decline in food online retailers during the summer. However, increased purchases from home combined with a rather declining consumption ratio coud still imply that on-site consumption had not fully recovered. The renewed upturn in online consumption suggests that Swiss people are moving into the safety of their own homes rather than visiting stores.
 
 
 
