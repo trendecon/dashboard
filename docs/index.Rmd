@@ -68,7 +68,7 @@ trendecon_all_sa <- read.csv("https://raw.githubusercontent.com/trendecon/data/m
 dygraph(trendecon_all_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("value", label = "Index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
   dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
   dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
@@ -436,6 +436,8 @@ The category *Food Delivery* includes search terms related to take away and orde
 
   + [TV interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} on RSI LA1.
   + Sehen Sie das [Interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} mit trendEcon im TV auf RSI LA1.
+
+- _23.11.2020_ : [Republik: Die Fieberkurven der Corona-Rezession](https://www.republik.ch/2020/11/23/die-fieberkurven-der-corona-rezession){target="_blank"}.
 
 - _28.10.2020_ : [Tages Anzeiger: Der Konsum bricht wegen Corona ein](https://www.tagesanzeiger.ch/der-konsum-bricht-wegen-corona-ein-107545280598){target="_blank"}.
 
