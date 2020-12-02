@@ -436,6 +436,14 @@ The category *Food Delivery* includes search terms related to take away and orde
 
   + [TV interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} on RSI LA1.
   + Sehen Sie das [Interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} mit trendEcon im TV auf RSI LA1.
+  
+  
+- _01.11.2020_ : New blog post
+
+  + [A new indicator for the home office situation and what it has to do with Black Friday](#english)
+  
+  + [Ein neuer Indikator zur Homeoffice-Situation und was dieser mit Black Friday zu tun hat](#deutsch)
+
 
 - _28.10.2020_ : [Tages Anzeiger: Der Konsum bricht wegen Corona ein](https://www.tagesanzeiger.ch/der-konsum-bricht-wegen-corona-ein-107545280598){target="_blank"}.
 
@@ -639,6 +647,73 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 - ------
 
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 8-->
+<!----------------------------------------------------------------------->
+
+## article_8_de
+
+### {style="border: 0px; background: none"}
+
+#### **Ein neuer Indikator zur Homeoffice-Situation und was dieser mit Black Friday zu tun hat**
+
+<font size="2">1. November 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+Das Homeoffice brachte neue Objekte auf die Einkaufslisten der Konsumenten. Waren die eigenen vier Wände vorher klar fürs Wohnen bestimmt, müssen sie nun auch arbeitstauglich sein. Es ist kein Geheimnis, dass vermehrt Monitore, Anschlusskabel und andere Arbeitsobjekte besorgt werden mussten (siehe z.B. [Bloomberg](https://www.bloomberg.com/news/articles/2020-03-17/pc-monitors-in-short-supply-as-virus-spurs-home-office-buying){target="_blank"}). 
+
+TrendEcon hat sich zum Anlass genommen typische Gegenstände des Homeoffice-Alltags zu einem Index zusammenzufassen. Der Home Office Index enthält die Suchbgeriffe "headset","monitor","maus" und "hdmi". Wahrscheinlich haben Sie selbst im Frühling oder Herbst mindestens einen dieser Begriffe gegoogelt. Denn der Index zeigt starke Bewegungen zu den verschiedenen Lockdowns. Im März war der Ausschlag ausgesprochen stark. Nach einem Rückgang im Sommer folgte wieder eine vermehrte Nachfrage nach den Homeoffice-Elektronika. Der folgende Chart zeigt 7-Tage-Schnitte des neuen täglichen Indikators.
+
+## Row
+
+### {}
+```{r }
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 8 ----
+
+# Home Office Indicator
+homeoffice <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+homeoffice_2018 <- ts_data.frame(homeoffice["2018/2018-12-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2019 <- ts_data.frame(homeoffice["2019/2019-12-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2020 <- ts_data.frame(homeoffice["2020/2020-21-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = homeoffice_2018,
+  `2019` = homeoffice_2019,
+  `2020` = homeoffice_2020
+)) %>%
+  dyRoller(rollPeriod = 7)%>% 
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL,  strokeWidth = 1.5) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = " Home Office trendEcon index")
+
+
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Der Vergleich mit den Vorjahren zeigt, dass die leichte Baisse im Sommer 2020 immer noch über dem Interesse vorheriger Sommer liegt. Interessant ist auch die Beobachtung, dass gegen Ende November in allen dargestellten Jahren die Nachfrage nach Elektronikartikeln zunimmt. Wieso schlägt der Indikator denn an den Novemberenden aus?
+
+Die Antwort ist schnell gefunden: Black Friday! Die Rabattschlacht erfreut seit wenigen Jahren auch die Schweizer Konsumenten. Wie sich denn der Black Friday und die darauf folgende Cyber Week auf die Nachfrage nach Elektronikartikeln und deren Händler, wie Galaxus oder Interdiscount, ausgewirkt haben erfahren Sie im nächsten Blog. 
+
+
+
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE GERMAN / Article 7-->
 <!----------------------------------------------------------------------->
@@ -647,7 +722,7 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 ### {style="border: 0px; background: none"}
 
-#### **Wie kommen Schweizer Konsumenten mit den Masken zurecht? Eine Sicht auf online und on-site Shoppin**
+#### **Wie kommen Schweizer Konsumenten mit den Masken zurecht? Eine Sicht auf online und on-site Shopping**
 
 <font size="2">21. October 2020</font><br>
 <font size="2">Alexander Götz</font>
@@ -1339,6 +1414,77 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 - [Method](#method)
 
 - [Blog auf Deutsch](#deutsch)
+
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 8-->
+<!----------------------------------------------------------------------->
+
+## article_8_en
+
+### {style="border: 0px; background: none"}
+
+#### **A new indicator for the home office situation and what it has to do with Black Friday**
+
+<font size="2">November 1st, 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+
+The home office brought new items to consumers' shopping lists. While the own four walls were intended for living only before, it must now be suitable for work. It is no secret that people started buying more monitors, connection cables, and other work objects (see, e.g., [Bloomberg](https://www.bloomberg.com/news/articles/2020-03-17/pc-monitors-in-short-supply-as-virus-spurs-home-office-buying){target="_blank"}). 
+
+TrendEcon has taken the opportunity to summarize specific home office objects in an index. The home office index contains the search terms "headset," "monitor", "maus" (computer mouse), and "hdmi". You probably googled at least one of these terms yourself in spring or autumn. The index shows strong movements during the two semi-lockdowns. Especially in March, the rash was unmissably large. After a decline in the summer, demand for home office electronics increased again. The following chart shows 7-day rolling averages of the new daily indicator.
+
+## Row
+
+### {}
+```{r }
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 7 ----
+# How do Swiss consumers cope with masks
+
+# Cultural Event indicator
+homeoffice <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+homeoffice_2018 <- ts_data.frame(homeoffice["2018/2018-12-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2019 <- ts_data.frame(homeoffice["2019/2019-12-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2020 <- ts_data.frame(homeoffice["2020/2020-21-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = homeoffice_2018,
+  `2019` = homeoffice_2019,
+  `2020` = homeoffice_2020
+)) %>%
+  dyRoller(rollPeriod = 7)%>% 
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL,  strokeWidth = 1.5) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = " Home Office trendEcon index")
+
+
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Compared with previous years, the decline in summer is still above the average level of searches from the last years. Interestingly, towards the end of November, the demand for electronic goods increased in all the years shown. So why does the indicator rise at the end of November?
+
+Short answer: Black Friday! The discount battle has also been delighting Swiss consumers for a few years now. In the next blog, you can read about how Black Friday and the Cyber Week impacted the demand for electronic goods and their retailers, such as Galaxus or Interdiscount.
+
+
+
 
 
 <!----------------------------------------------------------------------->
