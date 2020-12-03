@@ -396,19 +396,16 @@ ts_dygraphs(ts_c(
 
 ###### Description
 
-The category *Gardening and Home Improvement* includes stores selling materials for home improvement such as building materials, garden accessories and electrical supplies.
+The category *Home Office* combine Google inquiries related to the new normal of working from home. The working-from-home-index contains the search terms:
 
 ###### Keywords
 
-- Heim+Hobby
-- Bau+Hobby
-- Do it Migros
-- Jumbo
-- Landi
-- Gartencenter
-- Bauhaus
+- headset
+- monitor
+- maus
+- hdmi
 
-[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv){target="_blank"}
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_sa.csv){target="_blank"}
 
 
 ## Row {.tabset .tabset-fade}
