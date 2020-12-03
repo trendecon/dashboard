@@ -68,10 +68,14 @@ trendecon_all_sa <- read.csv("https://raw.githubusercontent.com/trendecon/data/m
 dygraph(trendecon_all_sa,group = "keywords")%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("value", label = "Index") %>%
+  dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
   dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -112,10 +116,14 @@ luxury_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendec
 dygraph(luxury_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+  dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -160,10 +168,14 @@ mobility_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trend
 dygraph(mobility_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+  dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -204,10 +216,14 @@ travel_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendec
 dygraph(travel_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+  dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -248,10 +264,14 @@ social_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendec
 dygraph(social_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+    dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -296,10 +316,14 @@ garden_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendec
 dygraph(garden_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+    dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -336,6 +360,59 @@ The category *Gardening and Home Improvement* includes stores selling materials 
 
 ## Row {.tabset .tabset-fade}
 
+### Home Office (daily)
+
+```{r home_office}
+home_office_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_sa.csv",index.column = 1))
+
+dygraph(home_office_sa)%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("V1", label = "index") %>%
+    dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Monthly
+
+```{r home_office_monthly}
+
+dm_home_office_sa <- home_office_sa %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Home Office` = dm_home_office_sa
+)) %>%
+  dyRangeSelector()
+```
+
+### Info
+
+###### Description
+
+The category *Gardening and Home Improvement* includes stores selling materials for home improvement such as building materials, garden accessories and electrical supplies.
+
+###### Keywords
+
+- Heim+Hobby
+- Bau+Hobby
+- Do it Migros
+- Jumbo
+- Landi
+- Gartencenter
+- Bauhaus
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv){target="_blank"}
+
+
+## Row {.tabset .tabset-fade}
+
 ### Clothing and Shoes (daily)
 
 ```{r clothing}
@@ -343,11 +420,14 @@ clothing_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trend
 
 dygraph(clothing_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
-  dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+    dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -393,10 +473,14 @@ fd_sa <- as.xts(zoo::read.csv.zoo("https://raw.githubusercontent.com/trendecon/d
 dygraph(fd_sa)%>%
   dyAxis("x", drawGrid = FALSE)%>%
   dySeries("V1", label = "index") %>%
-  dyEvent("2020-3-16", "Lockdown", labelLoc = "bottom") %>%
-  dyEvent("2020-4-27", "Reopening - Phase I", labelLoc = "bottom") %>%
-  dyEvent("2020-5-11", "Reopening - Phase II", labelLoc = "bottom") %>%
-  dyEvent("2020-6-8", "Reopening - Phase III", labelLoc = "bottom") %>%
+    dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -436,8 +520,18 @@ The category *Food Delivery* includes search terms related to take away and orde
 
   + [TV interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} on RSI LA1.
   + Sehen Sie das [Interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} mit trendEcon im TV auf RSI LA1.
+  
+  
+- _01.11.2020_ : New blog post
+
+  + [A new indicator for the home office situation and what it has to do with Black Friday](#english)
+  
+  + [Ein neuer Indikator zur Homeoffice-Situation und was dieser mit Black Friday zu tun hat](#deutsch)
+
 
 - _23.11.2020_ : [Republik: Die Fieberkurven der Corona-Rezession](https://www.republik.ch/2020/11/23/die-fieberkurven-der-corona-rezession){target="_blank"}.
+
+- _05.11.2020_ : [Finanz und Wirtschaft: Die Schweiz fährt etwas herunter und bestellt wieder Pizza](https://www.fuw.ch/article/die-schweiz-faehrt-etwas-herunter-und-bestellt-wieder-pizza/){target="_blank"}.
 
 - _28.10.2020_ : [Tages Anzeiger: Der Konsum bricht wegen Corona ein](https://www.tagesanzeiger.ch/der-konsum-bricht-wegen-corona-ein-107545280598){target="_blank"}.
 
@@ -641,6 +735,73 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 - ------
 
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 8-->
+<!----------------------------------------------------------------------->
+
+## article_8_de
+
+### {style="border: 0px; background: none"}
+
+#### **Ein neuer Indikator zum Homeoffice und was dieser mit Black Friday zu tun hat**
+
+<font size="2">1. November 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+Das Homeoffice brachte neue Objekte auf die Einkaufslisten der Konsumentinnen und Konsumenten. Waren die eigenen vier Wände vorher klar fürs Wohnen bestimmt, müssen sie nun auch arbeitstauglich sein. Es ist kein Geheimnis, dass vermehrt Monitore, Anschlusskabel und andere Arbeitsobjekte besorgt werden mussten (siehe z.B. [Bloomberg](https://www.bloomberg.com/news/articles/2020-03-17/pc-monitors-in-short-supply-as-virus-spurs-home-office-buying){target="_blank"}). 
+
+TrendEcon hat auch Google Anfragen rund um den Homeoffice-Alltag zu einem Index zusammengefasst. Der Homeoffice-Index enthält die Suchbgeriffe «headset»,»monitor»,»maus» und »hdmi». Wahrscheinlich haben Sie selbst im Frühling oder Herbst mindestens einen dieser Begriffe gegoogelt. Denn der Index zeigt starke Bewegungen zu den verschiedenen Lockdowns. Im März war der Ausschlag ausgesprochen stark. Nach einem Rückgang im Sommer folgte wieder eine vermehrte Nachfrage nach  Homeoffice Elektronika. 
+
+## Row
+
+### {}
+```{r }
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 8 ----
+
+# Home Office Indicator
+homeoffice <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+homeoffice_2018 <- ts_data.frame(homeoffice["2018/2018-12-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2019 <- ts_data.frame(homeoffice["2019/2019-12-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2020 <- ts_data.frame(homeoffice["2020/2020-21-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = homeoffice_2018,
+  `2019` = homeoffice_2019,
+  `2020` = homeoffice_2020
+)) %>%
+  dyRoller(rollPeriod = 7)%>% 
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL,  strokeWidth = 1.5) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = " Home Office trendEcon index")
+
+
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Der Vergleich mit den Vorjahren zeigt, dass die leichte Baisse im Sommer immer noch über dem Interesse vorheriger Sommer liegt. Interessant ist auch die Beobachtung, dass gegen Ende November in allen dargestellten Jahren die Nachfrage nach Elektronikartikeln zunimmt. Wie kommt es zu diesen jährlichen Ausschlägen Ende November?
+
+Die Antwort ist schnell gefunden: Black Friday! Die Rabattschlacht erfreut seit einigen Jahren auch Herr und Frau Schweizer. Besonders Onlinehändler mischen kräftig mit. Wie sich der Black Friday und die darauf folgende Cyber Week auf das Interesse an Elektronikartikeln und deren Händler, wie Galaxus oder Interdiscount, ausgewirkt haben erfahren Sie im nächsten Blogeintrag.
+
+
+
 <!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE GERMAN / Article 7-->
 <!----------------------------------------------------------------------->
@@ -649,7 +810,7 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 ### {style="border: 0px; background: none"}
 
-#### **Wie kommen Schweizer Konsumenten mit den Masken zurecht? Eine Sicht auf online und on-site Shoppin**
+#### **Wie kommen Schweizer Konsumenten mit den Masken zurecht? Eine Sicht auf online und on-site Shopping**
 
 <font size="2">21. October 2020</font><br>
 <font size="2">Alexander Götz</font>
@@ -1341,6 +1502,78 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 - [Method](#method)
 
 - [Blog auf Deutsch](#deutsch)
+
+
+<!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 8-->
+<!----------------------------------------------------------------------->
+
+## article_8_en
+
+### {style="border: 0px; background: none"}
+
+#### **A new indicator for working from home and what Black Friday has to do with it**
+
+<font size="2">November 1st, 2020</font><br>
+<font size="2">Alexander Götz</font>
+
+
+Working from home has brought new objects onto the shopping lists of consumers. While the home was mainly intended for living in before, it must now also be suitable for work. It is no secret that monitors, connection cables and other work objects have been in high demand since spring (see e.g. [Bloomberg](https://www.bloomberg.com/news/articles/2020-03-17/pc-monitors-in-short-supply-as-virus-spurs-home-office-buying){target="_blank"}). 
+
+TrendEcon has also combined Google inquiries related to the new normal of working from home to an index, which reflects an interest in items that make life in the kitchen table office more comfortable. Our working-from-home-index contains the search terms "headset", "monitor", "mouse" and "hdmi". You probably googled at least one of these terms yourself in spring or autumn. The index shows a strong co-movement with the different lockdowns:  in March the uptick in demand was extremely strong. After a decline in summer, demand for home office electronics increased again. 
+
+
+## Row
+
+### {}
+```{r }
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 7 ----
+# How do Swiss consumers cope with masks
+
+# Cultural Event indicator
+homeoffice <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+homeoffice_2018 <- ts_data.frame(homeoffice["2018/2018-12-01"])%>% 
+  mutate(time = as.Date(gsub("2018","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2019 <- ts_data.frame(homeoffice["2019/2019-12-01"])%>% 
+  mutate(time = as.Date(gsub("2019","2020",time))) %>% 
+  ts_xts()
+
+homeoffice_2020 <- ts_data.frame(homeoffice["2020/2020-21-01"]) %>% 
+  ts_xts()
+
+dygraph(ts_c(
+  `2018` = homeoffice_2018,
+  `2019` = homeoffice_2019,
+  `2020` = homeoffice_2020
+)) %>%
+  dyRoller(rollPeriod = 7)%>% 
+  dyAxis("x",valueFormatter=JS(getMonthDay), axisLabelFormatter=JS(getMonth)) %>% 
+  dySeries("2018", strokePattern = "dotdash") %>%
+  dySeries("2019", strokePattern = "dashed") %>%
+  dySeries("2020", strokePattern = NULL,  strokeWidth = 1.5) %>%
+  dyAxis("x", drawGrid = FALSE) %>% 
+  dyAxis("y", label = " Home Office trendEcon index")
+
+
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+A comparison with previous years shows that despite the slight slump in summer, interest in these items lies still above the level of previous summers. It is also interesting to note that towards the end of November, demand for electronic goods increased in all the years shown. What causes these annual swings at the end of November?
+
+Short answer: Black Friday! The discount battle been delighting Swiss consumers for a few years now. In the next blog, you can read about how Black Friday and the Cyber Week that followed impacted the demand for electronic goods and their retailers, such as Galaxus or Interdiscount.
+
+
+
 
 
 <!----------------------------------------------------------------------->
