@@ -513,13 +513,20 @@ The category *Food Delivery* includes search terms related to take away and orde
 ## News {.sidebar data-width=310}
 
 ##### Latest News
+- _08.01.2021_ : New blog post
+
+  + [The home office employee's best companion](#english)
+  
+  + [Des Homeoffice-Arbeiters bester Freund](#deutsch)
+
+
 - ###### *trendEcon on TV:*
 
   + [TV interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} on RSI LA1.
   + Sehen Sie das [Interview](https://www.rsi.ch/la1/programmi/informazione/tempi-moderni/i-servizi/Come-va-l%E2%80%99economia-te-lo-dice-Google-13429910.html){target="_blank"} mit trendEcon im TV auf RSI LA1.
   
   
-- _01.11.2020_ : New blog post
+- _01.12.2020_ : New blog post
 
   + [A new indicator for the home office situation and what it has to do with Black Friday](#english)
   
@@ -734,6 +741,74 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 
 <!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE GERMAN / Article 9-->
+<!----------------------------------------------------------------------->
+
+## article_9_de
+
+### {style="border: 0px; background: none"}
+
+#### **Des Homeoffice-Arbeiters bester Freund**
+
+<font size="2">8. Januar 2021</font><br>
+<font size="2">Alexander Götz</font>
+
+Der Konsum vermag viele Bedürfnisse zu befriedigen. Doch wie sieht es mit Gefühlen der Einsamkeit aus? Die Pandemie fordert verminderte Mobilität und den Rückzug in die eigenen vier Wände, wo die Homeoffices spärlich besetzt sind. Zahlen von Tierheimen dokumentieren einen vermehrtes Interesse am Erwerb von Haustieren. Die Gratiszeitung 20 Minuten berichtete von einer Befragung einzelner Tierheime, nach welcher die Nachfrage nach Hunden und Katzen stark zugenommen habe [(20 Minuten).](https://www.20min.ch/story/die-leute-kompensierten-mit-einem-neuen-buesi-oder-hund-ihre-einsamkeit-332588381409){target="_blank"} Zu Beginn des neuen Jahres 2021 belegt die NZZ diese Beobachtung mit Anmeldezahlen in Tier-Datenbanken [(NZZ).](https://www.nzz.ch/schweiz/haustiere-boomen-waehrend-der-corona-pandemie-ld.1594752){target="_blank"} Gemäss des Artikels sei die Homeoffice-Empfehlung ursächlich für die stärkere Nachfrage.
+
+Internetsuchanfragen sind in der Lage, diese Entwicklung differenzierter zu betrachten. Blickt man auf den Entwicklung über die letzten fünf Jahre (erste Abbildung), fällt auf, dass das Interesse an den Stichworten «tierheim», «qualipet», und «meerschweinchen» in der Tat zugenommen hat. Es fällt ebenso auf, dass der März 2020 starke Peaks der Suchen «qualipet» und «meerschweinschen» auslöste. Dies könnte daraufhin deuten, dass Schweizer*innen sich eher dem Kleintierhandel zuwandten als Tierheimen. Letztere mussten zu Beginn des Lockdowns schliessen und konnten somit die steigende Nachfrage nur teilweise bedienen.
+
+## Row
+
+### {}
+```{r }
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 9 ----
+article_9_CH <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_9.csv")
+
+ts_dygraphs(article_9_CH[article_9_CH$id=="qualipet" | article_9_CH$id=="tierheim" | article_9_CH$id=="meerschweinchen",]) %>%
+  dyRoller(rollPeriod = 8)%>% 
+  dyAxis("y", label = "Hits (index from Google trends)") %>%
+  dyAxis("x", drawGrid = FALSE)
+
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+Der NZZ liegen von konkrete Zahlen der Tier-Datenbanken Amicus und Identitas vor. Gemäss deren Erhebungen verzeichnet der aufwärtszeigende Trend von Tieranmeldungen einen überproportionalen Sprung im Jahr 2020. Die Daten von trendEcon in der zweiten Abbildung lassen erkennen, dass insbesondere Kleintiere (wie das Meerschweinchen) in der ersten Phase des Lockdown gefragt waren. Im Vergleich dazu sind die Stichworte «hund kaufen» und «katze kaufen» auch stärker gegoogelt worden, jedoch weniger stark als «meerschweinchen». Nach einem kurzfristigen Rückgang der Nachfrage, sind die Suchanfragen nach Haustieren wieder angestiegen, wobei Katzen sich der grössten Beliebtheit erfreuen.
+
+## Row
+
+### {}
+```{r }
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 9 ----
+
+ts_dygraphs(article_9_CH[article_9_CH$id=="hund kaufen" | article_9_CH$id=="katze kaufen" | article_9_CH$id=="meerschweinchen",]) %>%
+  dyRoller(rollPeriod = 4)%>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2021-01-01"))%>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>%
+  dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyAxis("x", drawGrid = FALSE)
+
+```
+## Row
+
+### {style="border: 0px; background: none"}
+
+Inwiefern Haustiere Teil eines neuen Lifestyles werden bleibt indes ungewiss. Je nach Vorgaben des Bundes und Kantone, könnte der Wunsch nach einem Home-Office-Hund Bestand halten. Im Falle von rückkehrender Normalität durch Impferfolge kann die Behausung eines Haustiers umständlich werden, so dass Tiere an die Heime zurückgegeben werden. Dies hängt jedoch auch von der Frage ab, ob das Homeoffice auch nach der Pandemie erhalten bleiben wird. 
+
+
+
+<!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE GERMAN / Article 8-->
 <!----------------------------------------------------------------------->
 
@@ -743,7 +818,7 @@ Third, the crisis itself might lead to permanent changes in search behavior. For
 
 #### **Ein neuer Indikator zum Homeoffice und was dieser mit Black Friday zu tun hat**
 
-<font size="2">1. November 2020</font><br>
+<font size="2">1. Dezember 2020</font><br>
 <font size="2">Alexander Götz</font>
 
 Das Homeoffice brachte neue Objekte auf die Einkaufslisten der Konsumentinnen und Konsumenten. Waren die eigenen vier Wände vorher klar fürs Wohnen bestimmt, müssen sie nun auch arbeitstauglich sein. Es ist kein Geheimnis, dass vermehrt Monitore, Anschlusskabel und andere Arbeitsobjekte besorgt werden mussten (siehe z.B. [Bloomberg](https://www.bloomberg.com/news/articles/2020-03-17/pc-monitors-in-short-supply-as-virus-spurs-home-office-buying){target="_blank"}). 
@@ -1502,6 +1577,76 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 
 <!----------------------------------------------------------------------->
+<!----------------------------------------BLOG PAGE ENGLISH / Article 9-->
+<!----------------------------------------------------------------------->
+
+## article_9_en
+
+### {style="border: 0px; background: none"}
+
+#### **The home office employee's best companion**
+
+<font size="2">January 8th, 2021</font><br>
+<font size="2">Alexander Götz</font>
+
+Consumption can satisfy many needs. But what about feelings of loneliness? The pandemic calls for reduced mobility and a retreat into one's own four walls, where (home) offices are less crowded. Figures from animal shelters document an increased interest in acquiring pets. The free newspaper 20 Minuten reported from a survey of some animal shelters that dogs and cats' demand has risen sharply during the pandemic [(20 Minuten).](https://www.20min.ch/story/die-leute-kompensierten-mit-einem-neuen-buesi-oder-hund-ihre-einsamkeit-332588381409){target="_blank"} At the beginning of the new year 2021, the NZZ confirms this observation with registration figures from animal databases [(NZZ).](https://www.nzz.ch/schweiz/haustiere-boomen-waehrend-der-corona-pandemie-ld.1594752){target="_blank"} According to the article, the home office recommendation is causal for this higher demand.
+
+Internet search queries enable a more differentiated look at the developments. If one looks at the development over the last five years (first figure), it is noticeable that the interest in the keywords "tierheim" (animal home), "qualipet" (Swiss pet and pet supplies retailer), and "meerschweinchen" (guinea pig) increased, indeed. It also becomes apparent that March 2020 provided strong peaks for the searches "qualipet" and "meerschweinchen". This observation could indicate that the Swiss preferred pet shops instead of animal shelters. This makes sence as the latter had to close due to the COVID19 measures  and were thus only able to serve the increasing demand at the beginning of the lockdown.
+
+
+## Row
+
+### {}
+```{r }
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 9 ----
+article_9_CH <- read.csv("https://raw.githubusercontent.com/trendecon/media-content/master/data_examples/article_9.csv")
+
+ts_dygraphs(article_9_CH[article_9_CH$id=="qualipet" | article_9_CH$id=="tierheim" | article_9_CH$id=="meerschweinchen",]) %>%
+  dyRoller(rollPeriod = 8)%>% 
+  dyAxis("y", label = "Hits (index from Google trends)") %>%
+  dyAxis("x", drawGrid = FALSE)
+
+```
+
+## Row
+
+### {style="border: 0px; background: none"}
+
+The NZZ reports concrete figures from the animal databases Amicus and Identitas. According to their numbers, the upward trend among animal registrations also recorded a disproportionate jump upward in 2020. The data from trendEcon in the second figure indicates that in particular small animals (such as the guinea pigs) were in high demand during the first phase of the lockdown. In comparison, the keywords "hund kaufen" (buy dog) and "katze kaufen" (buy cat) were also more popular, but less than "meerschweinchen". After a short-term drop in demand in the Summer, searches for all pets have rebounded, with cats enjoying the most significant popularity.
+
+## Row
+
+### {}
+```{r }
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Creating graphs for article 9 ----
+
+ts_dygraphs(article_9_CH[article_9_CH$id=="hund kaufen" | article_9_CH$id=="katze kaufen" | article_9_CH$id=="meerschweinchen",]) %>%
+  dyRoller(rollPeriod = 4)%>%
+  dyRangeSelector(dateWindow = c("2020-01-01", "2021-01-01"))%>%
+  dyAxis("y", label = "Hits (index from Google trends)") %>%
+  dyEvent("2020-2-28", "Declaration of 'Special Situation'", labelLoc = "bottom")%>%
+  dyEvent("2020-3-16", "Declaration of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-4-27", "Shutdown Easing Phase 1", labelLoc = "bottom") %>%
+  dyEvent("2020-5-11", "Shutdown Easing Phase 2", labelLoc = "bottom") %>%
+  dyEvent("2020-6-8", "Shutdown Easing Phase 3", labelLoc = "bottom") %>%
+  dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
+  dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
+  dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyAxis("x", drawGrid = FALSE)
+
+```
+## Row
+
+### {style="border: 0px; background: none"}
+
+To what extent pets are part of the current living standard, however, remains uncertain. Depending on federal and cantonal guidelines, the desire for a home office dog could endure. In the case of returning normality due to vaccination procedure, the housing of a pet may become cumbersome so that employees will return the pets to the animal shelters. However, this also depends on whether home offices will remain after the pandemic. 
+
+
+
+
+<!----------------------------------------------------------------------->
 <!----------------------------------------BLOG PAGE ENGLISH / Article 8-->
 <!----------------------------------------------------------------------->
 
@@ -1511,7 +1656,7 @@ Zusammengefasst lässt sich sagen, dass **trendEcon** eine Plattform für tagesa
 
 #### **A new indicator for working from home and what Black Friday has to do with it**
 
-<font size="2">November 1st, 2020</font><br>
+<font size="2">December 1st, 2020</font><br>
 <font size="2">Alexander Götz</font>
 
 
