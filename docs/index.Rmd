@@ -800,10 +800,10 @@ ts_dygraphs(article_9_CH[article_9_CH$id=="hund kaufen" | article_9_CH$id=="katz
   dyAxis("x", drawGrid = FALSE)
 
 ```
+
 ## Row
 
 ### {style="border: 0px; background: none"}
-
 Inwiefern Haustiere Teil eines neuen Lifestyles werden bleibt indes ungewiss. Je nach Vorgaben des Bundes und Kantone, könnte der Wunsch nach einem Home-Office-Hund Bestand halten. Im Falle von rückkehrender Normalität durch Impferfolge kann die Behausung eines Haustiers umständlich werden, so dass Tiere an die Heime zurückgegeben werden. Dies hängt jedoch auch von der Frage ab, ob das Homeoffice auch nach der Pandemie erhalten bleiben wird. 
 
 
@@ -1612,7 +1612,6 @@ ts_dygraphs(article_9_CH[article_9_CH$id=="qualipet" | article_9_CH$id=="tierhei
 ## Row
 
 ### {style="border: 0px; background: none"}
-
 The NZZ reports concrete figures from the animal databases Amicus and Identitas. According to their numbers, the upward trend among animal registrations also recorded a disproportionate jump upward in 2020. The data from trendEcon in the second figure indicates that in particular small animals (such as the guinea pigs) were in high demand during the first phase of the lockdown. In comparison, the keywords "hund kaufen" (buy dog) and "katze kaufen" (buy cat) were also more popular, but less than "meerschweinchen". After a short-term drop in demand in the Summer, searches for all pets have rebounded, with cats enjoying the most significant popularity.
 
 ## Row
@@ -1637,6 +1636,7 @@ ts_dygraphs(article_9_CH[article_9_CH$id=="hund kaufen" | article_9_CH$id=="katz
   dyAxis("x", drawGrid = FALSE)
 
 ```
+
 ## Row
 
 ### {style="border: 0px; background: none"}
@@ -1658,7 +1658,6 @@ To what extent pets are part of the current living standard, however, remains un
 
 <font size="2">December 1st, 2020</font><br>
 <font size="2">Alexander Götz</font>
-
 
 Working from home has brought new objects onto the shopping lists of consumers. While the home was mainly intended for living in before, it must now also be suitable for work. It is no secret that monitors, connection cables and other work objects have been in high demand since spring (see e.g. [Bloomberg](https://www.bloomberg.com/news/articles/2020-03-17/pc-monitors-in-short-supply-as-virus-spurs-home-office-buying){target="_blank"}). 
 
@@ -1797,7 +1796,6 @@ ts_dygraphs(ts_c(
 ## Row
 
 ### {style="border: 0px; background: none"}
-
 In the second figure, we look at the big names of Swiss online commerce, namely "galaxus", "coop at home" and "le store". Strikingly, the e-commerce giant Galaxus was able to improve its strong position during the lockdown. After a temporary explosion in search demand, a new level has now been reached above the previous year's figures. However, the online branches of Switzerland's largest retailers Coop and Migros show that the enormous peak during the lockdown was followed by a flattening off at the previous year's level. Nevertheless, the new security measures have again led to increased demand among all online retailers.
 
 ## Row
@@ -1822,7 +1820,6 @@ ts_dygraphs(ts_c(
 ## Row
 
 ### {style="border: 0px; background: none"}
-
 The data on Google search queries cannot directly identify an effect of the mask obligation; however, they do indicate a shift in non-food consumption habits from on-site to online, which can be shown in particular by a decline in food online retailers during the summer. However, increased purchases from home combined with a rather declining consumption ratio coud still imply that on-site consumption had not fully recovered. The renewed upturn in online consumption suggests that Swiss people are moving into the safety of their own homes rather than visiting stores.
 
 
