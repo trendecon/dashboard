@@ -76,6 +76,11 @@ dygraph(trendecon_all_sa,group = "keywords")%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -124,6 +129,11 @@ dygraph(luxury_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -176,6 +186,11 @@ dygraph(mobility_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -224,6 +239,11 @@ dygraph(travel_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -272,6 +292,11 @@ dygraph(social_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -324,6 +349,11 @@ dygraph(garden_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -376,6 +406,11 @@ dygraph(home_office_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -425,6 +460,11 @@ dygraph(clothing_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
@@ -478,6 +518,11 @@ dygraph(fd_sa)%>%
   dyEvent("2020-6-22", "End of 'Extraordinary Situation'", labelLoc = "bottom") %>%
   dyEvent("2020-10-19", "Mask wearing obligation extended", labelLoc = "bottom") %>%
   dyEvent("2020-10-28", "Reinforce containment measures", labelLoc = "bottom") %>%
+  dyEvent("2020-12-22", "Facilities closed", labelLoc = "bottom") %>%
+  dyEvent("2021-01-18", "Compulsory homeworking", labelLoc = "bottom") %>%
+  dyEvent("2021-03-01", "Opening some facilities", labelLoc = "bottom") %>%
+  dyEvent("2021-04-19", "Outdoor restaurants open", labelLoc = "bottom") %>%
+  dyEvent("2021-05-31", "Easing measures", labelLoc = "bottom") %>%
   dyRangeSelector(dateWindow = c("2020-01-01", today))
 ```
 
