@@ -513,6 +513,14 @@ The category *Food Delivery* includes search terms related to take away and orde
 ## News {.sidebar data-width=310}
 
 ##### Latest News
+- ###### *New indicators*
+
+  Perceived economic situation for:
+  
+  + [Austria](#austria)
+  
+  + [Germany](#germany)
+
 - _08.01.2021_ : New blog post
 
   + [The home office employee's best companion](#english)
@@ -2484,6 +2492,111 @@ The data can be accessed [here](https://github.com/trendecon/data){target="_blan
 This means that you can remix, adapt, and build upon this work non-commercially, as long as you credit us and license your new creations under the identical terms.
 
 <!----------------------------------------------------------------------->
+<!---------------------------------------------------- Other countries -->
+<!----------------------------------------------------------------------->
+
+# <font size="3">Austria</font> {data-navmenu="Other countries"}
+
+#### Austria
+
+## Row {.tabset .tabset-fade}
+
+### Perceived Economic Situation (daily)
+
+```{r main_index_at}
+
+trendecon_all_sa_at <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/at/trendecon_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+dygraph(trendecon_all_sa_at,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("value", label = "Index") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Monthly
+
+```{r main_index_monthly_at}
+
+data_monthly_at <- trendecon_all_sa_at %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Perceived Economic Situation` = data_monthly_at
+)) %>%
+  dyRangeSelector()
+```
+
+### Info
+
+###### Description
+
+The indicator for *Perceived Economic Situation* includes search terms that reflect people’s worries about the economy. For instance, people then google “economic crisis” (Wirtschaftskrise).
+
+###### Keywords
+
+- wirtschaftskrise
+- kurzarbeit
+- arbeitslos
+- insolvenz
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/at/trendecon_sa.csv){target="_blank"}
+
+# <font size="3">Germany</font> {data-navmenu="Other countries"}
+
+<!----------------------------------------------------------------------->
+<!---------------------------------------------------- Germany ---------->
+<!----------------------------------------------------------------------->
+
+#### Germany
+
+## Row {.tabset .tabset-fade}
+
+### Perceived Economic Situation (daily)
+
+```{r main_index_de}
+
+trendecon_all_sa_de <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/de/trendecon_sa.csv") %>%
+  select(time,value) %>%
+  ts_xts()
+
+dygraph(trendecon_all_sa_de,group = "keywords")%>%
+  dyAxis("x", drawGrid = FALSE)%>%
+  dySeries("value", label = "Index") %>%
+  dyRangeSelector(dateWindow = c("2020-01-01", today))
+```
+
+### Monthly
+
+```{r main_index_monthly_de}
+
+data_monthly_de <- trendecon_all_sa_de %>%
+  ts_frequency("month")
+
+ts_dygraphs(ts_c(
+  `Perceived Economic Situation` = data_monthly_de
+)) %>%
+  dyRangeSelector()
+```
+
+### Info
+
+###### Description
+
+The indicator for *Perceived Economic Situation* includes search terms that reflect people’s worries about the economy. For instance, people then google “economic crisis” (Wirtschaftskrise).
+
+###### Keywords
+
+- wirtschaftskrise
+- kurzarbeit
+- arbeitslos
+- insolvenz
+
+[Download data](https://raw.githubusercontent.com/trendecon/data/master/data/de/trendecon_sa.csv){target="_blank"}
+
+
+<!----------------------------------------------------------------------->
 <!--------------------------------------------------------- ABOUT PAGE -->
 <!----------------------------------------------------------------------->
 # <font size="3">About this project</font> {data-icon="fa-users"}
@@ -2570,3 +2683,5 @@ This means that you can remix, adapt, and build upon this work non-commercially,
 
 
 ```
+
+
