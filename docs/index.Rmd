@@ -2562,6 +2562,9 @@ We will continue to work on this project along the way and possibly add further 
 * Kristina Schuepbach (Economist, SGB and University of Bern)
 * Severin Thöni (Programmer, ETH KOF)
 * [Uwe Thümmel](http://uwethuemmel.com){target="_blank"} (Economist, University of Zurich)
+* Patrick Schratz (Data scientist, cynkra)
+* Karolis Koncevičius (Data scientist, cynkra)
+* Ben Ubah (Front end developer, cynkra)
 
 #### **Contact**
 
