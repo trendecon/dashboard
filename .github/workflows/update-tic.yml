@@ -32,13 +32,15 @@ jobs:
           r-version: ${{ matrix.config.r }}
           Ncpus: 4
 
-      - name: Install cURL Headers
-        run: sudo apt-get install libcurl4-openssl-dev
+      - name: Install some Headers
+        run: |
+          apt-get install libcurl4-openssl-dev
+          apt-get install libgit2-dev
 
-      - name: "[Stage] Dependencies 1"
+      - name: "[Stage] Install tic"
         run: Rscript -e "install.packages('tic', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
 
-      - name: "[Stage] Dependencies 2"
+      - name: "[Stage] Dependencies"
         run: Rscript -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/stable')"
 
       - name: "[Stage] Update YAMLs"
