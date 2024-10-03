@@ -33,10 +33,10 @@ jobs:
           Ncpus: 4
 
       - name: "[Stage] Dependencies 1"
-        run: Rscript -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/stable')"
+        run: Rscript -e "install.packages('tic', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
 
       - name: "[Stage] Dependencies 2"
-        run: Rscript -e "install.packages('tic', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
+        run: Rscript -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/stable')"
 
       - name: "[Stage] Update YAMLs"
         run: |
