@@ -1,0 +1,17 @@
+{
+  "name": "trendecon-dashboard-next",
+  "version": "0.1.0",
+  "description": "Modern VitePress dashboard for trendEcon daily economic indicators",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "license": "GPL-3.0",
+  "dependencies": {
+    "echarts": "^5.5.1",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.30"
+  }
+}
