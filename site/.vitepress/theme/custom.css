@@ -27,6 +27,27 @@
   }
 }
 
+/* Blog post byline: author clearly visible, date secondary */
+.byline {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: -4px 0 26px;
+  font-size: 0.95rem;
+}
+.byline-author {
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
+.byline-date {
+  color: var(--vp-c-text-2);
+}
+.byline-date::before {
+  content: '·';
+  margin-right: 10px;
+  color: var(--vp-c-text-3);
+}
+
 /* Grid for the secondary indicators page */
 .indicator-grid {
   display: grid;

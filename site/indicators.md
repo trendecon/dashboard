@@ -26,3 +26,19 @@ granular read on different parts of consumer behaviour.
 <TrendChart series="ch/fooddelivery" title="Food Delivery" height="300px" />
 
 </div>
+
+## Blog (2020–21)
+
+During the pandemic we used these indicators to follow how Swiss consumers
+reacted, from pets and home-office gear to masks, football and dining out. The
+posts and their charts cover 2020–21 and are kept here as an archive.
+
+- [How is the Swiss economy doing today?](/blog/swiss-economy-today) · 25 May 2020
+- [Large events will be allowed soon, but will people show up?](/blog/large-events) · 24 Aug 2020
+- [Still a long way to go](/blog/mobility) · 26 Aug 2020
+- [Back to normal or permanent shifts in demand?](/blog/demand-shifts) · 2 Sep 2020
+- [Culinary consumption patterns before, during and after the lockdown](/blog/culinary) · 3 Sep 2020
+- [Football is back! But what about the fans?](/blog/football) · 18 Sep 2020
+- [How do Swiss consumers cope with masks?](/blog/masks) · 21 Oct 2020
+- [A new indicator for working from home and what Black Friday has to do with it](/blog/home-office-black-friday) · 1 Dec 2020
+- [The home office employee's best companion](/blog/home-office-pet) · 8 Jan 2021
