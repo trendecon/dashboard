@@ -13,10 +13,17 @@
   --vp-c-brand-2: #d24fb6;
 }
 
-/* Footer message left-aligned, muted */
-.VPFooter .message {
+/* Footer: left-aligned, muted, with the cynkra logo inline (blockr-site style) */
+.VPFooter .message,
+.VPFooter .copyright {
+  text-align: left;
   color: var(--vp-c-text-2);
   font-size: 0.85em;
+}
+.VPFooter img {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
 }
 
 /* Give chart-heavy pages a bit more width */

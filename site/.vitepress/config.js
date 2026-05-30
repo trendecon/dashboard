@@ -79,9 +79,7 @@ export default {
     ],
     footer: {
       message:
-        'Daily economic indicators from Google Trends. Developed by trendEcon, in collaboration with <a href="https://cynkra.com" target="_blank">cynkra</a>, KOF, SECO and others.',
-      copyright:
-        'Data &amp; code released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> / <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GPL-3.0</a>.'
+        'Developed by <a href="https://cynkra.com" target="_blank"><img src="/logo-cynkra.png" alt="cynkra" style="height:30px;border-radius:4px"></a> and trendEcon &middot; released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> / <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GPL-3.0</a>'
     }
   }
 }
