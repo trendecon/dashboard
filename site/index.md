@@ -18,10 +18,11 @@ hero:
 
 ## Perceived economic situation
 
-The trendEcon index reads economic worry from how often people search for terms
-like *Wirtschaftskrise*, *Kurzarbeit*, *arbeitslos* and *Insolvenz*. Higher
-values mean more worry. The series is daily, seasonally adjusted, and goes back
-to 2006.
+The trendEcon index tracks the perceived economic situation from how often
+people search for terms like *Wirtschaftskrise*, *Kurzarbeit*, *arbeitslos* and
+*Insolvenz*. More of these searches signal more worry, so the index falls when
+sentiment worsens. The sharp drop in spring 2020 is the clearest example. The
+series is daily, seasonally adjusted, and goes back to 2006.
 
 <TrendChart series="ch/trendecon" title="trendEcon Index (CH)" subtitle="daily, seasonally adjusted" :events="true" />
 
