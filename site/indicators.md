@@ -38,7 +38,8 @@ the [data repository](https://github.com/trendecon/data).
 <div class="kw-ref">
 
 **Perceived Economic Situation.** Search terms that reflect worries about the
-economy, such as *Wirtschaftskrise* (economic crisis).
+economy, such as *Wirtschaftskrise* (economic crisis). The index is inverted, so
+it falls when these worries rise.
 Keywords: `Wirtschaftskrise` `Kurzarbeit` `arbeitslos` `Insolvenz`.
 [CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv)
 

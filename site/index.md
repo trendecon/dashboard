@@ -29,7 +29,7 @@ series is daily, seasonally adjusted, and goes back to 2006.
 <p class="muted">Drag the slider below the chart to change the time range. Dashed lines mark a few macro events.</p>
 
 <div class="paper-box">
-  <div class="paper-tag">The Paper</div>
+  <div class="paper-tag">Peer-reviewed article</div>
   <p class="paper-cite">
     Eichenauer, V. Z., Indergand, R., Martínez, I. Z., &amp; Sax, C. (2022).
     <em>Obtaining consistent time series from Google Trends.</em>

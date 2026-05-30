@@ -41,11 +41,17 @@ day's data is published in the [data repository](https://github.com/trendecon/da
 ## Reading the indicators
 
 Each series is standardised so that its long-run mean is zero and its standard
-deviation is one. A value of 2 therefore means search interest is two standard
+deviation is one. A value of 2 therefore means the index is two standard
 deviations above its long-run average, and a value of -1 means one standard
 deviation below. The indices capture relative changes over time in interest,
 concern or demand, not absolute search counts, since Google does not publish the
 underlying number of searches.
+
+Most indices track search interest directly, so higher values mean more interest
+in that category. The headline *Perceived Economic Situation* index is the
+exception: it is oriented like a sentiment measure, so higher values mean a
+brighter assessment and the index falls when worry rises (more searches for
+*Wirtschaftskrise*, *Kurzarbeit* and the like).
 
 ## Choosing the keywords
 
