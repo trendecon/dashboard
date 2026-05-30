@@ -40,7 +40,10 @@ export default {
     ['meta', { property: 'og:site_name', content: 'trendEcon' }],
     ['meta', { property: 'og:image', content: `${site}/og.png` }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:image', content: `${site}/og.png` }]
+    ['meta', { name: 'twitter:image', content: `${site}/og.png` }],
+    // Privacy-friendly analytics by Plausible
+    ['script', { async: '', src: 'https://plausible.io/js/pa-79upm-rxKdRQVyQ3JxXuW.js' }],
+    ['script', {}, 'window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()']
   ],
   // per-page Open Graph / Twitter title, description and canonical URL
   transformPageData(pageData) {
