@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 import { useData } from 'vitepress'
 import * as echarts from 'echarts'
+import { monthly } from '../lib/agg'
 
 const props = defineProps({
   // full CSV url in long format (id,time,value). Alternatively use `sources`.
@@ -31,9 +32,24 @@ const { isDark } = useData()
 const el = ref(null)
 const status = ref('loading')
 const errMsg = ref('')
+const freq = ref('daily')   // daily | monthly
 let chart = null
-let seriesData = []   // [{name, data:[[ms,v]]}]
+let rawSeries = []    // [{name, data}] raw (pre rolling-average / aggregation)
 let eventList = []
+
+function setFreq(f) {
+  if (freq.value === f) return
+  freq.value = f
+  render()
+}
+
+// apply the current frequency / rolling-average to the raw series for display
+function displaySeries() {
+  return rawSeries.map((s) => ({
+    name: s.name,
+    data: freq.value === 'monthly' ? monthly(s.data) : rollMean(s.data, props.roller)
+  }))
+}
 
 // colour-blind-friendly palette (Okabe-Ito)
 const PALETTE = ['#0072B2', '#E69F00', '#009E73', '#D55E00', '#CC79A7', '#56B4E9', '#F0E442']
@@ -123,9 +139,9 @@ function rollMean(points, w) {
   return out
 }
 
-function startPct() {
-  if (!props.from || !seriesData.length) return 0
-  const all = seriesData.flatMap((s) => s.data.map((d) => d[0]))
+function startPct(series) {
+  if (!props.from || !series.length) return 0
+  const all = series.flatMap((s) => s.data.map((d) => d[0]))
   const lo = Math.min(...all), hi = Math.max(...all)
   const f = Date.parse(props.from)
   if (!(hi > lo) || Number.isNaN(f)) return 0
@@ -135,7 +151,8 @@ function startPct() {
 function buildOption() {
   const text = isDark.value ? '#c9c9d1' : '#3c3c43'
   const axis = isDark.value ? '#3a3a40' : '#e2e2e6'
-  const s0 = startPct()
+  const disp = displaySeries()
+  const s0 = startPct(disp)
   const markLine = eventList.length
     ? {
         symbol: 'none', silent: true,
@@ -157,7 +174,7 @@ function buildOption() {
       { type: 'inside', start: s0, end: 100 },
       { type: 'slider', start: s0, end: 100, height: 22, bottom: 16 }
     ],
-    series: seriesData.map((s, i) => ({
+    series: disp.map((s, i) => ({
       name: s.name, type: 'line', showSymbol: false,
       lineStyle: { width: 1.6 },
       data: s.data,
@@ -173,9 +190,8 @@ function render() {
 
 async function load() {
   try {
-    const built = await buildSeries()
-    seriesData = built.map((s) => ({ name: s.name, data: rollMean(s.data, props.roller) }))
-    if (!seriesData.length) throw new Error('no matching series')
+    rawSeries = await buildSeries()
+    if (!rawSeries.length) throw new Error('no matching series')
 
     eventList = [...(props.events || [])]
     const setName = props.eventset || (props.covid ? 'covid-phases' : null)
@@ -202,9 +218,13 @@ watch(isDark, () => render())
 
 <template>
   <figure class="series-chart">
-    <figcaption v-if="title" class="sc-head">
-      <span class="sc-title">{{ title }}</span>
+    <figcaption class="sc-head">
+      <span v-if="title" class="sc-title">{{ title }}</span>
       <span v-if="subtitle" class="sc-sub">{{ subtitle }}</span>
+      <div v-if="status === 'ready'" class="freq-toggle">
+        <button :class="{ on: freq === 'daily' }" @click="setFreq('daily')">Daily</button>
+        <button :class="{ on: freq === 'monthly' }" @click="setFreq('monthly')">Monthly</button>
+      </div>
     </figcaption>
     <div v-show="status === 'ready'" ref="el" :style="{ height }"></div>
     <div v-if="status === 'loading'" class="sc-msg" :style="{ height }">Loading…</div>

@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount, shallowRef, watch, nextTick } from 'vue'
 import { useData } from 'vitepress'
 import * as echarts from 'echarts'
+import { monthly } from '../lib/agg'
 
 const props = defineProps({
   // path under the data repo, e.g. "ch/trendecon"
@@ -20,9 +21,16 @@ const { isDark } = useData()
 const el = ref(null)
 const status = ref('loading') // loading | ready | error
 const errMsg = ref('')
+const freq = ref('daily')     // daily | monthly
 let chart = null
 let rows = []        // [[ms, value], ...]
 let eventList = []   // [{date, label}]
+
+function setFreq(f) {
+  if (freq.value === f) return
+  freq.value = f
+  render()
+}
 
 const DATA_BASE = 'https://cdn.jsdelivr.net/gh/trendecon/data@master/data/'
 
@@ -52,12 +60,13 @@ function buildOption() {
   const c = brand()
   const axisColor = isDark.value ? '#3a3a40' : '#e2e2e6'
   const textColor = isDark.value ? '#c9c9d1' : '#3c3c43'
+  const data = freq.value === 'monthly' ? monthly(rows) : rows
   const startPct = (() => {
-    if (!rows.length) return 0
+    if (!data.length) return 0
     const fromMs = Date.parse(props.from)
-    const span = rows[rows.length - 1][0] - rows[0][0]
+    const span = data[data.length - 1][0] - data[0][0]
     if (!span || Number.isNaN(fromMs)) return 0
-    return Math.max(0, Math.min(100, ((fromMs - rows[0][0]) / span) * 100))
+    return Math.max(0, Math.min(100, ((fromMs - data[0][0]) / span) * 100))
   })()
 
   const markLine = props.events && eventList.length
@@ -113,7 +122,7 @@ function buildOption() {
             { offset: 1, color: c.areaBot }
           ])
         },
-        data: rows,
+        data,
         markLine
       }
     ]
@@ -161,9 +170,13 @@ watch(isDark, () => render())
 
 <template>
   <figure class="trend-chart">
-    <figcaption v-if="title" class="tc-head">
-      <span class="tc-title">{{ title }}</span>
+    <figcaption class="tc-head">
+      <span v-if="title" class="tc-title">{{ title }}</span>
       <span v-if="subtitle" class="tc-sub">{{ subtitle }}</span>
+      <div v-if="status === 'ready'" class="freq-toggle">
+        <button :class="{ on: freq === 'daily' }" @click="setFreq('daily')">Daily</button>
+        <button :class="{ on: freq === 'monthly' }" @click="setFreq('monthly')">Monthly</button>
+      </div>
     </figcaption>
     <div v-show="status === 'ready'" ref="el" class="tc-canvas" :style="{ height }"></div>
     <div v-if="status === 'loading'" class="tc-msg" :style="{ height }">Loading…</div>

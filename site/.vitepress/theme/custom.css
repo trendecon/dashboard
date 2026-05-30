@@ -48,6 +48,31 @@
   color: var(--vp-c-text-3);
 }
 
+/* Daily | Monthly toggle on time-series charts */
+.freq-toggle {
+  margin-left: auto;
+  display: inline-flex;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.freq-toggle button {
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 4px 9px;
+  color: var(--vp-c-text-2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.freq-toggle button:hover {
+  color: var(--vp-c-text-1);
+}
+.freq-toggle button.on {
+  color: #fff;
+  background: var(--vp-c-brand-1);
+}
+
 /* Grid for the secondary indicators page */
 .indicator-grid {
   display: grid;

@@ -1,11 +1,13 @@
 # Switzerland: all indicators
 
-Beyond the headline [trendEcon index](/), we track a set of more specific
+Alongside the headline [trendEcon index](/), we track a set of more specific
 consumer indicators, each built from a basket of related Google search terms
 and processed the same way (daily, seasonally adjusted). They offer a more
 granular read on different parts of consumer behaviour.
 
 <div class="indicator-grid">
+
+<TrendChart series="ch/trendecon" title="Perceived Economic Situation (headline)" height="300px" />
 
 <TrendChart series="ch/inflationrate" title="Perceived Inflation" height="300px" />
 
