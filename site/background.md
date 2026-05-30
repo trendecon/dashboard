@@ -38,6 +38,29 @@ reproducible. The engine is the open-source
 [`trendecon` R package](https://trendecon.github.io/trendecon/), and every
 day's data is published in the [data repository](https://github.com/trendecon/data).
 
+## Reading the indicators
+
+Each series is standardised so that its long-run mean is zero and its standard
+deviation is one. A value of 2 therefore means search interest is two standard
+deviations above its long-run average, and a value of -1 means one standard
+deviation below. The indices capture relative changes over time in interest,
+concern or demand, not absolute search counts, since Google does not publish the
+underlying number of searches.
+
+## Choosing the keywords
+
+Each index combines a small set of carefully chosen keywords rather than a single
+term. We keep only keywords that are likely to reflect an intention to consume
+rather than general curiosity, and that move with real economic activity. More is
+not always better: some candidate terms add no extra signal, and Google censors
+terms with too few searches (returning zeros), so they cannot be used.
+
+We query German keywords because German is the main language of about 63% of the
+Swiss population, and German searches track the wider economy well. French and
+Italian searches within Switzerland hit Google's privacy threshold more often and
+get censored, which is another reason we lean on store and brand names: those do
+not depend on the language the searcher uses.
+
 ## The paper
 
 > Eichenauer, V. Z., Indergand, R., Martínez, I. Z., & Sax, C. (2022).
