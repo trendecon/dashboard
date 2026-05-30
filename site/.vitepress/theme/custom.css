@@ -73,6 +73,19 @@
   background: var(--vp-c-brand-1);
 }
 
+/* Per-indicator keyword reference */
+.kw-ref p {
+  margin: 14px 0;
+  line-height: 1.6;
+}
+.kw-ref code {
+  font-size: 0.8em;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-text-1);
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
 /* Grid for the secondary indicators page */
 .indicator-grid {
   display: grid;

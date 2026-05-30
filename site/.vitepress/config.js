@@ -1,6 +1,6 @@
-// Served from the dashboard repo's docs/next/ -> https://www.trendecon.org/next/
-// (hidden URL). On promotion to the main site, change this to '/'.
-const base = '/next/'
+// Production site served at https://www.trendecon.org (GitHub Pages, docs/).
+const base = '/'
+const site = 'https://www.trendecon.org'
 
 // Sidebar shared by the Switzerland indicators page and the archived blog posts,
 // so the blog reads as a sub-section of Switzerland rather than a top-level area.
@@ -30,14 +30,35 @@ function switzerlandSidebar() {
 
 export default {
   base,
-  // Build into the repo's served docs/ folder, under /next/ (the hidden URL).
-  // GitHub Pages serves docs/ at the site root, so docs/next/ -> /next/.
-  outDir: '../docs/next',
+  outDir: '../docs',
   title: 'trendEcon',
   description: 'Daily economic indicators from Google searches',
+  sitemap: { hostname: site },
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }]
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'trendEcon' }],
+    ['meta', { property: 'og:image', content: `${site}/og.png` }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: `${site}/og.png` }]
   ],
+  // per-page Open Graph / Twitter title, description and canonical URL
+  transformPageData(pageData) {
+    const clean = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '')
+    const url = `${site}/${clean}`
+    const title = pageData.title ? `${pageData.title} | trendEcon` : 'trendEcon'
+    const desc = pageData.description || 'Daily economic indicators from Google searches'
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: desc }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: desc }]
+    )
+  },
   themeConfig: {
     siteTitle: 'trendEcon',
     nav: [

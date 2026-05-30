@@ -29,6 +29,62 @@ granular read on different parts of consumer behaviour.
 
 </div>
 
+## What each index measures
+
+Each index aggregates a basket of Google search terms into one daily,
+seasonally adjusted series. The seasonally adjusted CSVs can be downloaded from
+the [data repository](https://github.com/trendecon/data).
+
+<div class="kw-ref">
+
+**Perceived Economic Situation.** Search terms that reflect worries about the
+economy, such as *Wirtschaftskrise* (economic crisis).
+Keywords: `Wirtschaftskrise` `Kurzarbeit` `arbeitslos` `Insolvenz`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv)
+
+**Perceived Inflation.** Searches about prices and the cost of living.
+Keywords: `inflation` `preise` `benzinpreis` `mietzins`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/inflationrate_sa.csv)
+
+**Watches & Jewellery.** Stores and brands selling luxury watches and jewellery,
+plus more general luxury-goods searches.
+Keywords: `christ` `bucherer` `uhren` `uhr` `swarovski` `rhomberg` `juwelier`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/luxury_sa.csv)
+
+**Mobility.** Search terms related to ground transportation, such as checking
+the railway schedule or calling a taxi.
+Keywords: `Fahrplan` `taxi` `sixt` `google maps`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_sa.csv)
+
+**Travel Abroad.** Search terms used to book flights and holidays.
+Keywords: `städtetrip` `flug buchen` `günstige flüge`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_sa.csv)
+
+**Cultural Events.** Searches related to concerts, theatres, cinema and ticket
+providers for such events.
+Keywords: `Kino` `Theater` `Cinema` `ticketcorner` `starticket` `oper` `konzert`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_sa.csv)
+
+**Gardening & Home Improvement.** Stores selling materials for home improvement,
+such as building materials, garden accessories and electrical supplies.
+Keywords: `Heim+Hobby` `Bau+Hobby` `Do it + Garden` `Do it Migros` `Jumbo` `Landi` `Gartencenter` `Bauhaus` `Hornbach`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_sa.csv)
+
+**Home Office.** Google searches related to working from home.
+Keywords: `headset` `monitor` `maus` `hdmi`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_sa.csv)
+
+**Clothing & Shoes.** Clothing and shoe stores and general searches for buying
+clothes and shoes; people often google the brands directly.
+Keywords: `Mango` `Zara` `H&M` `PKZ` `Blue Tomato` `Dosenbach` `Schuhe kaufen` `Ochsner Schuhe`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/clothing_sa.csv)
+
+**Food Delivery.** Searches related to take away and ordering pizza.
+Keywords: `take away` `takeaway` `pizza bestellen` `dieci pizza`.
+[CSV](https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_sa.csv)
+
+</div>
+
 ## Blog (2020–21)
 
 During the pandemic we used these indicators to follow how Swiss consumers
