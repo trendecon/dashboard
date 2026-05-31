@@ -40,4 +40,4 @@ Data and code are released under CC BY 4.0 / GPL-3.0.
 
 ## Contact
 
-[trendecon@gmail.com](mailto:trendecon@gmail.com)
+Questions or feedback? [Open an issue on GitHub](https://github.com/trendecon/data/issues).
